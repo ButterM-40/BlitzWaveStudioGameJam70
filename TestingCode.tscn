@@ -1,15 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://qyrk2vehw0i5"]
+[gd_scene load_steps=3 format=3 uid="uid://qyrk2vehw0i5"]
 
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://player.tscn" id="1_648b6"]
+[ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI Totem/ui_totem_switch.tscn" id="1_yypem"]
 
 [node name="Testing" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="UI Totem Switch" parent="." instance=ExtResource("1_yypem")]
+
 [node name="---- Player ----" type="Node" parent="."]
 
-[node name="Node2D" type="Node2D" parent="---- Player ----"]
-
-[node name="Player" parent="." instance=ExtResource("1_648b6")]
-position = Vector2(-42, -2)
+[node name="Player" parent="---- Player ----" instance=ExtResource("1_648b6")]
+position = Vector2(0.999992, -7)
 scale = Vector2(8.96, 8.96)
+
+[node name="Node2D" type="Node2D" parent="---- Player ----"]
