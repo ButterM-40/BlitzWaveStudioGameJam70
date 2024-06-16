@@ -11,8 +11,41 @@ enum PlayerState{
 }
 var current_jump_velocity = JUMP_VELOCITY
 
+
+var game_paused = false
+
+var character = Character.BIDZIIL
+enum Character {
+	BIDZIIL,
+	GAAGII,
+	AHULI,
+	TATONGA
+}
+
+var bidziil_cursor = preload("res://Cursors/cursorRedArrow.png")
+var bidziil_cursor_hand = preload("res://Cursors/cursorRedHand.png")
+
+var gaagii_cursor = preload("res://Cursors/cursorGreenArrow.png")
+var gaagii_cursor_hand = preload("res://Cursors/cursorGreenHand.png")
+
+var ahuli_cursor = preload("res://Cursors/cursorYellowArrow.png")
+var ahuli_cursor_hand = preload("res://Cursors/cursorYellowHand.png")
+
+var tatonga_cursor = preload("res://Cursors/cursorBlueArrow.png")
+var tatonga_cursor_hand = preload("res://Cursors/cursorBlueHand.png")
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _procces():
+	if character == Character.BIDZIIL:
+		Input.set_custom_mouse_cursor(bidziil_cursor)
+	elif character == Character.GAAGII:
+		Input.set_custom_mouse_cursor(gaagii_cursor)
+	elif character == Character.AHULI:
+		Input.set_custom_mouse_cursor(ahuli_cursor)
+	elif character == Character.TATONGA:
+		Input.set_custom_mouse_cursor(tatonga_cursor)
 
 func _physics_process(_delta):
 	var horizontal_input = (
@@ -33,14 +66,15 @@ func _physics_process(_delta):
 	if is_on_floor():
 		vertical_input = Input.get_action_strength("Jump")
 	
-	velocity.x = horizontal_input * SPEED
+	if !game_paused:
+		velocity.x = horizontal_input * SPEED
 
-	velocity.y += vertical_input * current_jump_velocity 
-	velocity.y += gravity
+		velocity.y += vertical_input * current_jump_velocity 
+		velocity.y += gravity
 
-	move_and_slide()
-	handle_movement_state()
-	face_movement_direction(horizontal_input)
+		move_and_slide()
+		handle_movement_state()
+		face_movement_direction(horizontal_input)
 	
 func face_movement_direction(horizontal_input):
 	if not is_zero_approx(horizontal_input): 
@@ -59,16 +93,3 @@ func handle_movement_state():
 			player_sprite.play("idle")
 		PlayerState.WALK:
 			player_sprite.play("walk")
-
-func _on_frog_ability_collider_body_entered(body):
-	if body.name == 'Player':
-		current_jump_velocity = -2500
-	pass # Replace with function body.
-	
-
-
-
-func _on_frog_ability_collider_body_exited(body):
-	if body.name == 'Player':
-		current_jump_velocity = JUMP_VELOCITY
-	pass # Replace with function body.
