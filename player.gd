@@ -11,7 +11,7 @@ enum PlayerState{
 }
 var current_jump_velocity = JUMP_VELOCITY
 
-
+var respawn_point
 var game_paused = false
 
 var character = Character.BIDZIIL
@@ -36,6 +36,9 @@ var tatonga_cursor_hand = preload("res://Cursors/cursorBlueHand.png")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _ready():
+	respawn_point = get_node('../../RespawnPoint')
 
 func _procces():
 	if character == Character.BIDZIIL:
