@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd6sd75s6hxi"]
+[gd_scene load_steps=2 format=3 uid="uid://dd6sd75s6hxi"]
 
 [ext_resource type="Script" path="res://UI Totem/ui_totem_switch.gd" id="1_8e4ch"]
-[ext_resource type="PackedScene" uid="uid://bo0qhsdfvnsg1" path="res://UI Totem/TestSprite.tscn" id="2_jojhp"]
 
 [node name="UI Totem Switch" type="CanvasLayer"]
 script = ExtResource("1_8e4ch")
-scene_array = Array[PackedScene]([ExtResource("2_jojhp"), ExtResource("2_jojhp"), ExtResource("2_jojhp")])
