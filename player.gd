@@ -11,6 +11,9 @@ enum PlayerState{
 }
 var current_jump_velocity = JUMP_VELOCITY
 
+
+var game_paused = false
+
 var character = Character.BIDZIIL
 enum Character {
 	BIDZIIL,
@@ -65,14 +68,15 @@ func _physics_process(_delta):
 	if is_on_floor():
 		vertical_input = Input.get_action_strength("Jump")
 	
-	velocity.x = horizontal_input * SPEED
+	if !game_paused:
+		velocity.x = horizontal_input * SPEED
 
-	velocity.y += vertical_input * current_jump_velocity 
-	velocity.y += gravity
+		velocity.y += vertical_input * current_jump_velocity 
+		velocity.y += gravity
 
-	move_and_slide()
-	handle_movement_state()
-	face_movement_direction(horizontal_input)
+		move_and_slide()
+		handle_movement_state()
+		face_movement_direction(horizontal_input)
 	
 func face_movement_direction(horizontal_input):
 	if not is_zero_approx(horizontal_input): 
