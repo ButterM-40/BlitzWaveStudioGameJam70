@@ -18,10 +18,11 @@ func returnCurrentTotem():
 #This Function removed the first current Totem, and replaces it with the next.
 #If empty Display Nothing
 func removeCurrentTotem():
-	if Input.is_action_just_pressed("Jump"):
+	if Input.is_action_just_pressed("Switch"):
 		print("Pressed")
 		delete_all_children()
-		scene_array.remove_at(0)
+		if scene_array.size() > 0:
+			scene_array.remove_at(0)
 		print(scene_array.size())
 		if scene_array.size() > 0:
 			generate_sprites()

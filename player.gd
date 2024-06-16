@@ -3,16 +3,16 @@ extends CharacterBody2D
 @export var player_sprite: AnimatedSprite2D
 @onready var initial_sprite_scale = player_sprite.scale
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -2000.0
 var state = PlayerState.IDLE
 enum PlayerState{
 	IDLE,
 	WALK
 }
+var current_jump_velocity = JUMP_VELOCITY
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 
 func _physics_process(_delta):
 	var horizontal_input = (
@@ -20,8 +20,24 @@ func _physics_process(_delta):
 		Input.get_action_strength("Left")
 		- Input.get_action_strength("Right")
 	)
-	 #Input.get_vector("Left", "Right", 0, 0)
+
+	var grounded = false
+
+	#for i in get_node('GroundedCollider').get_overlapping_bodies():
+	#	if i.has_meta('TotemType'):
+	#		if i.get_meta('TotemType') == 'Turtle':
+	#			continue
+	
+	var vertical_input = 0
+
+	if is_on_floor():
+		vertical_input = Input.get_action_strength("Jump")
+	
 	velocity.x = horizontal_input * SPEED
+
+	velocity.y += vertical_input * current_jump_velocity 
+	velocity.y += gravity
+
 	move_and_slide()
 	handle_movement_state()
 	face_movement_direction(horizontal_input)
@@ -43,4 +59,12 @@ func handle_movement_state():
 			player_sprite.play("idle")
 		PlayerState.WALK:
 			player_sprite.play("walk")
-		
+
+func _on_frog_ability_collider_area_entered(area):
+	current_jump_velocity = -500000
+	pass # Replace with function body.
+
+
+func _on_frog_ability_collider_area_exited(area):
+	current_jump_velocity = JUMP_VELOCITY
+	pass # Replace with function body.
