@@ -36,7 +36,6 @@ func attack() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if Engine.is_editor_hint(): # Prevents unwanted behavior when in the editor
 		return
-	print("Hey")
 	target = body
 	switch_state.emit(self)
 

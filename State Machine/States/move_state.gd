@@ -17,4 +17,5 @@ func exit() -> void:
 
 func process(delta: float) -> void:
 	var kb: KinematicCollision2D = body.move_and_collide(DIRECTION * speed * delta)
-	#print(kb)
+	if kb:
+		speed = -speed
