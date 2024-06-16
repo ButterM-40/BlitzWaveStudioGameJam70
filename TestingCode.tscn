@@ -37,8 +37,8 @@ position = Vector2(0, -82)
 shape = SubResource("RectangleShape2D_edwag")
 
 [node name="TurtleCollider" type="StaticBody2D" parent="Totem"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Totem/TurtleCollider"]
 position = Vector2(0, -90.27)
@@ -72,8 +72,8 @@ position = Vector2(0, -82)
 shape = SubResource("RectangleShape2D_edwag")
 
 [node name="TurtleCollider" type="StaticBody2D" parent="Totem2"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Totem2/TurtleCollider"]
 position = Vector2(0, -90.27)
