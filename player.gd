@@ -16,7 +16,11 @@ func _physics_process(delta):
 
 	var grounded = false
 
-	if get_node('GroundedCollider').get_overlapping_bodies().size() > 0:
+	for i in get_node('GroundedCollider').get_overlapping_bodies():
+		if i.has_meta('TotemType'):
+			if i.get_meta('TotemType') == 'Turtle':
+				continue
+
 		grounded = true
 
 	var vertical_input = 0

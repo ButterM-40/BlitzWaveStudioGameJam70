@@ -8,12 +8,20 @@ func _ready():
 	if get_meta("TotemType") == "Owl":
 		gravity_scale = 0
 
-	if get_meta("TotemType") == "Owl":
-		set_collision_layer_value(1, false)
+	if get_meta("TotemType") == "Turtle":
+		set_collision_layer_value(1, true)
 		set_collision_layer_value(2, false)
-		set_collision_mask_value(1, false)
+		set_collision_mask_value(1, true)
 		set_collision_mask_value(2, false)
 	else:
-		get_node("OwlCollider").queue_free()
+		get_node("TurtleCollider").queue_free()
 
 	pass # Replace with function body.
+
+
+func _process(delta):
+	if get_meta("TotemType") == "Owl":
+		linear_velocity = Vector2.ZERO
+		angular_velocity = 0
+
+	pass
