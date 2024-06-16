@@ -1,16 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://qyrk2vehw0i5"]
+[gd_scene load_steps=8 format=3 uid="uid://qyrk2vehw0i5"]
 
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://player.tscn" id="1_648b6"]
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI Totem/ui_totem_switch.tscn" id="1_yypem"]
-[ext_resource type="PackedScene" uid="uid://bxknbvr0gvkus" path="res://Totem.tscn" id="2_1d84j"]
-[ext_resource type="Script" path="res://Totem.gd" id="3_xbgnj"]
-[ext_resource type="Texture2D" uid="uid://2mafoxdtsprp" path="res://icon.svg" id="4_lps34"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_edwag"]
-size = Vector2(172, 18)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxg2n"]
-size = Vector2(172, 1.46)
+[ext_resource type="PackedScene" uid="uid://cfvcp1bkx6iw7" path="res://frog_totem.tscn" id="3_abki5"]
+[ext_resource type="PackedScene" uid="uid://qoalrth0sn0b" path="res://owl_totem.tscn" id="4_3njef"]
+[ext_resource type="PackedScene" uid="uid://35eirik5ad5x" path="res://turtle_totem.tscn" id="5_hlft0"]
+[ext_resource type="PackedScene" uid="uid://djrgcdq5b7rwg" path="res://bear_totem.tscn" id="6_v61ap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg2a7"]
 size = Vector2(1151, 20)
@@ -20,6 +15,13 @@ size = Vector2(1151, 20)
 [node name="UI Totem Switch" parent="." instance=ExtResource("1_yypem")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TestPlatform" type="StaticBody2D" parent="."]
+position = Vector2(0, 181)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform"]
+position = Vector2(0, -79)
+shape = SubResource("RectangleShape2D_hg2a7")
 
 [node name="---- Player ----" type="Node" parent="."]
 
@@ -31,123 +33,14 @@ collision_mask = 1
 
 [node name="Node2D" type="Node2D" parent="---- Player ----"]
 
-[node name="FrogTotem" parent="." instance=ExtResource("2_1d84j")]
-position = Vector2(355, 2)
-collision_layer = 1
-collision_mask = 1
-script = ExtResource("3_xbgnj")
-metadata/TotemType = "Frog"
+[node name="FrogTotem" parent="." instance=ExtResource("3_abki5")]
+position = Vector2(271, 0)
 
-[node name="FrogAbilityCollider" type="Area2D" parent="FrogTotem"]
-position = Vector2(0, -101)
+[node name="OwlTotem" parent="." instance=ExtResource("4_3njef")]
+position = Vector2(-120, -362)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FrogTotem/FrogAbilityCollider"]
-position = Vector2(0, 18)
-shape = SubResource("RectangleShape2D_edwag")
+[node name="TurtleTotem" parent="." instance=ExtResource("5_hlft0")]
+position = Vector2(-115, -580)
 
-[node name="TurtleCollider" type="StaticBody2D" parent="FrogTotem"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FrogTotem/TurtleCollider"]
-position = Vector2(0, -90.27)
-shape = SubResource("RectangleShape2D_fxg2n")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="FrogTotem"]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(0, 2)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("4_lps34")
-
-[node name="TestPlatform" type="StaticBody2D" parent="."]
-position = Vector2(0, 181)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform"]
-position = Vector2(0, -79)
-shape = SubResource("RectangleShape2D_hg2a7")
-
-[node name="OwlTotem" parent="." instance=ExtResource("2_1d84j")]
-position = Vector2(-121, -360)
-collision_layer = 1
-collision_mask = 1
-script = ExtResource("3_xbgnj")
-metadata/TotemType = "Owl"
-
-[node name="FrogAbilityCollider" type="Area2D" parent="OwlTotem"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OwlTotem/FrogAbilityCollider"]
-position = Vector2(0, -82)
-shape = SubResource("RectangleShape2D_edwag")
-
-[node name="TurtleCollider" type="StaticBody2D" parent="OwlTotem"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OwlTotem/TurtleCollider"]
-position = Vector2(0, -90.27)
-shape = SubResource("RectangleShape2D_fxg2n")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="OwlTotem"]
-modulate = Color(1, 1, 0, 1)
-position = Vector2(0, 2)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("4_lps34")
-
-[node name="TurtleTotem" parent="." instance=ExtResource("2_1d84j")]
-position = Vector2(-121, -547)
-collision_layer = 1
-collision_mask = 1
-script = ExtResource("3_xbgnj")
-metadata/TotemType = "Turtle"
-
-[node name="FrogAbilityCollider" type="Area2D" parent="TurtleTotem"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleTotem/FrogAbilityCollider"]
-position = Vector2(0, -82)
-shape = SubResource("RectangleShape2D_edwag")
-
-[node name="TurtleCollider" type="StaticBody2D" parent="TurtleTotem"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleTotem/TurtleCollider"]
-position = Vector2(0, -90.27)
-shape = SubResource("RectangleShape2D_fxg2n")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="TurtleTotem"]
-modulate = Color(0, 1, 0.415686, 1)
-position = Vector2(0, 1)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("4_lps34")
-
-[node name="BearTotem" parent="." instance=ExtResource("2_1d84j")]
-position = Vector2(-389, 2)
-collision_layer = 1
-collision_mask = 1
-script = ExtResource("3_xbgnj")
-metadata/TotemType = "Bear"
-
-[node name="FrogAbilityCollider" type="Area2D" parent="BearTotem"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BearTotem/FrogAbilityCollider"]
-position = Vector2(0, -82)
-shape = SubResource("RectangleShape2D_edwag")
-
-[node name="TurtleCollider" type="StaticBody2D" parent="BearTotem"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BearTotem/TurtleCollider"]
-position = Vector2(0, -90.27)
-shape = SubResource("RectangleShape2D_fxg2n")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BearTotem"]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(0, 2)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("4_lps34")
-
-[connection signal="body_entered" from="FrogTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_entered"]
-[connection signal="body_exited" from="FrogTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_exited"]
-[connection signal="body_entered" from="OwlTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_entered"]
-[connection signal="body_exited" from="OwlTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_exited"]
-[connection signal="body_entered" from="TurtleTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_entered"]
-[connection signal="body_exited" from="TurtleTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_exited"]
-[connection signal="body_entered" from="BearTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_entered"]
-[connection signal="body_exited" from="BearTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_exited"]
+[node name="BearTotem" parent="." instance=ExtResource("6_v61ap")]
+position = Vector2(-458, 0)

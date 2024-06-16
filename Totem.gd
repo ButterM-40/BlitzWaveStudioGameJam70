@@ -9,10 +9,9 @@ func _ready():
 		gravity_scale = 0
 
 	if get_meta("TotemType") == "Turtle":
-		set_collision_layer_value(1, true)
-		set_collision_layer_value(2, false)
-		set_collision_mask_value(1, true)
-		set_collision_mask_value(2, false)
+		# set_collision_layer_value(1, false)
+		# set_collision_mask_value(1, false)
+		get_node('CollisionShape2D').one_way_collision = true
 	else:
 		get_node("TurtleCollider").queue_free()
 
