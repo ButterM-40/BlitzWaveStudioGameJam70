@@ -1,6 +1,6 @@
 extends CanvasLayer
 @export var scene_array: Array[PackedScene] = []
-var totem = preload("res://UI Totem/TestSprite.tscn")
+var totem = preload ("res://UI Totem/TestSprite.tscn")
 
 # Called when the node enters the scene tree for the first time.
 #Algorithm will only display the top 5 Totems
@@ -19,6 +19,10 @@ func returnCurrentTotem():
 #If empty Display Nothing
 func removeCurrentTotem():
 	if Input.is_action_just_pressed("Switch"):
+		# respawn player
+		var player = get_node('../---- Player ----/Player')
+		player.position = player.respawn_point.position
+
 		print("Pressed")
 		delete_all_children()
 		if scene_array.size() > 0:
@@ -32,16 +36,16 @@ func generate_sprites():
 		var currentTotem = scene_array[0].instantiate()
 		print(currentTotem.get_child(0).visible)
 		display_current_totem(currentTotem)
-		for i in range(scene_array.size()-1):
+		for i in range(scene_array.size() - 1):
 			i = i + 1
 			var sprite = scene_array[i].instantiate()
 			print(sprite.get_child(0))
-			display_stored_totem(sprite, i, scene_array.size()-1)
+			display_stored_totem(sprite, i, scene_array.size() - 1)
 
 func display_current_totem(c):
 	c.get_child(0).visible = true
 	c.get_child(1).visible = false
-	c.position = Vector2((42 * 0)+100, 91)
+	c.position = Vector2((42 * 0) + 100, 91)
 	c.scale = c.scale * 2
 	add_child(c)
 	pass
@@ -51,7 +55,7 @@ func display_stored_totem(sprite, current_i, max_size):
 	#Child 1 is TotemColor
 	var totemDisplayType = sprite.get_child(1)
 	totemDisplayType.visible
-	if current_i == 1 && current_i != max_size:
+	if current_i == 1&&current_i != max_size:
 		totemDisplayType.get_child(2).visible = true
 	elif current_i == max_size:
 		if max_size == 1:
@@ -61,7 +65,7 @@ func display_stored_totem(sprite, current_i, max_size):
 	else:
 		totemDisplayType.get_child(1).visible = true
 		
-	sprite.position = Vector2((76 * current_i)+200, 91)
+	sprite.position = Vector2((76 * current_i) + 200, 91)
 	sprite.scale = sprite.scale * 2
 	add_child(sprite)
 	pass
