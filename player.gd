@@ -37,7 +37,7 @@ var tatonga_cursor_hand = preload("res://Cursors/cursorBlueHand.png")
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _process(delta):
+func _procces():
 	if character == Character.BIDZIIL:
 		Input.set_custom_mouse_cursor(bidziil_cursor)
 	elif character == Character.GAAGII:
@@ -48,8 +48,6 @@ func _process(delta):
 		Input.set_custom_mouse_cursor(tatonga_cursor)
 
 func _physics_process(_delta):
-	print(get_tree().root.get_node('Testing/---- Player ----').get_children())
-
 	var horizontal_input = (
 		
 		Input.get_action_strength("Left")
