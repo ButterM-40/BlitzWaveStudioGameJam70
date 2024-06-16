@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://b322sdmafmihc"]
+
+[ext_resource type="Texture2D" uid="uid://2mafoxdtsprp" path="res://icon.svg" id="1_kgkrd"]
+[ext_resource type="Script" path="res://State Machine/state_machine.gd" id="4_ckehu"]
+[ext_resource type="Script" path="res://State Machine/States/move_state.gd" id="4_fm7qc"]
+[ext_resource type="PackedScene" uid="uid://blms4geum8l1u" path="res://State Machine/States/AttackState/attack_state.tscn" id="6_lib2n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wkpfv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kgkrd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vl08"]
+size = Vector2(128, 128)
+
+[node name="Enemy" type="RigidBody2D" node_paths=PackedStringArray("starting_state")]
+collision_layer = 2
+gravity_scale = 0.0
+script = ExtResource("4_ckehu")
+starting_state = NodePath("MoveState")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_wkpfv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0vl08")
+
+[node name="MoveState" type="Node2D" parent="."]
+script = ExtResource("4_fm7qc")
+speed = 100.0
+
+[node name="AttackState" parent="." node_paths=PackedStringArray("not_in_range_state_to_switch") instance=ExtResource("6_lib2n")]
+collision_layer = 0
+not_in_range_state_to_switch = NodePath("../MoveState")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -90.0
+offset_right = 20.0
+offset_bottom = -67.0
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
