@@ -11,10 +11,42 @@ enum PlayerState{
 }
 var current_jump_velocity = JUMP_VELOCITY
 
+var character = Character.BIDZIIL
+enum Character {
+	BIDZIIL,
+	GAAGII,
+	AHULI,
+	TATONGA
+}
+
+var bidziil_cursor = preload("res://Cursors/cursorRedArrow.png")
+var bidziil_cursor_hand = preload("res://Cursors/cursorRedHand.png")
+
+var gaagii_cursor = preload("res://Cursors/cursorGreenArrow.png")
+var gaagii_cursor_hand = preload("res://Cursors/cursorGreenHand.png")
+
+var ahuli_cursor = preload("res://Cursors/cursorYellowArrow.png")
+var ahuli_cursor_hand = preload("res://Cursors/cursorYellowHand.png")
+
+var tatonga_cursor = preload("res://Cursors/cursorBlueArrow.png")
+var tatonga_cursor_hand = preload("res://Cursors/cursorBlueHand.png")
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _process(delta):
+	if character == Character.BIDZIIL:
+		Input.set_custom_mouse_cursor(bidziil_cursor)
+	elif character == Character.GAAGII:
+		Input.set_custom_mouse_cursor(gaagii_cursor)
+	elif character == Character.AHULI:
+		Input.set_custom_mouse_cursor(ahuli_cursor)
+	elif character == Character.TATONGA:
+		Input.set_custom_mouse_cursor(tatonga_cursor)
+
 func _physics_process(_delta):
+	print(get_tree().root.get_node('Testing/---- Player ----').get_children())
+
 	var horizontal_input = (
 		
 		Input.get_action_strength("Left")
