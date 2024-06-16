@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://qyrk2vehw0i5"]
+[gd_scene load_steps=9 format=3 uid="uid://qyrk2vehw0i5"]
 
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://player.tscn" id="1_648b6"]
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI Totem/ui_totem_switch.tscn" id="1_yypem"]
+[ext_resource type="Script" path="res://OpenMenu.gd" id="3_77jts"]
 [ext_resource type="PackedScene" uid="uid://cfvcp1bkx6iw7" path="res://frog_totem.tscn" id="3_abki5"]
 [ext_resource type="PackedScene" uid="uid://qoalrth0sn0b" path="res://owl_totem.tscn" id="4_3njef"]
 [ext_resource type="PackedScene" uid="uid://35eirik5ad5x" path="res://turtle_totem.tscn" id="5_hlft0"]
@@ -31,7 +32,8 @@ scale = Vector2(4.445, 4.445)
 collision_layer = 1
 collision_mask = 1
 
-[node name="Node2D" type="Node2D" parent="---- Player ----"]
+[node name="OpenMenu" type="Node2D" parent="---- Player ----"]
+script = ExtResource("3_77jts")
 
 [node name="FrogTotem" parent="." instance=ExtResource("3_abki5")]
 position = Vector2(271, 0)
