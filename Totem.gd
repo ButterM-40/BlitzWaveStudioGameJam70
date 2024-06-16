@@ -19,7 +19,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _process(delta):
+func _process(_delta):
 	if get_meta("TotemType") == "Owl":
 		linear_velocity = Vector2.ZERO
 		angular_velocity = 0

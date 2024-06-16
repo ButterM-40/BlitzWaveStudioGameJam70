@@ -20,13 +20,6 @@ func _physics_process(_delta):
 		Input.get_action_strength("Left")
 		- Input.get_action_strength("Right")
 	)
-
-	var grounded = false
-
-	#for i in get_node('GroundedCollider').get_overlapping_bodies():
-	#	if i.has_meta('TotemType'):
-	#		if i.get_meta('TotemType') == 'Turtle':
-	#			continue
 	
 	var vertical_input = 0
 
@@ -60,11 +53,15 @@ func handle_movement_state():
 		PlayerState.WALK:
 			player_sprite.play("walk")
 
-func _on_frog_ability_collider_area_entered(area):
-	current_jump_velocity = -500000
+
+func _on_frog_ability_collider_body_entered(body):
+	print("Hello World")
+	print(body)
+	current_jump_velocity = -100000
 	pass # Replace with function body.
 
 
-func _on_frog_ability_collider_area_exited(area):
+func _on_frog_ability_collider_body_exited(body):
+	print("Gone")
 	current_jump_velocity = JUMP_VELOCITY
 	pass # Replace with function body.

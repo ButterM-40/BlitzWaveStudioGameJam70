@@ -2,18 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://player.tscn" id="1_648b6"]
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI Totem/ui_totem_switch.tscn" id="1_yypem"]
-[ext_resource type="PackedScene" uid="uid://bxknbvr0gvkus" path="res://Totem.tscn" id="2_1d84j"]
-[ext_resource type="Script" path="res://Totem.gd" id="3_xbgnj"]
-[ext_resource type="Texture2D" uid="uid://2mafoxdtsprp" path="res://icon.svg" id="4_lps34"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_edwag"]
-size = Vector2(172, 18)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxg2n"]
-size = Vector2(172, 1.46)
+[ext_resource type="PackedScene" uid="uid://bxknbvr0gvkus" path="res://Totem.tscn" id="3_oh3px"]
+[ext_resource type="Script" path="res://Totem.gd" id="4_g60ck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg2a7"]
 size = Vector2(1151, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i3qf8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynjcc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvqyd"]
+size = Vector2(93, 24)
 
 [node name="Testing" type="Node2D"]
 
@@ -24,123 +24,37 @@ size = Vector2(1151, 20)
 [node name="---- Player ----" type="Node" parent="."]
 
 [node name="Player" parent="---- Player ----" instance=ExtResource("1_648b6")]
-position = Vector2(84.0001, -266)
+position = Vector2(316, -283)
 scale = Vector2(4.445, 4.445)
 
 [node name="Node2D" type="Node2D" parent="---- Player ----"]
 
-[node name="FrogTotem" parent="." instance=ExtResource("2_1d84j")]
-position = Vector2(355, 2)
-script = ExtResource("3_xbgnj")
-metadata/TotemType = "Frog"
-
-[node name="FrogAbilityCollider" type="Area2D" parent="FrogTotem"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FrogTotem/FrogAbilityCollider"]
-position = Vector2(0, -82)
-shape = SubResource("RectangleShape2D_edwag")
-
-[node name="TurtleCollider" type="StaticBody2D" parent="FrogTotem"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FrogTotem/TurtleCollider"]
-position = Vector2(0, -90.27)
-shape = SubResource("RectangleShape2D_fxg2n")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="FrogTotem"]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(0, 2)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("4_lps34")
-
-[node name="TestPlatform" type="StaticBody2D" parent="."]
+[node name="TestPlatform" type="StaticBody2D" parent="---- Player ----"]
 position = Vector2(0, 181)
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="---- Player ----/TestPlatform"]
 position = Vector2(0, -79)
 shape = SubResource("RectangleShape2D_hg2a7")
 
-[node name="OwlTotem" parent="." instance=ExtResource("2_1d84j")]
-position = Vector2(-121, -360)
-script = ExtResource("3_xbgnj")
-metadata/TotemType = "Owl"
+[node name="FrogTotem" parent="." instance=ExtResource("3_oh3px")]
+physics_material_override = SubResource("PhysicsMaterial_i3qf8")
+script = ExtResource("4_g60ck")
+metadata/TotemType = "Frog"
 
-[node name="FrogAbilityCollider" type="Area2D" parent="OwlTotem"]
+[node name="TurtleCollider" type="StaticBody2D" parent="FrogTotem"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OwlTotem/FrogAbilityCollider"]
-position = Vector2(0, -82)
-shape = SubResource("RectangleShape2D_edwag")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrogTotem/TurtleCollider"]
+shape = SubResource("RectangleShape2D_ynjcc")
 
-[node name="TurtleCollider" type="StaticBody2D" parent="OwlTotem"]
-collision_layer = 3
-collision_mask = 3
+[node name="FrogAbilityCollider" type="Area2D" parent="FrogTotem"]
+collision_layer = 8
+collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OwlTotem/TurtleCollider"]
-position = Vector2(0, -90.27)
-shape = SubResource("RectangleShape2D_fxg2n")
-one_way_collision = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrogTotem/FrogAbilityCollider"]
+position = Vector2(2, -52)
+shape = SubResource("RectangleShape2D_jvqyd")
 
-[node name="Sprite2D" type="Sprite2D" parent="OwlTotem"]
-modulate = Color(1, 1, 0, 1)
-position = Vector2(0, 2)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("4_lps34")
-
-[node name="TurtleTotem" parent="." instance=ExtResource("2_1d84j")]
-position = Vector2(-121, -547)
-script = ExtResource("3_xbgnj")
-metadata/TotemType = "Turtle"
-
-[node name="FrogAbilityCollider" type="Area2D" parent="TurtleTotem"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleTotem/FrogAbilityCollider"]
-position = Vector2(0, -82)
-shape = SubResource("RectangleShape2D_edwag")
-
-[node name="TurtleCollider" type="StaticBody2D" parent="TurtleTotem"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleTotem/TurtleCollider"]
-position = Vector2(0, -90.27)
-shape = SubResource("RectangleShape2D_fxg2n")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="TurtleTotem"]
-modulate = Color(0, 1, 0.415686, 1)
-position = Vector2(0, 1)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("4_lps34")
-
-[node name="BearTotem" parent="." instance=ExtResource("2_1d84j")]
-position = Vector2(-389, 2)
-script = ExtResource("3_xbgnj")
-metadata/TotemType = "Bear"
-
-[node name="FrogAbilityCollider" type="Area2D" parent="BearTotem"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BearTotem/FrogAbilityCollider"]
-position = Vector2(0, -82)
-shape = SubResource("RectangleShape2D_edwag")
-
-[node name="TurtleCollider" type="StaticBody2D" parent="BearTotem"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BearTotem/TurtleCollider"]
-position = Vector2(0, -90.27)
-shape = SubResource("RectangleShape2D_fxg2n")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BearTotem"]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(0, 2)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("4_lps34")
-
-[connection signal="area_entered" from="FrogTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_area_entered"]
-[connection signal="area_exited" from="FrogTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_area_exited"]
+[connection signal="body_entered" from="FrogTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_entered"]
+[connection signal="body_exited" from="FrogTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_exited"]

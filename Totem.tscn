@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxknbvr0gvkus"]
+[gd_scene load_steps=3 format=3 uid="uid://bxknbvr0gvkus"]
+
+[ext_resource type="Texture2D" uid="uid://2mafoxdtsprp" path="res://icon.svg" id="1_ba6cn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gk1c"]
+size = Vector2(14.2857, 14.2857)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 3
@@ -9,3 +12,7 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(8.96, 8.96)
 shape = SubResource("RectangleShape2D_5gk1c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.972189, 0.847513, 0.820946, 1)
+texture = ExtResource("1_ba6cn")

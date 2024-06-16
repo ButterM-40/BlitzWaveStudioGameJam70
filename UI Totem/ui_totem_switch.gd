@@ -9,7 +9,7 @@ func _ready():
 	if scene_array.size() > 0:
 		generate_sprites()
 
-func _process(delta):
+func _process(_delta):
 	removeCurrentTotem()
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
