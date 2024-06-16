@@ -28,13 +28,45 @@ func removeCurrentTotem():
 			generate_sprites()
 	pass
 func generate_sprites():
-	for i in range(scene_array.size()):
-		var sprite = totem.instantiate()
-		sprite.position = Vector2((100 * i)+100, 91)
-		print(sprite.position)
-		add_child(sprite)
-func delete_all_children():
+	if scene_array.size() > 0:
+		var currentTotem = scene_array[0].instantiate()
+		print(currentTotem.get_child(0).visible)
+		display_current_totem(currentTotem)
+		for i in range(scene_array.size()-1):
+			i = i + 1
+			var sprite = scene_array[i].instantiate()
+			print(sprite.get_child(0))
+			display_stored_totem(sprite, i, scene_array.size()-1)
+
+func display_current_totem(c):
+	c.get_child(0).visible = true
+	c.get_child(1).visible = false
+	c.position = Vector2((42 * 0)+100, 91)
+	c.scale = c.scale * 2
+	add_child(c)
+	pass
+func display_stored_totem(sprite, current_i, max_size):
+	sprite.get_child(0).visible = false
+	#Child 0 is Selected
+	#Child 1 is TotemColor
+	var totemDisplayType = sprite.get_child(1)
+	totemDisplayType.visible
+	if current_i == 1 && current_i != max_size:
+		totemDisplayType.get_child(2).visible = true
+	elif current_i == max_size:
+		if max_size == 1:
+			totemDisplayType.get_child(3).visible = true
+		else:
+			totemDisplayType.get_child(0).visible = true
+	else:
+		totemDisplayType.get_child(1).visible = true
+		
+	sprite.position = Vector2((76 * current_i)+200, 91)
+	sprite.scale = sprite.scale * 2
+	add_child(sprite)
+	pass
 	
+func delete_all_children():
 	# Get an array of all child nodes
 	var children = get_children()
 
