@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://brmec6pyeuyld"]
+[gd_scene load_steps=9 format=3 uid="uid://qyrk2vehw0i5"]
 
-[ext_resource type="PackedScene" uid="uid://c0fvrc2i7867u" path="res://player.tscn" id="1_648b6"]
-[ext_resource type="PackedScene" path="res://Totem.tscn" id="2_1d84j"]
+[ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://player.tscn" id="1_648b6"]
+[ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI Totem/ui_totem_switch.tscn" id="1_yypem"]
+[ext_resource type="PackedScene" uid="uid://bxknbvr0gvkus" path="res://Totem.tscn" id="2_1d84j"]
 [ext_resource type="Script" path="res://Totem.gd" id="3_xbgnj"]
 [ext_resource type="Texture2D" uid="uid://2mafoxdtsprp" path="res://icon.svg" id="4_lps34"]
 
@@ -16,14 +17,17 @@ size = Vector2(1151, 20)
 
 [node name="Testing" type="Node2D"]
 
+[node name="UI Totem Switch" parent="." instance=ExtResource("1_yypem")]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="---- Player ----" type="Node" parent="."]
 
-[node name="Node2D" type="Node2D" parent="---- Player ----"]
+[node name="Player" parent="---- Player ----" instance=ExtResource("1_648b6")]
+position = Vector2(84.0001, -266)
+scale = Vector2(4.445, 4.445)
 
-[node name="Player" parent="." instance=ExtResource("1_648b6")]
-scale = Vector2(8.96, 8.96)
+[node name="Node2D" type="Node2D" parent="---- Player ----"]
 
 [node name="FrogTotem" parent="." instance=ExtResource("2_1d84j")]
 position = Vector2(355, 2)
@@ -138,11 +142,5 @@ position = Vector2(0, 2)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("4_lps34")
 
-[connection signal="area_entered" from="FrogTotem/FrogAbilityCollider" to="Player" method="_on_frog_ability_collider_area_entered"]
-[connection signal="area_exited" from="FrogTotem/FrogAbilityCollider" to="Player" method="_on_frog_ability_collider_area_exited"]
-[connection signal="area_entered" from="OwlTotem/FrogAbilityCollider" to="Player" method="_on_frog_ability_collider_area_entered"]
-[connection signal="area_exited" from="OwlTotem/FrogAbilityCollider" to="Player" method="_on_frog_ability_collider_area_exited"]
-[connection signal="area_entered" from="TurtleTotem/FrogAbilityCollider" to="Player" method="_on_frog_ability_collider_area_entered"]
-[connection signal="area_exited" from="TurtleTotem/FrogAbilityCollider" to="Player" method="_on_frog_ability_collider_area_exited"]
-[connection signal="area_entered" from="BearTotem/FrogAbilityCollider" to="Player" method="_on_frog_ability_collider_area_entered"]
-[connection signal="area_exited" from="BearTotem/FrogAbilityCollider" to="Player" method="_on_frog_ability_collider_area_exited"]
+[connection signal="area_entered" from="FrogTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_area_entered"]
+[connection signal="area_exited" from="FrogTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_area_exited"]
