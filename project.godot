@@ -13,8 +13,6 @@ config_version=5
 config/name="GameJam-70"
 config/version="1.0"
 run/main_scene="res://TestingCode.tscn"
-run/disable_stdout=true
-run/disable_stderr=true
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

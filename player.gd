@@ -60,11 +60,15 @@ func handle_movement_state():
 		PlayerState.WALK:
 			player_sprite.play("walk")
 
-func _on_frog_ability_collider_area_entered(area):
-	current_jump_velocity = -500000
+func _on_frog_ability_collider_body_entered(body):
+	if body.name == 'Player':
+		current_jump_velocity = -2500
 	pass # Replace with function body.
+	
 
 
-func _on_frog_ability_collider_area_exited(area):
-	current_jump_velocity = JUMP_VELOCITY
+
+func _on_frog_ability_collider_body_exited(body):
+	if body.name == 'Player':
+		current_jump_velocity = JUMP_VELOCITY
 	pass # Replace with function body.

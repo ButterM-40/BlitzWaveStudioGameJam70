@@ -26,23 +26,26 @@ size = Vector2(1151, 20)
 [node name="Player" parent="---- Player ----" instance=ExtResource("1_648b6")]
 position = Vector2(84.0001, -266)
 scale = Vector2(4.445, 4.445)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Node2D" type="Node2D" parent="---- Player ----"]
 
 [node name="FrogTotem" parent="." instance=ExtResource("2_1d84j")]
 position = Vector2(355, 2)
+collision_layer = 1
+collision_mask = 1
 script = ExtResource("3_xbgnj")
 metadata/TotemType = "Frog"
 
 [node name="FrogAbilityCollider" type="Area2D" parent="FrogTotem"]
+position = Vector2(0, -101)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FrogTotem/FrogAbilityCollider"]
-position = Vector2(0, -82)
+position = Vector2(0, 18)
 shape = SubResource("RectangleShape2D_edwag")
 
 [node name="TurtleCollider" type="StaticBody2D" parent="FrogTotem"]
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FrogTotem/TurtleCollider"]
 position = Vector2(0, -90.27)
@@ -57,8 +60,6 @@ texture = ExtResource("4_lps34")
 
 [node name="TestPlatform" type="StaticBody2D" parent="."]
 position = Vector2(0, 181)
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform"]
 position = Vector2(0, -79)
@@ -66,6 +67,8 @@ shape = SubResource("RectangleShape2D_hg2a7")
 
 [node name="OwlTotem" parent="." instance=ExtResource("2_1d84j")]
 position = Vector2(-121, -360)
+collision_layer = 1
+collision_mask = 1
 script = ExtResource("3_xbgnj")
 metadata/TotemType = "Owl"
 
@@ -76,8 +79,6 @@ position = Vector2(0, -82)
 shape = SubResource("RectangleShape2D_edwag")
 
 [node name="TurtleCollider" type="StaticBody2D" parent="OwlTotem"]
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OwlTotem/TurtleCollider"]
 position = Vector2(0, -90.27)
@@ -92,6 +93,8 @@ texture = ExtResource("4_lps34")
 
 [node name="TurtleTotem" parent="." instance=ExtResource("2_1d84j")]
 position = Vector2(-121, -547)
+collision_layer = 1
+collision_mask = 1
 script = ExtResource("3_xbgnj")
 metadata/TotemType = "Turtle"
 
@@ -102,8 +105,6 @@ position = Vector2(0, -82)
 shape = SubResource("RectangleShape2D_edwag")
 
 [node name="TurtleCollider" type="StaticBody2D" parent="TurtleTotem"]
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleTotem/TurtleCollider"]
 position = Vector2(0, -90.27)
@@ -118,6 +119,8 @@ texture = ExtResource("4_lps34")
 
 [node name="BearTotem" parent="." instance=ExtResource("2_1d84j")]
 position = Vector2(-389, 2)
+collision_layer = 1
+collision_mask = 1
 script = ExtResource("3_xbgnj")
 metadata/TotemType = "Bear"
 
@@ -128,8 +131,6 @@ position = Vector2(0, -82)
 shape = SubResource("RectangleShape2D_edwag")
 
 [node name="TurtleCollider" type="StaticBody2D" parent="BearTotem"]
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BearTotem/TurtleCollider"]
 position = Vector2(0, -90.27)
@@ -142,5 +143,11 @@ position = Vector2(0, 2)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("4_lps34")
 
-[connection signal="area_entered" from="FrogTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_area_entered"]
-[connection signal="area_exited" from="FrogTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_area_exited"]
+[connection signal="body_entered" from="FrogTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_entered"]
+[connection signal="body_exited" from="FrogTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_exited"]
+[connection signal="body_entered" from="OwlTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_entered"]
+[connection signal="body_exited" from="OwlTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_exited"]
+[connection signal="body_entered" from="TurtleTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_entered"]
+[connection signal="body_exited" from="TurtleTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_exited"]
+[connection signal="body_entered" from="BearTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_entered"]
+[connection signal="body_exited" from="BearTotem/FrogAbilityCollider" to="---- Player ----/Player" method="_on_frog_ability_collider_body_exited"]
