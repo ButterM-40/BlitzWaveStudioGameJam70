@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://qyrk2vehw0i5"]
+[gd_scene load_steps=12 format=3 uid="uid://qyrk2vehw0i5"]
 
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://player.tscn" id="1_648b6"]
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI Totem/ui_totem_switch.tscn" id="1_yypem"]
-[ext_resource type="Script" path="res://OpenMenu.gd" id="3_77jts"]
+[ext_resource type="PackedScene" uid="uid://byq2b7d8wvflf" path="res://UI Totem/bearUI.tscn" id="2_mcy24"]
+[ext_resource type="PackedScene" uid="uid://rtwmkutoywa2" path="res://UI Totem/eagleUI.tscn" id="3_3ywtp"]
 [ext_resource type="PackedScene" uid="uid://cfvcp1bkx6iw7" path="res://frog_totem.tscn" id="3_abki5"]
 [ext_resource type="PackedScene" uid="uid://qoalrth0sn0b" path="res://owl_totem.tscn" id="4_3njef"]
+[ext_resource type="PackedScene" uid="uid://c0nwrc62exahc" path="res://UI Totem/frogUI.tscn" id="4_hh02o"]
 [ext_resource type="PackedScene" uid="uid://35eirik5ad5x" path="res://turtle_totem.tscn" id="5_hlft0"]
+[ext_resource type="PackedScene" uid="uid://b63dqv1ntrl5d" path="res://UI Totem/turtleUI.tscn" id="5_p1gft"]
 [ext_resource type="PackedScene" uid="uid://djrgcdq5b7rwg" path="res://bear_totem.tscn" id="6_v61ap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg2a7"]
@@ -14,6 +17,7 @@ size = Vector2(1151, 20)
 [node name="Testing" type="Node2D"]
 
 [node name="UI Totem Switch" parent="." instance=ExtResource("1_yypem")]
+scene_array = Array[PackedScene]([ExtResource("2_mcy24"), ExtResource("3_3ywtp"), ExtResource("4_hh02o"), ExtResource("4_hh02o"), ExtResource("4_hh02o"), ExtResource("3_3ywtp"), ExtResource("5_p1gft")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

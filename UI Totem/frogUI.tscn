@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0nwrc62exahc"]
+
+[ext_resource type="Texture2D" uid="uid://cnsuq0fpakcj8" path="res://UI Totem/UI Images/PlayerPhotoGreen.png" id="1_lxq0u"]
+[ext_resource type="Texture2D" uid="uid://dweha8blqahch" path="res://UI Totem/UI Images/yGreenButton.png" id="2_oler4"]
+[ext_resource type="Texture2D" uid="uid://ba1tx0wxtljsh" path="res://UI Totem/UI Images/zRightBlank.png" id="3_2aw5b"]
+[ext_resource type="Texture2D" uid="uid://d31xtdylr48hj" path="res://UI Totem/UI Images/ZLeftBlank.png" id="4_3avgh"]
+[ext_resource type="Texture2D" uid="uid://ck3aj8ssk3w1x" path="res://UI Totem/UI Images/zMiddleBlank.png" id="4_jy1wv"]
+[ext_resource type="Texture2D" uid="uid://da7qrf2fko6jh" path="res://UI Totem/UI Images/zSoloBlank.png" id="5_oevat"]
+
+[node name="FrogUi" type="Node2D"]
+
+[node name="Selected" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_lxq0u")
+
+[node name="TotemColor" type="Sprite2D" parent="."]
+z_index = 5
+texture_filter = 1
+texture = ExtResource("2_oler4")
+
+[node name="ZRight" type="Sprite2D" parent="TotemColor"]
+visible = false
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("3_2aw5b")
+
+[node name="ZMiddle" type="Sprite2D" parent="TotemColor"]
+visible = false
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("4_jy1wv")
+
+[node name="ZLeft" type="Sprite2D" parent="TotemColor"]
+visible = false
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("4_3avgh")
+
+[node name="ZSolo" type="Sprite2D" parent="TotemColor"]
+visible = false
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("5_oevat")
