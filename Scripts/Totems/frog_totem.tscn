@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dchmurl2h1fj0"]
+
+[ext_resource type="PackedScene" uid="uid://dph04do3ovd2r" path="res://Scripts/Totems/base_totem.tscn" id="1_wlusl"]
+[ext_resource type="Script" path="res://Scripts/jump_boost_ability.gd" id="2_2ujq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj3rv"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbovp"]
+size = Vector2(112, 2)
+
+[node name="FrogTotem" instance=ExtResource("1_wlusl")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_aj3rv")
+
+[node name="Sprite2D" parent="." index="1"]
+modulate = Color(0, 1, 0, 1)
+
+[node name="JumpBoost" type="Area2D" parent="." index="2"]
+collision_layer = 0
+script = ExtResource("2_2ujq4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpBoost" index="0"]
+position = Vector2(0, -65)
+shape = SubResource("RectangleShape2D_sbovp")
+
+[connection signal="body_entered" from="JumpBoost" to="JumpBoost" method="_on_body_entered"]
+[connection signal="body_exited" from="JumpBoost" to="JumpBoost" method="_on_body_exited"]
