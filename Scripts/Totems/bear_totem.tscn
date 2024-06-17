@@ -48,7 +48,6 @@ resource_local_to_scene = true
 size = Vector2(117, 134)
 
 [node name="BearTotem" instance=ExtResource("1_mrmji")]
-position = Vector2(412, 202)
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0.5, 5)

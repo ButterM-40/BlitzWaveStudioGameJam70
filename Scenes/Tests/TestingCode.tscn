@@ -66,3 +66,6 @@ lock_rotation = false
 
 [node name="Enemy" parent="." instance=ExtResource("12_nyvo1")]
 position = Vector2(60, 23)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-495, -44.388)
