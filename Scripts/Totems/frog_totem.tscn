@@ -1,28 +1,74 @@
-[gd_scene load_steps=5 format=3 uid="uid://dchmurl2h1fj0"]
+[gd_scene load_steps=11 format=3 uid="uid://dchmurl2h1fj0"]
 
 [ext_resource type="PackedScene" uid="uid://dph04do3ovd2r" path="res://Scripts/Totems/base_totem.tscn" id="1_wlusl"]
 [ext_resource type="Script" path="res://Scripts/jump_boost_ability.gd" id="2_2ujq4"]
+[ext_resource type="Texture2D" uid="uid://b8tsvt30fpdhk" path="res://Art/AllTotem_poles_NA.png" id="2_7k4r2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aj3rv"]
-size = Vector2(128, 128)
+size = Vector2(112, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqbpl"]
+atlas = ExtResource("2_7k4r2")
+region = Rect2(0, 0, 56, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c11gf"]
+atlas = ExtResource("2_7k4r2")
+region = Rect2(56, 0, 56, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xnte"]
+atlas = ExtResource("2_7k4r2")
+region = Rect2(112, 0, 56, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xykj"]
+atlas = ExtResource("2_7k4r2")
+region = Rect2(168, 0, 56, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xhehe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqbpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c11gf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xnte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xykj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbovp"]
-size = Vector2(112, 2)
+size = Vector2(106, 2)
 
 [node name="FrogTotem" instance=ExtResource("1_wlusl")]
 
 [node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_aj3rv")
 
 [node name="Sprite2D" parent="." index="1"]
+visible = false
 modulate = Color(0, 1, 0, 1)
 
-[node name="JumpBoost" type="Area2D" parent="." index="2"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+texture_filter = 1
+position = Vector2(14, -47)
+scale = Vector2(3.47, 3.47)
+sprite_frames = SubResource("SpriteFrames_xhehe")
+frame = 1
+
+[node name="JumpBoost" type="Area2D" parent="." index="3"]
 collision_layer = 0
 script = ExtResource("2_2ujq4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpBoost" index="0"]
-position = Vector2(0, -65)
+position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_sbovp")
 
 [connection signal="body_entered" from="JumpBoost" to="JumpBoost" method="_on_body_entered"]
