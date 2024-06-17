@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://blneww8vp4uxh"]
+
+[ext_resource type="PackedScene" uid="uid://dph04do3ovd2r" path="res://Scripts/Totems/base_totem.tscn" id="1_mrmji"]
+[ext_resource type="PackedScene" uid="uid://dxbcctgektwxl" path="res://Scenes/hurt_box.tscn" id="2_6bvug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hypsv"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsej3"]
+resource_local_to_scene = true
+size = Vector2(136, 136)
+
+[node name="BearTotem" instance=ExtResource("1_mrmji")]
+position = Vector2(412, 202)
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_hypsv")
+
+[node name="Sprite2D" parent="." index="1"]
+modulate = Color(1, 0, 0, 1)
+
+[node name="HurtBox" parent="." index="2" instance=ExtResource("2_6bvug")]
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_nsej3")
+
+[editable path="HurtBox"]

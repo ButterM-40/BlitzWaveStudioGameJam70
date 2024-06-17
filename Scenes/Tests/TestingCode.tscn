@@ -1,0 +1,67 @@
+[gd_scene load_steps=14 format=3 uid="uid://qyrk2vehw0i5"]
+
+[ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_w040g"]
+[ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="2_4mhg2"]
+[ext_resource type="PackedScene" uid="uid://rtwmkutoywa2" path="res://UI/Totem/eagleUI.tscn" id="3_fwmmh"]
+[ext_resource type="PackedScene" uid="uid://c0nwrc62exahc" path="res://UI/Totem/frogUI.tscn" id="4_ccfdp"]
+[ext_resource type="PackedScene" uid="uid://b63dqv1ntrl5d" path="res://UI/Totem/turtleUI.tscn" id="5_ux05h"]
+[ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="6_pt727"]
+[ext_resource type="Script" path="res://Scripts/OpenMenu.gd" id="7_to5tw"]
+[ext_resource type="PackedScene" uid="uid://dchmurl2h1fj0" path="res://Scripts/Totems/frog_totem.tscn" id="9_odwun"]
+[ext_resource type="PackedScene" uid="uid://blneww8vp4uxh" path="res://Scripts/Totems/bear_totem.tscn" id="10_2ipq6"]
+[ext_resource type="PackedScene" uid="uid://m43r4sqbmowa" path="res://Scripts/Totems/owl_totem.tscn" id="11_oasu7"]
+[ext_resource type="PackedScene" uid="uid://daw6uheuqqt13" path="res://Scripts/Totems/turtle_totem.tscn" id="12_k2mi4"]
+[ext_resource type="PackedScene" uid="uid://b322sdmafmihc" path="res://Scenes/enemy.tscn" id="12_nyvo1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hg2a7"]
+size = Vector2(1151, 20)
+
+[node name="Testing" type="Node2D"]
+
+[node name="UI Totem Switch" parent="." instance=ExtResource("1_w040g")]
+scene_array = Array[PackedScene]([ExtResource("2_4mhg2"), ExtResource("3_fwmmh"), ExtResource("4_ccfdp"), ExtResource("4_ccfdp"), ExtResource("4_ccfdp"), ExtResource("3_fwmmh"), ExtResource("5_ux05h")])
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TestPlatform" type="StaticBody2D" parent="."]
+position = Vector2(0, 184)
+collision_layer = 8
+collision_mask = 31
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform"]
+position = Vector2(0, -79)
+shape = SubResource("RectangleShape2D_hg2a7")
+
+[node name="RespawnPoint" type="Node2D" parent="."]
+position = Vector2(0, -79)
+
+[node name="---- Player ----" type="Node" parent="."]
+
+[node name="Player" parent="---- Player ----" instance=ExtResource("6_pt727")]
+position = Vector2(-310, -115)
+
+[node name="OpenMenu" type="Node2D" parent="---- Player ----" node_paths=PackedStringArray("player_node")]
+script = ExtResource("7_to5tw")
+player_node = NodePath("../Player")
+
+[node name="FrogTotem" parent="." instance=ExtResource("9_odwun")]
+position = Vector2(342, 25)
+collision_mask = 15
+lock_rotation = false
+
+[node name="BearTotem" parent="." instance=ExtResource("10_2ipq6")]
+position = Vector2(-325, 20)
+collision_mask = 15
+lock_rotation = false
+
+[node name="OwlTotem" parent="." instance=ExtResource("11_oasu7")]
+position = Vector2(212, -192)
+collision_mask = 15
+lock_rotation = false
+
+[node name="TurtleTotem" parent="." instance=ExtResource("12_k2mi4")]
+position = Vector2(200, 24)
+lock_rotation = false
+
+[node name="Enemy" parent="." instance=ExtResource("12_nyvo1")]
+position = Vector2(-24, 56)

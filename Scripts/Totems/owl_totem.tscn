@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://m43r4sqbmowa"]
+
+[ext_resource type="PackedScene" uid="uid://dph04do3ovd2r" path="res://Scripts/Totems/base_totem.tscn" id="1_ofw7e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4f6x"]
+size = Vector2(128, 128)
+
+[node name="OwlTotem" instance=ExtResource("1_ofw7e")]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_c4f6x")
+
+[node name="Sprite2D" parent="." index="1"]
+modulate = Color(1, 1, 0, 1)

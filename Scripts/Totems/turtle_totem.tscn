@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://daw6uheuqqt13"]
+
+[ext_resource type="PackedScene" uid="uid://dph04do3ovd2r" path="res://Scripts/Totems/base_totem.tscn" id="1_lsuwx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vfvr"]
+resource_local_to_scene = true
+size = Vector2(128, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nxiq"]
+size = Vector2(128, 2)
+
+[node name="TurtleTotem" instance=ExtResource("1_lsuwx")]
+collision_layer = 16
+collision_mask = 30
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_5vfvr")
+
+[node name="Sprite2D" parent="." index="1"]
+modulate = Color(0, 0.768627, 1, 1)
+
+[node name="Shell" type="StaticBody2D" parent="." index="2"]
+collision_layer = 2
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shell" index="0"]
+position = Vector2(0, -63)
+shape = SubResource("RectangleShape2D_5nxiq")
+one_way_collision = true
