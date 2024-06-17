@@ -5,13 +5,13 @@ class_name Player
 @onready var initial_sprite_scale = player_sprite.scale
 const SPEED = 300.0
 const JUMP_VELOCITY = -2000.0
-var jump_modifier: float = 1.0
+var current_jump_velocity = JUMP_VELOCITY
+
 var state = PlayerState.IDLE
 enum PlayerState{
 	IDLE,
 	WALK
 }
-var current_jump_velocity = JUMP_VELOCITY
 
 var respawn_point
 var game_paused = false
@@ -84,7 +84,7 @@ func _physics_process(_delta):
 	if !game_paused:
 		velocity.x = horizontal_input * SPEED
 
-		velocity.y += vertical_input * current_jump_velocity * jump_modifier
+		velocity.y += vertical_input * current_jump_velocity
 		velocity.y += gravity
 
 		move_and_slide()
