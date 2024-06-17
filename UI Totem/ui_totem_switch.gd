@@ -21,7 +21,18 @@ func removeCurrentTotem():
 	if Input.is_action_just_pressed("Switch"):
 		# respawn player
 		var player = get_node('../---- Player ----/Player')
+		print(player.position)
 		player.position = player.respawn_point.position
+
+		if scene_array.size() > 1:
+			if scene_array[1].instantiate().name == 'BearUi':
+				player.character = player.Character.BIDZIIL
+			elif scene_array[1].instantiate().name == 'FrogUi':
+				player.character = player.Character.GAAGII
+			elif scene_array[1].instantiate().name == 'EagleUi':
+				player.character = player.Character.AHULI
+			elif scene_array[1].instantiate().name == 'TurtleUi':
+				player.character = player.Character.TATONGA
 
 		print("Pressed")
 		delete_all_children()

@@ -39,8 +39,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	respawn_point = get_node('../../RespawnPoint')
-
-func _procces():
+	
 	if character == Character.BIDZIIL:
 		Input.set_custom_mouse_cursor(bidziil_cursor)
 	elif character == Character.GAAGII:
@@ -49,6 +48,18 @@ func _procces():
 		Input.set_custom_mouse_cursor(ahuli_cursor)
 	elif character == Character.TATONGA:
 		Input.set_custom_mouse_cursor(tatonga_cursor)
+
+func _process(delta):
+	if character == Character.BIDZIIL:
+		Input.set_custom_mouse_cursor(bidziil_cursor)
+	elif character == Character.GAAGII:
+		Input.set_custom_mouse_cursor(gaagii_cursor)
+	elif character == Character.AHULI:
+		Input.set_custom_mouse_cursor(ahuli_cursor)
+	elif character == Character.TATONGA:
+		Input.set_custom_mouse_cursor(tatonga_cursor)
+		
+	pass
 
 func _physics_process(_delta):
 	var horizontal_input = (

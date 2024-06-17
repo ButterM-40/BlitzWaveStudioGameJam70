@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://player.tscn" id="1_648b6"]
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI Totem/ui_totem_switch.tscn" id="1_yypem"]
-[ext_resource type="PackedScene" path="res://UI Totem/bearUI.tscn" id="2_mcy24"]
+[ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI Totem/bearUI.tscn" id="2_mcy24"]
 [ext_resource type="PackedScene" path="res://UI Totem/eagleUI.tscn" id="3_3ywtp"]
 [ext_resource type="Script" path="res://OpenMenu.gd" id="3_77jts"]
 [ext_resource type="PackedScene" uid="uid://cfvcp1bkx6iw7" path="res://frog_totem.tscn" id="3_abki5"]
@@ -30,6 +30,7 @@ position = Vector2(0, -79)
 shape = SubResource("RectangleShape2D_hg2a7")
 
 [node name="RespawnPoint" type="Node2D" parent="."]
+position = Vector2(0, -79)
 
 [node name="---- Player ----" type="Node" parent="."]
 
