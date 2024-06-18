@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://spifx3so8vrq"]
+
+[ext_resource type="Script" path="res://Scripts/Components/activatable.gd" id="1_kcbwg"]
+
+[node name="Activatable" type="StaticBody2D"]
+script = ExtResource("1_kcbwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

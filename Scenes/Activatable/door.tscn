@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://k7koubectv8l"]
+
+[ext_resource type="PackedScene" uid="uid://spifx3so8vrq" path="res://Scenes/Activatable/base_activatable.tscn" id="1_c6jqy"]
+[ext_resource type="Texture2D" uid="uid://cwp7wrrtvos1p" path="res://Art/Doors/door_placeholder.png" id="2_dtarq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gwtu"]
+size = Vector2(32, 64)
+
+[node name="Door" instance=ExtResource("1_c6jqy")]
+collision_layer = 8
+collision_mask = 7
+fade_direction = 1
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_2gwtu")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_dtarq")
