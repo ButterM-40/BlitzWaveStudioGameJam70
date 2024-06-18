@@ -3,7 +3,7 @@ extends CanvasLayer
 @export var totem_array: Array[PackedScene] = []
 @export var animation_array: Array[SpriteFrames] = []
 
-var totem = preload("res://Scenes/Tests/TestSprite.tscn")
+var totem = preload ("res://Scenes/Tests/TestSprite.tscn")
 # Called when the node enters the scene tree for the first time.
 #Algorithm will only display the top 5 Totems
 
@@ -24,6 +24,18 @@ func removeCurrentTotem():
 		# respawn player
 		var player = get_node('../---- Player ----/Player')
 		var parent = get_node('../---- Player ----/')
+
+		var totem
+		match player.character:
+			player.Character.BIDZIIL:
+				totem = totem_array[0].instantiate()
+			player.Character.GAAGII:
+				totem = totem_array[1].instantiate()
+			player.Character.AHULI:
+				totem = totem_array[2].instantiate()
+			player.Character.TATONGA:
+				totem = totem_array[3].instantiate()
+
 		var playerFrame = player.player_sprite.get_sprite_frames()
 		if scene_array.size() > 1:
 			if scene_array[1].instantiate().name == 'BearUi':
@@ -40,22 +52,10 @@ func removeCurrentTotem():
 				playerFrame = animation_array[0]
 		delete_all_children()
 		
-		var totem
-		match player.character:
-			player.Character.BIDZIIL:
-				totem = totem_array[0].instantiate()
-			player.Character.GAAGII:
-				totem = totem_array[1].instantiate()
-			player.Character.AHULI:
-				totem = totem_array[2].instantiate()
-			player.Character.TATONGA:
-				totem = totem_array[3].instantiate()
-		
 		#Current Location
 		var player_current_positon = player.position
 		var player_spawn_point = player.respawn_point.position
 		var player_scale = player.scale
-		
 		
 		totem.position = player_current_positon + Vector2(0, -200)
 		parent.add_child(totem)
@@ -63,7 +63,7 @@ func removeCurrentTotem():
 		scene_update(player, player.respawn_point.position, playerFrame)
 	pass
 	
-func scene_update(player, new_position,new_animation: SpriteFrames):
+func scene_update(player, new_position, new_animation: SpriteFrames):
 	if scene_array.size() > 0:
 			scene_array.remove_at(0)
 			player.position = new_position
