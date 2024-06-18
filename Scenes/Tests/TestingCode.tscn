@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://qyrk2vehw0i5"]
+[gd_scene load_steps=20 format=3 uid="uid://qyrk2vehw0i5"]
 
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_w040g"]
 [ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="2_4mhg2"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="6_pt727"]
 [ext_resource type="Script" path="res://Scripts/OpenMenu.gd" id="7_to5tw"]
 [ext_resource type="PackedScene" uid="uid://dchmurl2h1fj0" path="res://Scenes/Totems/frog_totem.tscn" id="9_odwun"]
-[ext_resource type="PackedScene" uid="uid://blneww8vp4uxh" path="res://Scenes/Totems/bear_totem.tscn" id="10_2ipq6"]
 [ext_resource type="PackedScene" uid="uid://m43r4sqbmowa" path="res://Scenes/Totems/owl_totem.tscn" id="11_oasu7"]
 [ext_resource type="PackedScene" uid="uid://daw6uheuqqt13" path="res://Scenes/Totems/turtle_totem.tscn" id="12_k2mi4"]
 [ext_resource type="PackedScene" uid="uid://b322sdmafmihc" path="res://Scenes/enemy.tscn" id="12_nyvo1"]
@@ -75,9 +74,6 @@ script = null
 z_index = 0
 position = Vector2(272, 64)
 mass = 1.0
-
-[node name="BearTotem" parent="." instance=ExtResource("10_2ipq6")]
-position = Vector2(0, -208)
 
 [node name="OwlTotem" parent="." instance=ExtResource("11_oasu7")]
 z_index = 0

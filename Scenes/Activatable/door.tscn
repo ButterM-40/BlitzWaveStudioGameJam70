@@ -8,7 +8,7 @@ size = Vector2(32, 64)
 
 [node name="Door" instance=ExtResource("1_c6jqy")]
 collision_layer = 8
-collision_mask = 7
+collision_mask = 23
 fade_direction = 1
 
 [node name="CollisionShape2D" parent="." index="0"]
