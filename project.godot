@@ -16,6 +16,10 @@ run/main_scene="res://Scenes/Tests/TestingCode.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Constants="*res://Scripts/constants.gd"
+
 [input]
 
 Jump={

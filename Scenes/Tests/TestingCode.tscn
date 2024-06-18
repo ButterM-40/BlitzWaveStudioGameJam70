@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://qyrk2vehw0i5"]
+[gd_scene load_steps=21 format=3 uid="uid://qyrk2vehw0i5"]
 
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_w040g"]
 [ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="2_4mhg2"]
@@ -14,9 +14,17 @@
 [ext_resource type="PackedScene" uid="uid://b322sdmafmihc" path="res://Scenes/enemy.tscn" id="12_nyvo1"]
 [ext_resource type="PackedScene" uid="uid://c1ayt43ulupfn" path="res://Scenes/Traps/flame_trap.tscn" id="13_5ke4q"]
 [ext_resource type="PackedScene" uid="uid://ku2up3d0i603" path="res://Scenes/Traps/wind_trap.tscn" id="14_d4asv"]
+[ext_resource type="PackedScene" uid="uid://b7f87jxbuf06f" path="res://Scenes/Activator/altar.tscn" id="15_r7hyr"]
+[ext_resource type="PackedScene" uid="uid://k7koubectv8l" path="res://Scenes/Activatable/door.tscn" id="16_1lxyb"]
+[ext_resource type="PackedScene" uid="uid://cd4lfcnpu6524" path="res://Scenes/Activator/lever.tscn" id="16_g6cse"]
+[ext_resource type="PackedScene" uid="uid://dj65i3oqes7na" path="res://Scenes/Activatable/trapdoor.tscn" id="18_xtt3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg2a7"]
+resource_local_to_scene = true
 size = Vector2(1280, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt4pw"]
+size = Vector2(256, 32)
 
 [node name="Testing" type="Node2D"]
 
@@ -34,6 +42,15 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform"]
 shape = SubResource("RectangleShape2D_hg2a7")
 
+[node name="TestPlatform2" type="StaticBody2D" parent="."]
+position = Vector2(64, -80)
+collision_layer = 8
+collision_mask = 31
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform2"]
+shape = SubResource("RectangleShape2D_nt4pw")
+
 [node name="RespawnPoint" type="Node2D" parent="."]
 position = Vector2(-495, -55)
 
@@ -50,21 +67,23 @@ player_node = NodePath("../Player")
 z_index = 0
 position = Vector2(352, 64)
 collision_mask = 15
+mass = 1.0
 lock_rotation = false
 script = null
 
 [node name="TurtleTotem" parent="." instance=ExtResource("12_k2mi4")]
 z_index = 0
 position = Vector2(272, 64)
+mass = 1.0
 
 [node name="BearTotem" parent="." instance=ExtResource("10_2ipq6")]
-position = Vector2(-336, 64)
-mass = 100.0
+position = Vector2(0, -208)
 
 [node name="OwlTotem" parent="." instance=ExtResource("11_oasu7")]
 z_index = 0
 position = Vector2(191, -408)
 collision_mask = 15
+mass = 1.0
 lock_rotation = false
 script = null
 
@@ -89,3 +108,17 @@ position = Vector2(144, 64)
 [node name="WindTrap" parent="." instance=ExtResource("14_d4asv")]
 position = Vector2(80, 64)
 strength = 500.0
+
+[node name="Door" parent="." instance=ExtResource("16_1lxyb")]
+position = Vector2(80, -128)
+
+[node name="Lever" parent="." node_paths=PackedStringArray("activatable_objects") instance=ExtResource("16_g6cse")]
+position = Vector2(144, -112)
+activatable_objects = [NodePath("../Trapdoor")]
+
+[node name="Trapdoor" parent="." instance=ExtResource("18_xtt3y")]
+position = Vector2(208, -80)
+
+[node name="Altar" parent="." node_paths=PackedStringArray("activatable_objects") instance=ExtResource("15_r7hyr")]
+position = Vector2(0, -112)
+activatable_objects = [NodePath("../Door")]
