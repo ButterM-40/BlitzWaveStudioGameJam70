@@ -24,18 +24,18 @@ func removeCurrentTotem():
 		# respawn player
 		var player = get_node('../---- Player ----/Player')
 		var parent = get_node('../---- Player ----/')
-		var playerFrame = player.player_sprite.frame
-		if scene_array.size() > 0:
-			if scene_array[0].instantiate().name == 'BearUi':
+		var playerFrame = player.player_sprite.get_sprite_frames()
+		if scene_array.size() > 1:
+			if scene_array[1].instantiate().name == 'BearUi':
 				player.character = player.Character.BIDZIIL
 				playerFrame = animation_array[0]
-			elif scene_array[0].instantiate().name == 'FrogUi':
+			elif scene_array[1].instantiate().name == 'FrogUi':
 				player.character = player.Character.GAAGII
 				playerFrame = animation_array[0]
-			elif scene_array[0].instantiate().name == 'EagleUi':
+			elif scene_array[1].instantiate().name == 'EagleUi':
 				playerFrame = animation_array[1]
 				player.character = player.Character.AHULI
-			elif scene_array[0].instantiate().name == 'TurtleUi':
+			elif scene_array[1].instantiate().name == 'TurtleUi':
 				player.character = player.Character.TATONGA
 				playerFrame = animation_array[0]
 		delete_all_children()
@@ -69,10 +69,10 @@ func scene_update(player, new_position,new_animation: SpriteFrames):
 			player.position = new_position
 			player.player_sprite.set_sprite_frames(new_animation)
 			player.player_sprite.play("idle")
-	if scene_array.size() > 0:
-		generate_sprites()
+			generate_sprites()
+	if scene_array.size() == 1:
 		player.position = new_position
-		player.player_sprite.set_sprite_frames(new_animation)
+		#player.player_sprite.set_sprite_frames(new_animation)
 		player.player_sprite.play("idle")
 		
 func generate_sprites():
