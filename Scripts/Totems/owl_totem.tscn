@@ -44,6 +44,7 @@ animations = [{
 
 [node name="OwlTotem" instance=ExtResource("1_ofw7e")]
 gravity_scale = 0.0
+freeze = true
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0, 8.5)
