@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://c1ayt43ulupfn"]
+
+[ext_resource type="Script" path="res://Scripts/Traps/flame_trap.gd" id="1_nffy8"]
+[ext_resource type="PackedScene" uid="uid://dxbcctgektwxl" path="res://Scenes/hurt_box.tscn" id="2_53hop"]
+[ext_resource type="Texture2D" uid="uid://baaqiv13wmjax" path="res://Art/Traps/flame_trap_placeholder.png" id="2_f7wun"]
+[ext_resource type="Texture2D" uid="uid://dj0fkbvne5y24" path="res://Art/Traps/extinguished_flame_trap_placeholder.png" id="3_iu57p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sxxt1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f7wun")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_iu57p")
+}],
+"loop": true,
+"name": &"extinguished",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f0no"]
+size = Vector2(31, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_337mc"]
+resource_local_to_scene = true
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ssng"]
+size = Vector2(31, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu1pg"]
+size = Vector2(31, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hq4i"]
+size = Vector2(31, 31)
+
+[node name="FlameTrap" type="Area2D"]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_nffy8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sxxt1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6f0no")
+
+[node name="HurtBox" parent="." instance=ExtResource("2_53hop")]
+collision_mask = 7
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_337mc")
+
+[node name="TurtleTotemDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurtleTotemDetector"]
+shape = SubResource("RectangleShape2D_6ssng")
+
+[node name="AdjacentFlameTrapDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AdjacentFlameTrapDetector"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_vu1pg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AdjacentFlameTrapDetector"]
+position = Vector2(-32, 0)
+shape = SubResource("RectangleShape2D_0hq4i")
+
+[connection signal="body_entered" from="TurtleTotemDetector" to="." method="_on_detector_body_entered"]
+[connection signal="area_entered" from="AdjacentFlameTrapDetector" to="." method="_on_adjacent_flame_trap_detector_area_entered"]
+
+[editable path="HurtBox"]
