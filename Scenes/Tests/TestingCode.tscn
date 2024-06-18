@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://qyrk2vehw0i5"]
+[gd_scene load_steps=16 format=3 uid="uid://qyrk2vehw0i5"]
 
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_w040g"]
 [ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="2_4mhg2"]
@@ -7,14 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://b63dqv1ntrl5d" path="res://UI/Totem/turtleUI.tscn" id="5_ux05h"]
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="6_pt727"]
 [ext_resource type="Script" path="res://Scripts/OpenMenu.gd" id="7_to5tw"]
-[ext_resource type="PackedScene" uid="uid://dchmurl2h1fj0" path="res://Scripts/Totems/frog_totem.tscn" id="9_odwun"]
-[ext_resource type="PackedScene" uid="uid://blneww8vp4uxh" path="res://Scripts/Totems/bear_totem.tscn" id="10_2ipq6"]
-[ext_resource type="PackedScene" uid="uid://m43r4sqbmowa" path="res://Scripts/Totems/owl_totem.tscn" id="11_oasu7"]
-[ext_resource type="PackedScene" uid="uid://daw6uheuqqt13" path="res://Scripts/Totems/turtle_totem.tscn" id="12_k2mi4"]
+[ext_resource type="PackedScene" uid="uid://dchmurl2h1fj0" path="res://Scenes/Totems/frog_totem.tscn" id="9_odwun"]
+[ext_resource type="PackedScene" uid="uid://blneww8vp4uxh" path="res://Scenes/Totems/bear_totem.tscn" id="10_2ipq6"]
+[ext_resource type="PackedScene" uid="uid://m43r4sqbmowa" path="res://Scenes/Totems/owl_totem.tscn" id="11_oasu7"]
+[ext_resource type="PackedScene" uid="uid://daw6uheuqqt13" path="res://Scenes/Totems/turtle_totem.tscn" id="12_k2mi4"]
 [ext_resource type="PackedScene" uid="uid://b322sdmafmihc" path="res://Scenes/enemy.tscn" id="12_nyvo1"]
+[ext_resource type="PackedScene" uid="uid://c1ayt43ulupfn" path="res://Scenes/Traps/flame_trap.tscn" id="13_5ke4q"]
+[ext_resource type="PackedScene" uid="uid://ku2up3d0i603" path="res://Scenes/Traps/wind_trap.tscn" id="14_d4asv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg2a7"]
-size = Vector2(1151, 20)
+size = Vector2(1280, 32)
 
 [node name="Testing" type="Node2D"]
 
@@ -24,12 +26,12 @@ scene_array = Array[PackedScene]([ExtResource("2_4mhg2"), ExtResource("3_fwmmh")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="TestPlatform" type="StaticBody2D" parent="."]
-position = Vector2(0, 184)
+position = Vector2(16, 96)
 collision_layer = 8
 collision_mask = 31
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform"]
-position = Vector2(0, -79)
 shape = SubResource("RectangleShape2D_hg2a7")
 
 [node name="RespawnPoint" type="Node2D" parent="."]
@@ -39,30 +41,51 @@ position = Vector2(-495, -55)
 
 [node name="Player" parent="---- Player ----" instance=ExtResource("6_pt727")]
 position = Vector2(-501, -59)
-scale = Vector2(3.41, 3.41)
 
 [node name="OpenMenu" type="Node2D" parent="---- Player ----" node_paths=PackedStringArray("player_node")]
 script = ExtResource("7_to5tw")
 player_node = NodePath("../Player")
 
 [node name="FrogTotem" parent="." instance=ExtResource("9_odwun")]
-position = Vector2(342, 25)
+z_index = 0
+position = Vector2(352, 64)
 collision_mask = 15
 lock_rotation = false
+script = null
+
+[node name="TurtleTotem" parent="." instance=ExtResource("12_k2mi4")]
+z_index = 0
+position = Vector2(272, 64)
 
 [node name="BearTotem" parent="." instance=ExtResource("10_2ipq6")]
-position = Vector2(-325, 20)
-collision_mask = 15
-lock_rotation = false
+position = Vector2(-336, 64)
+mass = 100.0
 
 [node name="OwlTotem" parent="." instance=ExtResource("11_oasu7")]
+z_index = 0
 position = Vector2(191, -408)
 collision_mask = 15
 lock_rotation = false
-
-[node name="TurtleTotem" parent="." instance=ExtResource("12_k2mi4")]
-position = Vector2(200, 24)
-lock_rotation = false
+script = null
 
 [node name="Enemy" parent="." instance=ExtResource("12_nyvo1")]
-position = Vector2(60, 23)
+position = Vector2(-80, 64)
+
+[node name="Enemy2" parent="." instance=ExtResource("12_nyvo1")]
+position = Vector2(-272, 64)
+
+[node name="FlameTrap" parent="." instance=ExtResource("13_5ke4q")]
+position = Vector2(208, 64)
+
+[node name="FlameTrap2" parent="." instance=ExtResource("13_5ke4q")]
+position = Vector2(176, 64)
+
+[node name="FlameTrap3" parent="." instance=ExtResource("13_5ke4q")]
+position = Vector2(240, 64)
+
+[node name="FlameTrap4" parent="." instance=ExtResource("13_5ke4q")]
+position = Vector2(144, 64)
+
+[node name="WindTrap" parent="." instance=ExtResource("14_d4asv")]
+position = Vector2(80, 64)
+strength = 500.0
