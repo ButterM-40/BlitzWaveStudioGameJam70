@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://blneww8vp4uxh"]
+
+[ext_resource type="PackedScene" uid="uid://dph04do3ovd2r" path="res://Scenes/Totems/base_totem.tscn" id="1_mrmji"]
+[ext_resource type="PackedScene" uid="uid://dxbcctgektwxl" path="res://Scenes/hurt_box.tscn" id="2_6bvug"]
+[ext_resource type="Script" path="res://Scripts/Totems/bear_totem.gd" id="2_ldv5a"]
+[ext_resource type="SpriteFrames" uid="uid://d08fgfmh3x3qu" path="res://Art/Totems/Bear/bear_sprite_frames.tres" id="2_stwwi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hypsv"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsej3"]
+resource_local_to_scene = true
+size = Vector2(34, 34)
+
+[node name="BearTotem" instance=ExtResource("1_mrmji")]
+script = ExtResource("2_ldv5a")
+metadata/_edit_horizontal_guides_ = [-16.0, 16.0]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_stwwi")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_hypsv")
+
+[node name="HurtBox" parent="." index="3" instance=ExtResource("2_6bvug")]
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_nsej3")
+
+[connection signal="died" from="Health" to="." method="_on_died"]
+
+[editable path="HurtBox"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://m43r4sqbmowa"]
+
+[ext_resource type="PackedScene" uid="uid://dph04do3ovd2r" path="res://Scenes/Totems/base_totem.tscn" id="1_ofw7e"]
+[ext_resource type="Script" path="res://Scripts/Totems/owl_totem.gd" id="2_0ix03"]
+[ext_resource type="SpriteFrames" uid="uid://8j6sovbdn4mu" path="res://Art/Totems/Owl/owl_sprite_frames.tres" id="2_vphx7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4f6x"]
+size = Vector2(32, 32)
+
+[node name="OwlTotem" instance=ExtResource("1_ofw7e")]
+gravity_scale = 0.0
+script = ExtResource("2_0ix03")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_vphx7")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_c4f6x")
+
+[connection signal="died" from="Health" to="." method="_on_died"]

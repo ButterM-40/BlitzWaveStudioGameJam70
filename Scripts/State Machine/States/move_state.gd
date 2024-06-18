@@ -1,13 +1,10 @@
 extends State
 class_name MoveState
 
+@export var body: PhysicsBody2D
 @export var speed: float
 
-var body: PhysicsBody2D
 const DIRECTION: Vector2 = Vector2.RIGHT
-
-func _ready() -> void:
-	body = get_parent() as PhysicsBody2D
 
 func enter() -> void:
 	pass

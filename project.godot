@@ -52,7 +52,13 @@ Menu={
 2d_physics/layer_2="Totem"
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Other"
+2d_physics/layer_5="Pass through"
+2d_physics/layer_6="Trap"
 
 [physics]
 
 2d/default_gravity=100.0
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
