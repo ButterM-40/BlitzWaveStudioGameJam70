@@ -10,7 +10,8 @@ var current_jump_velocity = JUMP_VELOCITY
 var state = PlayerState.IDLE
 enum PlayerState{
 	IDLE,
-	WALK
+	WALK,
+	JUMP
 }
 
 var respawn_point
@@ -91,13 +92,18 @@ func face_movement_direction(horizontal_input):
 		else:
 			player_sprite.scale = initial_sprite_scale
 func handle_movement_state():
-	if is_zero_approx(velocity.x):
+	
+	if is_zero_approx(velocity.x) && is_on_floor():
 		state = PlayerState.IDLE
 	
-	elif not is_zero_approx(velocity.x):
+	elif not is_zero_approx(velocity.x) && is_on_floor():
 		state = PlayerState.WALK
+	else:
+		state = PlayerState.JUMP
 	match state:
 		PlayerState.IDLE:
 			player_sprite.play("idle")
 		PlayerState.WALK:
 			player_sprite.play("walk")
+		PlayerState.JUMP:
+			player_sprite.play("jump")
