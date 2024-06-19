@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://8j6sovbdn4mu"]
+
+[ext_resource type="Texture2D" uid="uid://bhwydlyo3cn62" path="res://Art/Totems/Owl/owl.png" id="1_uk2sk"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uk2sk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

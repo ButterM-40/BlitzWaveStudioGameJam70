@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7f87jxbuf06f"]
+
+[ext_resource type="Script" path="res://Scripts/altar.gd" id="1_uwany"]
+[ext_resource type="Texture2D" uid="uid://bqd22hmhxvv7t" path="res://Art/altar_placeholder.png" id="2_qvc1l"]
+[ext_resource type="Texture2D" uid="uid://b020l8ji2m8h2" path="res://Art/altar_light_place_holder.png" id="3_p8td3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejryf"]
+size = Vector2(31, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kaic8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qvc1l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm15u"]
+atlas = ExtResource("3_p8td3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50id1"]
+atlas = ExtResource("3_p8td3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmvup"]
+atlas = ExtResource("3_p8td3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu634"]
+atlas = ExtResource("3_p8td3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8c5m8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm15u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50id1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmvup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu634")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.7
+}]
+
+[node name="Altar" type="Area2D"]
+z_index = 3
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_uwany")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ejryf")
+
+[node name="AltarSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kaic8")
+
+[node name="LightSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8c5m8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://d08fgfmh3x3qu"]
+
+[ext_resource type="Texture2D" uid="uid://c034uxvnxmxn" path="res://Art/Totems/Bear/bear.png" id="1_f31qm"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f31qm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

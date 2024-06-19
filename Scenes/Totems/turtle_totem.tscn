@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://daw6uheuqqt13"]
+
+[ext_resource type="PackedScene" uid="uid://dph04do3ovd2r" path="res://Scenes/Totems/base_totem.tscn" id="1_lsuwx"]
+[ext_resource type="SpriteFrames" uid="uid://dpaba7hvw0281" path="res://Art/Totems/Turtle/turtle_sprite_frames.tres" id="2_h52g5"]
+[ext_resource type="Script" path="res://Scripts/Totems/turtle_totem.gd" id="2_pie3u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vfvr"]
+resource_local_to_scene = true
+size = Vector2(32, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nxiq"]
+size = Vector2(32, 2)
+
+[node name="TurtleTotem" instance=ExtResource("1_lsuwx")]
+collision_layer = 16
+collision_mask = 30
+script = ExtResource("2_pie3u")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_h52g5")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_5vfvr")
+
+[node name="Shell" type="StaticBody2D" parent="." index="3"]
+position = Vector2(0, -15)
+collision_layer = 2
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shell" index="0"]
+shape = SubResource("RectangleShape2D_5nxiq")
+one_way_collision = true
+
+[connection signal="died" from="Health" to="." method="_on_died"]

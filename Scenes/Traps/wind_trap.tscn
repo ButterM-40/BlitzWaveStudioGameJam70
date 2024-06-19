@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ku2up3d0i603"]
+
+[ext_resource type="Texture2D" uid="uid://bpe54e55nimil" path="res://Art/Traps/wind_trap_placeholder.png" id="1_8fmur"]
+[ext_resource type="Script" path="res://Scripts/Traps/wind_trap.gd" id="1_fyupl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ifjt"]
+size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wi22r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8fmur")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WindTrap" type="Area2D"]
+collision_layer = 32
+collision_mask = 5
+script = ExtResource("1_fyupl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5ifjt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wi22r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

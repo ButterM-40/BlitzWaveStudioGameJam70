@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://dchmurl2h1fj0"]
+
+[ext_resource type="PackedScene" uid="uid://dph04do3ovd2r" path="res://Scenes/Totems/base_totem.tscn" id="1_wlusl"]
+[ext_resource type="Script" path="res://Scripts/jump_boost_ability.gd" id="2_2ujq4"]
+[ext_resource type="Script" path="res://Scripts/Totems/frog_totem.gd" id="2_as1o1"]
+[ext_resource type="SpriteFrames" uid="uid://u8111mrp6eh6" path="res://Art/Totems/Frog/frog_sprite_frames.tres" id="2_l4ndo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj3rv"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbovp"]
+size = Vector2(30, 2)
+
+[node name="FrogTotem" instance=ExtResource("1_wlusl")]
+script = ExtResource("2_as1o1")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_l4ndo")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_aj3rv")
+
+[node name="JumpBoost" type="Area2D" parent="." index="3"]
+position = Vector2(0, -17)
+collision_layer = 0
+script = ExtResource("2_2ujq4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpBoost" index="0"]
+shape = SubResource("RectangleShape2D_sbovp")
+
+[connection signal="died" from="Health" to="." method="_on_died"]
+[connection signal="body_entered" from="JumpBoost" to="JumpBoost" method="_on_body_entered"]
+[connection signal="body_exited" from="JumpBoost" to="JumpBoost" method="_on_body_exited"]
