@@ -9,6 +9,7 @@ size = Vector2(32, 32)
 
 [node name="OwlTotem" instance=ExtResource("1_ofw7e")]
 gravity_scale = 0.0
+freeze = true
 script = ExtResource("2_0ix03")
 
 [node name="AnimatedSprite2D" parent="." index="1"]

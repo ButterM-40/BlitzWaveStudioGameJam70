@@ -43,13 +43,13 @@ func removeCurrentTotem():
 				playerFrame = animation_array[0]
 			elif scene_array[1].instantiate().name == 'FrogUi':
 				player.character = player.Character.GAAGII
-				playerFrame = animation_array[0]
+				playerFrame = animation_array[2]
 			elif scene_array[1].instantiate().name == 'EagleUi':
 				playerFrame = animation_array[1]
 				player.character = player.Character.AHULI
 			elif scene_array[1].instantiate().name == 'TurtleUi':
 				player.character = player.Character.TATONGA
-				playerFrame = animation_array[0]
+				playerFrame = animation_array[3]
 		delete_all_children()
 		
 		#Current Location
