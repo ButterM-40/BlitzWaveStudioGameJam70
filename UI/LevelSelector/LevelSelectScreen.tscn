@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp32wqr8j4kv5"]
+
+[ext_resource type="Script" path="res://UI/LevelSelector/LevelSelectScreen.gd" id="1_cr4xe"]
+
+[node name="LevelSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_cr4xe")
+dir_path = "res://Scenes/Levels"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(29.9309, 16.2)
+color = Color(0.791005, 0.521429, 0.477587, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Select Label"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 2

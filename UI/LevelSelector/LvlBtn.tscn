@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6ryurjicr5mc"]
+
+[ext_resource type="Script" path="res://UI/LevelSelector/LvlBtn.gd" id="1_3svsq"]
+
+[node name="LvlButton" type="Button"]
+anchors_preset = -1
+anchor_right = 0.137
+anchor_bottom = 0.189
+offset_right = -95.824
+offset_bottom = -91.472
+scale = Vector2(2.54187, 3.94665)
+text = "Level 1"
+script = ExtResource("1_3svsq")
+level_path = "res://Scenes/MainMenu.tscn"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

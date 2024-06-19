@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://dd6sd75s6hxi"]
 
 [ext_resource type="Script" path="res://UI/Totem/ui_totem_switch.gd" id="1_8e4ch"]
-[ext_resource type="PackedScene" uid="uid://blneww8vp4uxh" path="res://Scripts/Totems/bear_totem.tscn" id="2_13vxa"]
-[ext_resource type="PackedScene" uid="uid://dchmurl2h1fj0" path="res://Scripts/Totems/frog_totem.tscn" id="3_6aj7v"]
-[ext_resource type="PackedScene" uid="uid://m43r4sqbmowa" path="res://Scripts/Totems/owl_totem.tscn" id="4_tbxqf"]
-[ext_resource type="PackedScene" uid="uid://daw6uheuqqt13" path="res://Scripts/Totems/turtle_totem.tscn" id="5_ktn28"]
+[ext_resource type="PackedScene" uid="uid://blneww8vp4uxh" path="res://Scenes/Totems/bear_totem.tscn" id="2_13vxa"]
+[ext_resource type="PackedScene" uid="uid://dchmurl2h1fj0" path="res://Scenes/Totems/frog_totem.tscn" id="3_6aj7v"]
+[ext_resource type="PackedScene" uid="uid://m43r4sqbmowa" path="res://Scenes/Totems/owl_totem.tscn" id="4_tbxqf"]
+[ext_resource type="PackedScene" uid="uid://daw6uheuqqt13" path="res://Scenes/Totems/turtle_totem.tscn" id="5_ktn28"]
 [ext_resource type="SpriteFrames" uid="uid://685sltxjoua6" path="res://Art/player_animation.tres" id="6_ngf1y"]
-[ext_resource type="SpriteFrames" uid="uid://5qys0k8qw2rc" path="res://Art/owl_animations.tres" id="7_47wsh"]
+[ext_resource type="SpriteFrames" uid="uid://p3thu3ifg0hc" path="res://Art/owl_animations.tres" id="7_47wsh"]
 
 [node name="UI Totem Switch" type="CanvasLayer"]
 script = ExtResource("1_8e4ch")
