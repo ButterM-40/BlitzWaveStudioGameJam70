@@ -1,14 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6ryurjicr5mc"]
+[gd_scene load_steps=3 format=3 uid="uid://b6ryurjicr5mc"]
 
 [ext_resource type="Script" path="res://UI/LevelSelector/LvlBtn.gd" id="1_3svsq"]
+[ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="1_da723"]
 
 [node name="LvlButton" type="Button"]
 anchors_preset = -1
 anchor_right = 0.137
 anchor_bottom = 0.189
-offset_right = -95.824
-offset_bottom = -91.472
-scale = Vector2(2.54187, 3.94665)
+offset_right = -95.289
+offset_bottom = -97.37
+theme_override_fonts/font = ExtResource("1_da723")
 text = "Level 1"
 script = ExtResource("1_3svsq")
 level_path = "res://Scenes/MainMenu.tscn"
