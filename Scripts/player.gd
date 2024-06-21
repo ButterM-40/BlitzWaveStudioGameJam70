@@ -4,11 +4,11 @@ class_name Player
 @export var player_sprite: AnimatedSprite2D
 @onready var initial_sprite_scale = player_sprite.scale
 const SPEED = 300.0
-const JUMP_VELOCITY = -2000.0
+const JUMP_VELOCITY = -1250.0
 var current_jump_velocity = JUMP_VELOCITY
 
 var state = PlayerState.IDLE
-enum PlayerState{
+enum PlayerState {
 	IDLE,
 	WALK,
 	JUMP
@@ -24,17 +24,17 @@ enum Character {
 	AHULI,
 	TATONGA
 }
-var bidziil_cursor = preload("res://Art/Cursors/cursorRedArrow.png")
-var bidziil_cursor_hand = preload("res://Art/Cursors/cursorRedHand.png")
+var bidziil_cursor = preload ("res://Art/Cursors/cursorRedArrow.png")
+var bidziil_cursor_hand = preload ("res://Art/Cursors/cursorRedHand.png")
 
-var gaagii_cursor = preload("res://Art/Cursors/cursorGreenArrow.png")
-var gaagii_cursor_hand = preload("res://Art/Cursors/cursorGreenHand.png")
+var gaagii_cursor = preload ("res://Art/Cursors/cursorGreenArrow.png")
+var gaagii_cursor_hand = preload ("res://Art/Cursors/cursorGreenHand.png")
 
-var ahuli_cursor = preload("res://Art/Cursors/cursorYellowArrow.png")
-var ahuli_cursor_hand = preload("res://Art/Cursors/cursorYellowHand.png")
+var ahuli_cursor = preload ("res://Art/Cursors/cursorYellowArrow.png")
+var ahuli_cursor_hand = preload ("res://Art/Cursors/cursorYellowHand.png")
 
-var tatonga_cursor = preload("res://Art/Cursors/cursorBlueArrow.png")
-var tatonga_cursor_hand = preload("res://Art/Cursors/cursorBlueHand.png")
+var tatonga_cursor = preload ("res://Art/Cursors/cursorBlueArrow.png")
+var tatonga_cursor_hand = preload ("res://Art/Cursors/cursorBlueHand.png")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -86,17 +86,17 @@ func _physics_process(_delta):
 		face_movement_direction(horizontal_input)
 	
 func face_movement_direction(horizontal_input):
-	if not is_zero_approx(horizontal_input): 
+	if not is_zero_approx(horizontal_input):
 		if horizontal_input < 0:
-			player_sprite.scale = Vector2(-initial_sprite_scale.x, initial_sprite_scale.y)
+			player_sprite.scale = Vector2( - initial_sprite_scale.x, initial_sprite_scale.y)
 		else:
 			player_sprite.scale = initial_sprite_scale
 func handle_movement_state():
 	
-	if is_zero_approx(velocity.x) && is_on_floor():
+	if is_zero_approx(velocity.x)&&is_on_floor():
 		state = PlayerState.IDLE
 	
-	elif not is_zero_approx(velocity.x) && is_on_floor():
+	elif not is_zero_approx(velocity.x)&&is_on_floor():
 		state = PlayerState.WALK
 	else:
 		state = PlayerState.JUMP

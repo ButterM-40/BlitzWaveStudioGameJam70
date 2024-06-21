@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 
 Constants="*res://Scripts/constants.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 Jump={
