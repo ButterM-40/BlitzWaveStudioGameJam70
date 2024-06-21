@@ -12,7 +12,9 @@ func _ready():
 		generate_sprites()
 
 func _process(_delta):
-	removeCurrentTotem()
+	var player = get_node('../---- Player ----/Player')
+	if Input.is_action_just_pressed("Switch") and scene_array.size() > 0:
+		player.respawn()
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func returnCurrentTotem():
@@ -21,21 +23,18 @@ func returnCurrentTotem():
 #This Function removed the first current Totem, and replaces it with the next.
 #If empty Display Nothing
 func removeCurrentTotem():
-	if Input.is_action_just_pressed("Switch") and scene_array.size() > 0:
-		# respawn player
-		var player = get_node('../---- Player ----/Player')
-		player.respawn()
+	# respawn player
+	var player = get_node('../---- Player ----/Player')
 
-		var playerFrame = player.player_sprite.get_sprite_frames()
+	var playerFrame = player.player_sprite.get_sprite_frames()
 
-		delete_all_children()
-		scene_update(player, player.respawn_point.position, playerFrame)
+	delete_all_children()
+	scene_update(player, player.respawn_point.position, playerFrame)
 	pass
 	
 func scene_update(player, new_position, new_animation: SpriteFrames):
 	if scene_array.size() > 0:
 			scene_array.remove_at(0)
-			player.position = new_position
 			player.player_sprite.set_sprite_frames(new_animation)
 			player.player_sprite.play("idle")
 			generate_sprites()

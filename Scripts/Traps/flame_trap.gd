@@ -10,7 +10,6 @@ var is_extinguished: bool = false
 func extinguish() -> void:
 	is_extinguished = true
 	animated_sprite_2d.animation = "extinguished"
-	hurt_box.is_active = false
 	for flame_trap in adjacent_flame_trap:
 		if not flame_trap.is_extinguished:
 			flame_trap.extinguish()
