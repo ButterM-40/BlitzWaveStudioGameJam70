@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://qyrk2vehw0i5"]
+[gd_scene load_steps=25 format=3 uid="uid://qyrk2vehw0i5"]
 
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_w040g"]
 [ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="2_4mhg2"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://k7koubectv8l" path="res://Scenes/Activatable/door.tscn" id="16_1lxyb"]
 [ext_resource type="PackedScene" uid="uid://cd4lfcnpu6524" path="res://Scenes/Activator/lever.tscn" id="16_g6cse"]
 [ext_resource type="PackedScene" uid="uid://dj65i3oqes7na" path="res://Scenes/Activatable/trapdoor.tscn" id="18_xtt3y"]
+[ext_resource type="PackedScene" uid="uid://drra0yb1j1f8o" path="res://Scenes/tile_map.tscn" id="22_mh8fs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg2a7"]
 resource_local_to_scene = true
@@ -123,3 +124,7 @@ position = Vector2(208, -80)
 [node name="Altar" parent="." node_paths=PackedStringArray("activatable_objects") instance=ExtResource("15_r7hyr")]
 position = Vector2(0, -112)
 activatable_objects = [NodePath("../Door")]
+
+[node name="TileMap" parent="." instance=ExtResource("22_mh8fs")]
+position = Vector2(-323, -188)
+scale = Vector2(2, 2)
