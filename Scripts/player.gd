@@ -107,3 +107,41 @@ func handle_movement_state():
 			player_sprite.play("walk")
 		PlayerState.JUMP:
 			player_sprite.play("jump")
+
+
+func respawn():
+	var ui_switch = get_node('../../UI Totem Switch')
+	print(ui_switch)
+
+	var totem
+	match character:
+		Character.BIDZIIL:
+			totem = ui_switch.totem_array[0].instantiate()
+		Character.GAAGII:
+			totem = ui_switch.totem_array[1].instantiate()
+		Character.AHULI:
+			totem = ui_switch.totem_array[2].instantiate()
+		Character.TATONGA:
+			totem = ui_switch.totem_array[3].instantiate()
+
+	if ui_switch.scene_array.size() > 1:
+		if ui_switch.scene_array[1].instantiate().name == 'BearUi':
+			character = Character.BIDZIIL
+			player_sprite.sprite_frames = ui_switch.animation_array[0]
+		elif ui_switch.scene_array[1].instantiate().name == 'FrogUi':
+			character = Character.GAAGII
+			player_sprite.sprite_frames = ui_switch.animation_array[2]
+		elif ui_switch.scene_array[1].instantiate().name == 'EagleUi':
+			player_sprite.sprite_frames = ui_switch.animation_array[1]
+			character = Character.AHULI
+		elif ui_switch.scene_array[1].instantiate().name == 'TurtleUi':
+			character = Character.TATONGA
+			player_sprite.sprite_frames = ui_switch.animation_array[3]
+	
+	#Current Location
+	# var player_current_positon = player.position
+	# var player_spawn_point = player.respawn_point.position
+	# var player_scale = player.scale
+	
+	totem.position = position + Vector2(0, -200)
+	get_parent().add_child(totem)
