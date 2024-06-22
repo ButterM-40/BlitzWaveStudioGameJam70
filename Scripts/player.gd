@@ -4,7 +4,7 @@ class_name Player
 @export var player_sprite: AnimatedSprite2D
 @onready var initial_sprite_scale = player_sprite.scale
 const SPEED = 300.0
-const JUMP_VELOCITY = -2000.0
+const JUMP_VELOCITY = -1250.0
 var current_jump_velocity = JUMP_VELOCITY
 
 var state = PlayerState.IDLE
@@ -74,8 +74,12 @@ func _physics_process(_delta):
 
 	if is_on_floor():
 		vertical_input = Input.get_action_strength("Jump")
+		
 	
 	if !game_paused:
+		if abs(velocity.x) > 0 && is_on_floor():
+			foot_steps()
+
 		velocity.x = horizontal_input * SPEED
 
 		velocity.y += vertical_input * current_jump_velocity
@@ -84,7 +88,21 @@ func _physics_process(_delta):
 		move_and_slide()
 		handle_movement_state()
 		face_movement_direction(horizontal_input)
+
+func foot_steps():
+	var sound_player = get_node('Audio/GrassFootsteps')
 	
+	if !sound_player.playing:
+		var num = randi_range(1, 8)
+
+		var audio_stream = load('res://Sound/Footsteps/GrassStep_' + str(num) + '.wav')
+		print(audio_stream, num)
+
+		sound_player.set_stream(audio_stream)
+		
+		sound_player.playing = true
+	pass
+
 func face_movement_direction(horizontal_input):
 	if not is_zero_approx(horizontal_input):
 		if horizontal_input < 0:
@@ -136,8 +154,8 @@ func respawn():
 			character = Character.TATONGA
 			player_sprite.sprite_frames = ui_switch.animation_array[3]
 	
-	ui_switch.removeCurrentTotem()
-
 	totem.position = position + Vector2(0, -50)
 	get_parent().add_child(totem)
 	position = respawn_point.position
+
+	ui_switch.removeCurrentTotem()

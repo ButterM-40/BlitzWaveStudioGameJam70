@@ -41,6 +41,7 @@ scene_array = Array[PackedScene]([ExtResource("2_4mhg2"), ExtResource("3_fwmmh")
 animation_array = Array[SpriteFrames]([ExtResource("6_5dc67"), ExtResource("7_kw811"), ExtResource("8_jkcjx"), ExtResource("9_1sonb")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, 0)
 
 [node name="TestPlatform" type="StaticBody2D" parent="."]
 position = Vector2(16, 96)
@@ -61,15 +62,15 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_nt4pw")
 
 [node name="RespawnPoint" type="Node2D" parent="."]
-position = Vector2(-418, -58)
+position = Vector2(-494, -55)
 
 [node name="---- Player ----" type="Node" parent="."]
 
 [node name="Player" parent="---- Player ----" instance=ExtResource("6_pt727")]
-position = Vector2(78, 267)
+position = Vector2(-500, -59)
 
 [node name="OpenMenu" type="Node2D" parent="---- Player ----" node_paths=PackedStringArray("player_node")]
-position = Vector2(579, 326)
+position = Vector2(1, 0)
 script = ExtResource("7_to5tw")
 player_node = NodePath("../Player")
 
@@ -131,5 +132,5 @@ position = Vector2(0, -112)
 activatable_objects = [NodePath("../Door")]
 
 [node name="TileMap" parent="." instance=ExtResource("22_mh8fs")]
-position = Vector2(-323, -188)
+position = Vector2(-322, -188)
 scale = Vector2(2, 2)

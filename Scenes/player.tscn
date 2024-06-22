@@ -30,3 +30,7 @@ position = Vector2(0, -7)
 sprite_frames = ExtResource("2_rokxk")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="GrassFootsteps" type="AudioStreamPlayer2D" parent="Audio"]
