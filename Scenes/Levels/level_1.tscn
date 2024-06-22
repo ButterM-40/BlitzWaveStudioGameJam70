@@ -8,7 +8,7 @@
 [ext_resource type="SpriteFrames" uid="uid://be55fdyu4jamo" path="res://Art/turtle_animation.tres" id="9_56vei"]
 [ext_resource type="PackedScene" uid="uid://dqafl8aigr52l" path="res://Scenes/ParalloxForest.tscn" id="10_3r5yt"]
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="10_kj4yc"]
-[ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="12_e1a6c"]
+[ext_resource type="PackedScene" uid="uid://drra0yb1j1f8o" path="res://Scenes/tile_map.tscn" id="12_e1a6c"]
 
 [node name="Level1" type="Node2D"]
 
