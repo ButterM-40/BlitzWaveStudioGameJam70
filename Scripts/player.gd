@@ -1,11 +1,12 @@
 extends CharacterBody2D
 class_name Player
-
 @export var player_sprite: AnimatedSprite2D
 @onready var initial_sprite_scale = player_sprite.scale
 const SPEED = 300.0
 const JUMP_VELOCITY = -1250.0
 var current_jump_velocity = JUMP_VELOCITY
+
+var music_playing = true
 
 var state = PlayerState.IDLE
 enum PlayerState {
@@ -52,6 +53,17 @@ func _ready():
 		Input.set_custom_mouse_cursor(tatonga_cursor)
 
 func _process(_delta):
+	var music_player = get_node('Audio/Music')
+	var ambience_player = get_node('Audio/Ambience')
+
+	if music_playing && !music_player.playing:
+		music_player.playing = true
+	elif !music_playing:
+		music_player.playing = false
+
+	if !ambience_player.playing:
+		ambience_player.playing = true
+
 	if character == Character.BIDZIIL:
 		Input.set_custom_mouse_cursor(bidziil_cursor)
 	elif character == Character.GAAGII:
@@ -74,10 +86,9 @@ func _physics_process(_delta):
 
 	if is_on_floor():
 		vertical_input = Input.get_action_strength("Jump")
-		
 	
 	if !game_paused:
-		if abs(velocity.x) > 0 && is_on_floor():
+		if abs(velocity.x) > 0&&is_on_floor():
 			foot_steps()
 
 		velocity.x = horizontal_input * SPEED
@@ -96,7 +107,6 @@ func foot_steps():
 		var num = randi_range(1, 8)
 
 		var audio_stream = load('res://Sound/Footsteps/GrassStep_' + str(num) + '.wav')
-		print(audio_stream, num)
 
 		sound_player.set_stream(audio_stream)
 		
