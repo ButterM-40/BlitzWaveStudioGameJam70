@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp32wqr8j4kv5"]
+[gd_scene load_steps=10 format=3 uid="uid://cp32wqr8j4kv5"]
 
 [ext_resource type="Script" path="res://UI/LevelSelector/LevelSelectScreen.gd" id="1_cr4xe"]
 [ext_resource type="PackedScene" uid="uid://by4t4g7mgjjak" path="res://UI/LevelSelector/BackButton.tscn" id="2_udmo0"]
+[ext_resource type="Texture2D" uid="uid://b1cy702km630q" path="res://Art/backgroundParalax/BG_0.png" id="2_uj2km"]
+[ext_resource type="Texture2D" uid="uid://dvv88oc0ko36k" path="res://Art/backgroundParalax/BG_1.png" id="3_01430"]
+[ext_resource type="Texture2D" uid="uid://p1i5v5e2dche" path="res://Art/backgroundParalax/BG_2.png" id="4_ruf6l"]
+[ext_resource type="Texture2D" uid="uid://b8jlhh7aleywa" path="res://Art/backgroundParalax/BG_3.png" id="5_tr1gg"]
+[ext_resource type="Texture2D" uid="uid://b2tag2ybymle" path="res://Art/backgroundParalax/BG_4.png" id="6_5x28x"]
+[ext_resource type="Texture2D" uid="uid://sub6olub5fwt" path="res://Art/backgroundParalax/BG_5.png" id="7_7kyc1"]
+[ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="8_imxxj"]
 
 [node name="LevelSelector" type="Control"]
 layout_mode = 3
@@ -9,20 +16,63 @@ anchors_preset = 0
 script = ExtResource("1_cr4xe")
 dir_path = "res://Scenes/Levels"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+z_index = -6
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("2_uj2km")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer"]
+z_index = -5
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("3_01430")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer"]
+z_index = -4
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("4_ruf6l")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("5_tr1gg")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("6_5x28x")
+
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("6_5x28x")
+
+[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("7_7kyc1")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 50.0
+offset_top = 73.0
+offset_right = 85.0
+offset_bottom = 108.0
 scale = Vector2(29.9309, 16.2)
-color = Color(0.791005, 0.521429, 0.477587, 1)
+color = Color(0, 0, 0, 0.541176)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 offset_right = 1150.0
 offset_bottom = 646.0
-theme_override_constants/margin_left = 12
+theme_override_constants/margin_left = 66
 theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
+theme_override_constants/margin_right = 66
 theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -31,6 +81,8 @@ theme_override_constants/separation = 64
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("8_imxxj")
+theme_override_font_sizes/font_size = 76
 text = "Select Level
 "
 horizontal_alignment = 1
@@ -49,6 +101,6 @@ layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 146
-theme_override_constants/v_separation = 16
-columns = 2
+theme_override_constants/h_separation = 111
+theme_override_constants/v_separation = 366
+columns = 5
