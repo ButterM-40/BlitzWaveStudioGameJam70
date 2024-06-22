@@ -19,14 +19,14 @@ animation_array = Array[SpriteFrames]([ExtResource("6_jx0fu"), ExtResource("7_sm
 [node name="RespawnPoint" type="Node2D" parent="."]
 position = Vector2(-495, -55)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-276, -171)
+zoom = Vector2(2, 2)
+
 [node name="---- Player ----" type="Node" parent="."]
 
 [node name="Player" parent="---- Player ----" instance=ExtResource("10_kj4yc")]
 position = Vector2(-532, -58)
-
-[node name="Camera2D" type="Camera2D" parent="---- Player ----/Player"]
-position = Vector2(256, -113)
-zoom = Vector2(2, 2)
 
 [node name="TileMap" parent="." instance=ExtResource("12_e1a6c")]
 position = Vector2(-323, -188)
