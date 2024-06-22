@@ -10,10 +10,10 @@ var save_dict = {}
 func _ready() -> void:
 	
 	save_dict = save()
-	#save_level()
-	load_level()
-	update_level("level_2")
-	print("============")
+	save_level()
+	#load_level()
+	#update_level("level_2")
+	#print("============")
 	get_levels(dir_path)
 	
 	#print(save_dict)
@@ -32,7 +32,7 @@ func get_levels(path) -> void:
 			file_name = file_n
 
 			print(file_n)
-			create_level_btn('%s/%s' % [file_n], file_name)
+			create_level_btn('%s/%s' % [dir.get_current_dir(), file_name], file_name)
 
 		dir.list_dir_end()
 		#while file_name != "":
@@ -81,7 +81,7 @@ func save():
 	#Default Initial Save
 	save_dict = {
 		"The_Start": true,	
-		"level_1": false,
+		"level_1": true,
 		"level_2": false,
 		"level_3": false,
 		
