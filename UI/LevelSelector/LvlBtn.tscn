@@ -24,6 +24,7 @@ anchor_right = 0.054
 anchor_bottom = 0.039
 offset_right = 2.792
 offset_bottom = -0.170004
+scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("1_da723")
 theme_override_styles/normal = SubResource("StyleBoxTexture_5ab5h")
 theme_override_styles/hover = SubResource("StyleBoxTexture_3f77c")

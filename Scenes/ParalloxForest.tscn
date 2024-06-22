@@ -11,7 +11,9 @@
 [node name="ParalloxForest" type="ParallaxBackground"]
 
 [node name="WhiteBackground" type="ParallaxLayer" parent="."]
+
 position = Vector2(472, 129)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="WhiteBackground"]
@@ -20,8 +22,10 @@ scale = Vector2(1.82, 1.82)
 texture = ExtResource("1_ais5c")
 
 [node name="Sun" type="ParallaxLayer" parent="."]
+
 position = Vector2(472, 129)
 motion_scale = Vector2(0.4, 1)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sun"]
@@ -30,8 +34,10 @@ scale = Vector2(1.82, 1.82)
 texture = ExtResource("2_lgof2")
 
 [node name="Clouds" type="ParallaxLayer" parent="."]
+
 position = Vector2(472, 129)
 motion_scale = Vector2(0.3, 1)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Clouds"]
@@ -40,8 +46,10 @@ scale = Vector2(1.82, 1.82)
 texture = ExtResource("3_8xckf")
 
 [node name="Mountains" type="ParallaxLayer" parent="."]
+
 position = Vector2(472, 129)
 motion_scale = Vector2(0.5, 1)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Mountains"]
@@ -50,8 +58,10 @@ scale = Vector2(1.82, 1.82)
 texture = ExtResource("4_nyt1g")
 
 [node name="Trees1" type="ParallaxLayer" parent="."]
+
 position = Vector2(472, 129)
 motion_scale = Vector2(0.4, 1)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Trees1"]
@@ -60,8 +70,10 @@ scale = Vector2(1.82, 1.82)
 texture = ExtResource("5_7qefc")
 
 [node name="Trees2" type="ParallaxLayer" parent="."]
+
 position = Vector2(472, 129)
 motion_scale = Vector2(0.3, 1)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Trees2"]
@@ -70,8 +82,10 @@ scale = Vector2(1.82, 1.82)
 texture = ExtResource("6_djhjr")
 
 [node name="Tree3" type="ParallaxLayer" parent="."]
+
 position = Vector2(472, 129)
 motion_scale = Vector2(0.25, 1)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Tree3"]

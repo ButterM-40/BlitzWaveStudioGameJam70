@@ -5,6 +5,9 @@ extends Button
 var original_size := scale
 var grow_size := Vector2(scale.x + .1, scale.y + .1)
 
+func _ready():
+	grow_btn(grow_size, .1)
+
 func _on_mouse_entered():
 	grow_btn(grow_size, .1)
 
