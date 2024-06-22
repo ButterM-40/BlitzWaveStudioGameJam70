@@ -41,7 +41,5 @@ layer_0/tile_data = PackedInt32Array(458748, 393216, 4, 458750, 524288, 4, 45875
 [node name="Enemy" parent="." instance=ExtResource("10_qcdrw")]
 position = Vector2(152, -18)
 
-[connection signal="switch_state" from="Enemy/StateMachine/AttackState" to="Enemy/StateMachine" method="switch_state"]
-
 [editable path="Enemy"]
 [editable path="Enemy/StateMachine/AttackState"]
