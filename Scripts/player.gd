@@ -153,16 +153,27 @@ func handle_movement_state():
 func respawn():
 	var ui_switch = get_node('../../UI Totem Switch')
 
+	var sound_player = get_node('Audio/Death')
+	var audio_stream
+	
 	var totem
 	match character:
 		Character.BIDZIIL:
 			totem = ui_switch.totem_array[0].instantiate()
+			audio_stream = load('res://Sound/Death/BearDeath.wav')
 		Character.GAAGII:
 			totem = ui_switch.totem_array[1].instantiate()
+			audio_stream = load('res://Sound/Death/FrogDeath.wav')
 		Character.AHULI:
 			totem = ui_switch.totem_array[2].instantiate()
+			audio_stream = load('res://Sound/Death/OwlDeath.wav')
 		Character.TATONGA:
 			totem = ui_switch.totem_array[3].instantiate()
+			audio_stream = load('res://Sound/Death/TurtleDeath.wav')
+
+	sound_player.set_stream(audio_stream)
+	
+	sound_player.playing = true
 
 	if ui_switch.scene_array.size() > 1:
 		if ui_switch.scene_array[1].instantiate().name == 'BearUi':
