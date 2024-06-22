@@ -56,7 +56,7 @@ func _process(_delta):
 	var music_player = get_node('Audio/Music')
 	var ambience_player = get_node('Audio/Ambience')
 
-	if music_playing && !music_player.playing:
+	if music_playing&&!music_player.playing:
 		music_player.playing = true
 	elif !music_playing:
 		music_player.playing = false
@@ -86,11 +86,11 @@ func _physics_process(_delta):
 
 	if is_on_floor():
 		vertical_input = Input.get_action_strength("Jump")
+
+		if vertical_input > 0:
+			jump_sound()
 	
 	if !game_paused:
-		if abs(velocity.x) > 0&&is_on_floor():
-			foot_steps()
-
 		velocity.x = horizontal_input * SPEED
 
 		velocity.y += vertical_input * current_jump_velocity
@@ -113,12 +113,25 @@ func foot_steps():
 		sound_player.playing = true
 	pass
 
+func jump_sound():
+	var sound_player = get_node('Audio/Jump')
+	
+	var num = randi_range(1, 4)
+
+	var audio_stream = load('res://Sound/Jumps/Jump_' + str(num) + '.wav')
+
+	sound_player.set_stream(audio_stream)
+	
+	sound_player.playing = true
+	pass
+
 func face_movement_direction(horizontal_input):
 	if not is_zero_approx(horizontal_input):
 		if horizontal_input < 0:
 			player_sprite.scale = Vector2( - initial_sprite_scale.x, initial_sprite_scale.y)
 		else:
 			player_sprite.scale = initial_sprite_scale
+
 func handle_movement_state():
 	
 	if is_zero_approx(velocity.x)&&is_on_floor():
@@ -133,6 +146,7 @@ func handle_movement_state():
 			player_sprite.play("idle")
 		PlayerState.WALK:
 			player_sprite.play("walk")
+			foot_steps()
 		PlayerState.JUMP:
 			player_sprite.play("jump")
 
