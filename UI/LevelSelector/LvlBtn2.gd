@@ -1,7 +1,7 @@
 extends Button
 
 @export_file var level_path
-@onready var music = $Button
+@onready var music = $Play
 var original_size := scale
 var grow_size := Vector2(scale.x + .1, scale.y + .1)
 
@@ -23,5 +23,5 @@ func _on_pressed() -> void:
 		print("Level_Path is NULL")
 		return
 	music.play()
-	await(music.finished)
+	await(music.finished)	
 	get_tree().change_scene_to_file(level_path)

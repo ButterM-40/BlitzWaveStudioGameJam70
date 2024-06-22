@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp32wqr8j4kv5"]
+[gd_scene load_steps=3 format=3 uid="uid://cp32wqr8j4kv5"]
 
 [ext_resource type="Script" path="res://UI/LevelSelector/LevelSelectScreen.gd" id="1_cr4xe"]
+[ext_resource type="PackedScene" uid="uid://by4t4g7mgjjak" path="res://UI/LevelSelector/BackButton.tscn" id="2_udmo0"]
 
 [node name="LevelSelector" type="Control"]
 layout_mode = 3
@@ -16,21 +17,38 @@ scale = Vector2(29.9309, 16.2)
 color = Color(0.791005, 0.521429, 0.477587, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+offset_right = 1150.0
+offset_bottom = 646.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 64
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Select Label"
+text = "Select Level
+"
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
-clip_contents = true
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer/VBoxContainer/Label"]
 layout_mode = 2
-theme_override_constants/h_separation = 16
+offset_top = 23.0
+offset_right = 65.0
+offset_bottom = 47.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = -1515
+
+[node name="LvlButton" parent="MarginContainer/VBoxContainer/Label/BoxContainer" instance=ExtResource("2_udmo0")]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 146
 theme_override_constants/v_separation = 16
 columns = 2
