@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://k7koubectv8l" path="res://Scenes/Activatable/door.tscn" id="16_1lxyb"]
 [ext_resource type="PackedScene" uid="uid://cd4lfcnpu6524" path="res://Scenes/Activator/lever.tscn" id="16_g6cse"]
 [ext_resource type="PackedScene" uid="uid://dj65i3oqes7na" path="res://Scenes/Activatable/trapdoor.tscn" id="18_xtt3y"]
+[ext_resource type="PackedScene" uid="uid://dqafl8aigr52l" path="res://Scenes/ParalloxForest.tscn" id="22_mh2kx"]
 [ext_resource type="PackedScene" uid="uid://drra0yb1j1f8o" path="res://Scenes/tile_map.tscn" id="22_mh8fs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg2a7"]
@@ -27,6 +28,8 @@ size = Vector2(1280, 32)
 size = Vector2(256, 32)
 
 [node name="Testing" type="Node2D"]
+
+[node name="ParalloxForest" parent="." instance=ExtResource("22_mh2kx")]
 
 [node name="UI Totem Switch" parent="." instance=ExtResource("1_w040g")]
 scene_array = Array[PackedScene]([ExtResource("2_4mhg2"), ExtResource("3_fwmmh"), ExtResource("4_ccfdp"), ExtResource("4_ccfdp"), ExtResource("4_ccfdp"), ExtResource("3_fwmmh"), ExtResource("5_ux05h")])

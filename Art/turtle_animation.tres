@@ -1,7 +1,11 @@
-[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://be55fdyu4jamo"]
+[gd_resource type="SpriteFrames" load_steps=15 format=3 uid="uid://be55fdyu4jamo"]
 
 [ext_resource type="Texture2D" uid="uid://c3nqnt3f8ittl" path="res://Art/Turtle_Boi_AB2.png" id="1_a24ov"]
 [ext_resource type="Texture2D" uid="uid://bkfxhhg4j6ng8" path="res://Art/Turtle_Boi_AB3.png" id="2_pecl4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn7sn"]
+atlas = ExtResource("2_pecl4")
+region = Rect2(1152, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qsrsm"]
 atlas = ExtResource("1_a24ov")
@@ -49,6 +53,14 @@ region = Rect2(672, 0, 96, 96)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn7sn")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qsrsm")
