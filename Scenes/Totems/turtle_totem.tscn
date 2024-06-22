@@ -14,7 +14,6 @@ size = Vector2(32, 2)
 [node name="TurtleTotem" instance=ExtResource("1_lsuwx")]
 collision_layer = 16
 collision_mask = 30
-gravity_scale = 15.0
 script = ExtResource("2_pie3u")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
