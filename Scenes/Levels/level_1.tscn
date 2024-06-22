@@ -20,8 +20,8 @@ animation_array = Array[SpriteFrames]([ExtResource("6_jx0fu"), ExtResource("7_sm
 position = Vector2(-495, -55)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-276, -171)
-zoom = Vector2(2, 2)
+position = Vector2(0, -128)
+zoom = Vector2(1.05, 1.05)
 
 [node name="---- Player ----" type="Node" parent="."]
 
