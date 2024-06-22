@@ -1,11 +1,12 @@
 extends CharacterBody2D
 class_name Player
-
 @export var player_sprite: AnimatedSprite2D
 @onready var initial_sprite_scale = player_sprite.scale
 const SPEED = 300.0
 const JUMP_VELOCITY = -1250.0
 var current_jump_velocity = JUMP_VELOCITY
+
+var music_playing = true
 
 var state = PlayerState.IDLE
 enum PlayerState {
@@ -52,6 +53,17 @@ func _ready():
 		Input.set_custom_mouse_cursor(tatonga_cursor)
 
 func _process(_delta):
+	var music_player = get_node('Audio/Music')
+	var ambience_player = get_node('Audio/Ambience')
+
+	if music_playing&&!music_player.playing:
+		music_player.playing = true
+	elif !music_playing:
+		music_player.playing = false
+
+	if !ambience_player.playing:
+		ambience_player.playing = true
+
 	if character == Character.BIDZIIL:
 		Input.set_custom_mouse_cursor(bidziil_cursor)
 	elif character == Character.GAAGII:
@@ -74,12 +86,11 @@ func _physics_process(_delta):
 
 	if is_on_floor():
 		vertical_input = Input.get_action_strength("Jump")
-		
+
+		if vertical_input > 0:
+			jump_sound()
 	
 	if !game_paused:
-		if abs(velocity.x) > 0 && is_on_floor():
-			foot_steps()
-
 		velocity.x = horizontal_input * SPEED
 
 		velocity.y += vertical_input * current_jump_velocity
@@ -96,11 +107,22 @@ func foot_steps():
 		var num = randi_range(1, 8)
 
 		var audio_stream = load('res://Sound/Footsteps/GrassStep_' + str(num) + '.wav')
-		print(audio_stream, num)
 
 		sound_player.set_stream(audio_stream)
 		
 		sound_player.playing = true
+	pass
+
+func jump_sound():
+	var sound_player = get_node('Audio/Jump')
+	
+	var num = randi_range(1, 4)
+
+	var audio_stream = load('res://Sound/Jumps/Jump_' + str(num) + '.wav')
+
+	sound_player.set_stream(audio_stream)
+	
+	sound_player.playing = true
 	pass
 
 func face_movement_direction(horizontal_input):
@@ -109,6 +131,7 @@ func face_movement_direction(horizontal_input):
 			player_sprite.scale = Vector2( - initial_sprite_scale.x, initial_sprite_scale.y)
 		else:
 			player_sprite.scale = initial_sprite_scale
+
 func handle_movement_state():
 	
 	if is_zero_approx(velocity.x)&&is_on_floor():
@@ -123,22 +146,34 @@ func handle_movement_state():
 			player_sprite.play("idle")
 		PlayerState.WALK:
 			player_sprite.play("walk")
+			foot_steps()
 		PlayerState.JUMP:
 			player_sprite.play("jump")
 
 func respawn():
 	var ui_switch = get_node('../../UI Totem Switch')
 
+	var sound_player = get_node('Audio/Death')
+	var audio_stream
+	
 	var totem
 	match character:
 		Character.BIDZIIL:
 			totem = ui_switch.totem_array[0].instantiate()
+			audio_stream = load('res://Sound/Death/BearDeath.wav')
 		Character.GAAGII:
 			totem = ui_switch.totem_array[1].instantiate()
+			audio_stream = load('res://Sound/Death/FrogDeath.wav')
 		Character.AHULI:
 			totem = ui_switch.totem_array[2].instantiate()
+			audio_stream = load('res://Sound/Death/OwlDeath.wav')
 		Character.TATONGA:
 			totem = ui_switch.totem_array[3].instantiate()
+			audio_stream = load('res://Sound/Death/TurtleDeath.wav')
+
+	sound_player.set_stream(audio_stream)
+	
+	sound_player.playing = true
 
 	if ui_switch.scene_array.size() > 1:
 		if ui_switch.scene_array[1].instantiate().name == 'BearUi':

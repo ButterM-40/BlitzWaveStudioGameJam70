@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://csgfoswkmgt1i"]
+[gd_scene load_steps=10 format=3 uid="uid://csgfoswkmgt1i"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mi0d6"]
 [ext_resource type="Script" path="res://Scripts/Components/health.gd" id="2_lrlg6"]
 [ext_resource type="SpriteFrames" uid="uid://685sltxjoua6" path="res://Art/player_animation.tres" id="2_rokxk"]
 [ext_resource type="Script" path="res://Scripts/Components/pushable.gd" id="3_k1sb3"]
+[ext_resource type="AudioStream" uid="uid://brwol3c5xkxyw" path="res://Sound/Ambience/ForestAmbience.wav" id="5_c7var"]
+[ext_resource type="AudioStream" uid="uid://cmiyaxsguoyvu" path="res://Sound/Music/Grass_Theme_1.mp3" id="6_0jjex"]
+[ext_resource type="AudioStream" uid="uid://tvdhh75lopo8" path="res://Sound/Jumps/Jump_1.wav" id="7_7nyft"]
+[ext_resource type="AudioStream" uid="uid://b05hn44b8uy5a" path="res://Sound/Death/BearDeath.wav" id="8_t7rqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7avb"]
 size = Vector2(29, 69.8675)
@@ -33,4 +37,23 @@ autoplay = "idle"
 
 [node name="Audio" type="Node2D" parent="."]
 
+[node name="AudioListener2D" type="AudioListener2D" parent="Audio"]
+current = true
+
 [node name="GrassFootsteps" type="AudioStreamPlayer2D" parent="Audio"]
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("5_c7var")
+volume_db = -8.0
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("6_0jjex")
+volume_db = -5.0
+autoplay = true
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("7_7nyft")
+
+[node name="Death" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("8_t7rqj")
