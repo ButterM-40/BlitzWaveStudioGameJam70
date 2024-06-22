@@ -4,7 +4,7 @@ class_name Player
 @export var player_sprite: AnimatedSprite2D
 @onready var initial_sprite_scale = player_sprite.scale
 const SPEED = 300.0
-const JUMP_VELOCITY = -2000.0
+const JUMP_VELOCITY = -1250.0
 var current_jump_velocity = JUMP_VELOCITY
 
 var state = PlayerState.IDLE
@@ -136,8 +136,8 @@ func respawn():
 			character = Character.TATONGA
 			player_sprite.sprite_frames = ui_switch.animation_array[3]
 	
-	ui_switch.removeCurrentTotem()
-
 	totem.position = position + Vector2(0, -50)
 	get_parent().add_child(totem)
 	position = respawn_point.position
+
+	ui_switch.removeCurrentTotem()
