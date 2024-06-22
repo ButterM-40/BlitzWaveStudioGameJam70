@@ -57,3 +57,5 @@ stream = ExtResource("7_7nyft")
 
 [node name="Death" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("8_t7rqj")
+
+[node name="Select" type="AudioStreamPlayer" parent="Audio"]
