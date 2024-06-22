@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://csgfoswkmgt1i"]
+
+[ext_resource type="Script" path="res://Scripts/Entity/player_reworked.gd" id="1_yv2jx"]
+[ext_resource type="SpriteFrames" uid="uid://685sltxjoua6" path="res://Art/Sprite Frames/bear_animation.tres" id="2_u4lx3"]
+[ext_resource type="SpriteFrames" uid="uid://p3thu3ifg0hc" path="res://Art/Sprite Frames/owl_animations.tres" id="3_hpwdt"]
+[ext_resource type="Script" path="res://Scripts/Components/pushable.gd" id="3_k1sb3"]
+[ext_resource type="SpriteFrames" uid="uid://dshn8qb23el1p" path="res://Art/Sprite Frames/frog_animation.tres" id="4_is0fi"]
+[ext_resource type="SpriteFrames" uid="uid://be55fdyu4jamo" path="res://Art/Sprite Frames/turtle_animation.tres" id="5_qwon5"]
+[ext_resource type="PackedScene" uid="uid://blijb2mvjklth" path="res://Scenes/Components/health.tscn" id="6_v2km7"]
+[ext_resource type="Script" path="res://Scripts/Components/aquatic.gd" id="8_i0nre"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7avb"]
+size = Vector2(25, 60)
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 2
+texture_filter = 1
+collision_mask = 15
+script = ExtResource("1_yv2jx")
+sprite_frames = Array[SpriteFrames]([ExtResource("2_u4lx3"), ExtResource("3_hpwdt"), ExtResource("4_is0fi"), ExtResource("5_qwon5")])
+speed = 12000.0
+jump_height = 48.0
+jump_time_peak = 0.2
+jump_time_fall = 0.15
+
+[node name="Health" parent="." instance=ExtResource("6_v2km7")]
+
+[node name="Pushable" type="Node2D" parent="."]
+script = ExtResource("3_k1sb3")
+
+[node name="Aquatic" type="Node2D" parent="."]
+script = ExtResource("8_i0nre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_g7avb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
+
+[node name="RespawnTimer" type="Timer" parent="."]
+
+[connection signal="died" from="Health" to="." method="_on_died"]
+[connection signal="pushed" from="Pushable" to="." method="_on_pushed"]
+[connection signal="dived" from="Aquatic" to="." method="_on_dived"]
+[connection signal="surfaced" from="Aquatic" to="." method="_on_surfaced"]

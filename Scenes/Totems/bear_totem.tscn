@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://blneww8vp4uxh"]
 
 [ext_resource type="PackedScene" uid="uid://dph04do3ovd2r" path="res://Scenes/Totems/base_totem.tscn" id="1_mrmji"]
-[ext_resource type="PackedScene" uid="uid://dxbcctgektwxl" path="res://Scenes/hurt_box.tscn" id="2_6bvug"]
+[ext_resource type="PackedScene" uid="uid://dxbcctgektwxl" path="res://Scenes/Components/hurt_box.tscn" id="2_6bvug"]
 [ext_resource type="Script" path="res://Scripts/Totems/bear_totem.gd" id="2_ldv5a"]
 [ext_resource type="SpriteFrames" uid="uid://d08fgfmh3x3qu" path="res://Art/Totems/Bear/bear_sprite_frames.tres" id="2_stwwi"]
 

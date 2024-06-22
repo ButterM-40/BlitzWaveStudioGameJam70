@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cin1lq17c0w54"]
+
+[ext_resource type="Script" path="res://Scripts/Traps/water_trap.gd" id="1_wwdpk"]
+[ext_resource type="Texture2D" uid="uid://c8j0cahf8rkx7" path="res://Art/Traps/water_trap_placeholder.png" id="2_p7w3v"]
+[ext_resource type="PackedScene" uid="uid://dxbcctgektwxl" path="res://Scenes/Components/hurt_box.tscn" id="3_0o6e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ew3g8"]
+size = Vector2(31, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1x8jk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p7w3v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WaterTrap" type="Area2D"]
+collision_layer = 32
+script = ExtResource("1_wwdpk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ew3g8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1x8jk")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_0o6e3")]
+collision_mask = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

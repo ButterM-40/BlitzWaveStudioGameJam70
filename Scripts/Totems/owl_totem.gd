@@ -1,4 +1,4 @@
 extends Totem
 class_name OwlTotem
 
-var type: Constants.TotemType = Constants.TotemType.OWL
+var type: Constants.Character = Constants.Character.OWL

@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://b7f87jxbuf06f"]
 
-[ext_resource type="Script" path="res://Scripts/altar.gd" id="1_uwany"]
-[ext_resource type="Texture2D" uid="uid://bqd22hmhxvv7t" path="res://Art/altar_placeholder.png" id="2_qvc1l"]
-[ext_resource type="Texture2D" uid="uid://b020l8ji2m8h2" path="res://Art/altar_light_place_holder.png" id="3_p8td3"]
+[ext_resource type="Script" path="res://Scripts/Activator/altar.gd" id="1_uwany"]
+[ext_resource type="Texture2D" uid="uid://bqd22hmhxvv7t" path="res://Art/Placeholders/altar_placeholder.png" id="2_qvc1l"]
+[ext_resource type="Texture2D" uid="uid://b020l8ji2m8h2" path="res://Art/Placeholders/altar_light_place_holder.png" id="3_p8td3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejryf"]
 size = Vector2(31, 31)

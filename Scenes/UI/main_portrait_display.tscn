@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpkdxgamw02ae"]
+
+[ext_resource type="Texture2D" uid="uid://qqdv3w7lcco1" path="res://Art/Portraits Outline/PlayerPhotoEmpty.png" id="1_7bgbf"]
+[ext_resource type="Script" path="res://Scripts/UI/main_portrait_display.gd" id="2_hqt2l"]
+
+[node name="MainPortraitDisplay" type="TextureRect"]
+texture = ExtResource("1_7bgbf")
+script = ExtResource("2_hqt2l")

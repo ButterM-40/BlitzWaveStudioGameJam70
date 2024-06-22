@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmhr0d5kmkvko"]
+
+[ext_resource type="Script" path="res://Scripts/UI/portraits_container.gd" id="1_0gxxk"]
+[ext_resource type="PackedScene" uid="uid://dpkdxgamw02ae" path="res://Scenes/UI/main_portrait_display.tscn" id="2_ba4xv"]
+[ext_resource type="Texture2D" uid="uid://dxv2ostgneqd7" path="res://Art/Portraits Outline/PlayerPhotoRed.png" id="3_3f5pn"]
+[ext_resource type="Texture2D" uid="uid://bncbant58hac5" path="res://Art/Portraits Outline/PlayerPhotoYellow.png" id="4_fygxp"]
+[ext_resource type="Texture2D" uid="uid://cnsuq0fpakcj8" path="res://Art/Portraits Outline/PlayerPhotoGreen.png" id="5_6jcib"]
+[ext_resource type="Texture2D" uid="uid://jootrs50rrxl" path="res://Art/Portraits Outline/PlayerPhotoBlue.png" id="6_dwkg4"]
+
+[node name="PortaitsContainer" type="HBoxContainer"]
+offset_right = 190.0
+offset_bottom = 64.0
+script = ExtResource("1_0gxxk")
+
+[node name="MainPortraitDisplay" parent="." instance=ExtResource("2_ba4xv")]
+layout_mode = 2
+character_textures = Array[CompressedTexture2D]([ExtResource("3_3f5pn"), ExtResource("4_fygxp"), ExtResource("5_6jcib"), ExtResource("6_dwkg4")])
+
+[node name="SecondaryPortraitsContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 0

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bwitu8b4loh1c"]
+
+[node name="StateMachine" type="Node2D"]
+
+[node name="DebugLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

@@ -1,0 +1,11 @@
+[gd_scene load_steps=6 format=3 uid="uid://k378jgf6edhn"]
+
+[ext_resource type="Script" path="res://Scripts/Totems/totem_spawner.gd" id="1_jomi2"]
+[ext_resource type="PackedScene" uid="uid://blneww8vp4uxh" path="res://Scenes/Totems/bear_totem.tscn" id="2_w0ril"]
+[ext_resource type="PackedScene" uid="uid://m43r4sqbmowa" path="res://Scenes/Totems/owl_totem.tscn" id="3_cc8i6"]
+[ext_resource type="PackedScene" uid="uid://dchmurl2h1fj0" path="res://Scenes/Totems/frog_totem.tscn" id="4_hkqrk"]
+[ext_resource type="PackedScene" uid="uid://daw6uheuqqt13" path="res://Scenes/Totems/turtle_totem.tscn" id="5_gil2p"]
+
+[node name="TotemSpawner" type="Node2D"]
+script = ExtResource("1_jomi2")
+totems = Array[PackedScene]([ExtResource("2_w0ril"), ExtResource("3_cc8i6"), ExtResource("4_hkqrk"), ExtResource("5_gil2p")])

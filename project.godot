@@ -18,7 +18,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Constants="*res://Scripts/constants.gd"
+Constants="*res://Scripts/Autoloads/constants.gd"
+InputManager="*res://Scripts/Autoloads/input_manager.gd"
 
 [input]
 

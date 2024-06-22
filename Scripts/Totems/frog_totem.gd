@@ -1,4 +1,4 @@
 extends Totem
 class_name FrogTotem
 
-var type: Constants.TotemType = Constants.TotemType.FROG
+var type: Constants.Character = Constants.Character.FROG

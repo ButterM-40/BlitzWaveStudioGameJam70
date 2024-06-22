@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://b322sdmafmihc"]
+
+[ext_resource type="Script" path="res://Scripts/Entity/enemy.gd" id="1_x4fwr"]
+[ext_resource type="PackedScene" uid="uid://blijb2mvjklth" path="res://Scenes/Components/health.tscn" id="2_ftnat"]
+[ext_resource type="Script" path="res://Scripts/Components/pushable.gd" id="3_efrjg"]
+[ext_resource type="Texture2D" uid="uid://dbs33qra40sys" path="res://Art/Placeholders/enemy_placeholder.png" id="3_jt5wb"]
+[ext_resource type="Script" path="res://Scripts/State Machine/state_machine.gd" id="4_ckehu"]
+[ext_resource type="Script" path="res://Scripts/State Machine/States/Enemy States/move_state.gd" id="6_x85qh"]
+[ext_resource type="Script" path="res://Scripts/State Machine/States/Enemy States/attack_state.gd" id="7_vn0gi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wkpfv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jt5wb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vl08"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_okfrj"]
+radius = 64.0
+
+[node name="Enemy" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 31
+can_sleep = false
+lock_rotation = true
+script = ExtResource("1_x4fwr")
+metadata/_edit_group_ = true
+metadata/_edit_vertical_guides_ = [47.0]
+
+[node name="Health" parent="." instance=ExtResource("2_ftnat")]
+
+[node name="Pushable" type="Node2D" parent="."]
+script = ExtResource("3_efrjg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wkpfv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0vl08")
+
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("4_ckehu")
+starting_state = NodePath("Move")
+
+[node name="DebugLabel" type="Label" parent="StateMachine"]
+offset_top = -40.0
+offset_right = 1.0
+offset_bottom = -17.0
+text = "MOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Move" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("body")]
+script = ExtResource("6_x85qh")
+body = NodePath("../..")
+speed = 100.0
+
+[node name="Attack" type="Area2D" parent="StateMachine" node_paths=PackedStringArray("not_in_range_state_to_switch")]
+collision_layer = 0
+script = ExtResource("7_vn0gi")
+not_in_range_state_to_switch = NodePath("../Move")
+
+[node name="AttackRange" type="CollisionShape2D" parent="StateMachine/Attack"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_okfrj")
+
+[node name="AttackCooldown" type="Timer" parent="StateMachine/Attack"]
+wait_time = 2.0
+
+[connection signal="died" from="Health" to="." method="_on_died"]
+[connection signal="pushed" from="Pushable" to="." method="_on_pushed"]
+[connection signal="body_entered" from="StateMachine/Attack" to="StateMachine/Attack" method="_on_body_entered"]
+[connection signal="body_exited" from="StateMachine/Attack" to="StateMachine/Attack" method="_on_body_exited"]
+[connection signal="switch_state" from="StateMachine/Attack" to="StateMachine" method="switch_state"]
+[connection signal="timeout" from="StateMachine/Attack/AttackCooldown" to="StateMachine/Attack" method="attack"]

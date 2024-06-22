@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c1ayt43ulupfn"]
 
 [ext_resource type="Script" path="res://Scripts/Traps/flame_trap.gd" id="1_nffy8"]
-[ext_resource type="PackedScene" uid="uid://dxbcctgektwxl" path="res://Scenes/hurt_box.tscn" id="2_53hop"]
+[ext_resource type="PackedScene" uid="uid://dxbcctgektwxl" path="res://Scenes/Components/hurt_box.tscn" id="2_53hop"]
 [ext_resource type="Texture2D" uid="uid://baaqiv13wmjax" path="res://Art/Traps/flame_trap_placeholder.png" id="2_f7wun"]
 [ext_resource type="Texture2D" uid="uid://dj0fkbvne5y24" path="res://Art/Traps/extinguished_flame_trap_placeholder.png" id="3_iu57p"]
 
@@ -12,7 +12,7 @@ animations = [{
 "texture": ExtResource("2_f7wun")
 }],
 "loop": true,
-"name": &"default",
+"name": &"burning",
 "speed": 5.0
 }, {
 "frames": [{
@@ -47,6 +47,8 @@ script = ExtResource("1_nffy8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sxxt1")
+animation = &"burning"
+autoplay = "burning"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6f0no")

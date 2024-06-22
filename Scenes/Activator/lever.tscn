@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cd4lfcnpu6524"]
 
-[ext_resource type="Script" path="res://Scripts/lever.gd" id="1_vafhj"]
-[ext_resource type="Texture2D" uid="uid://bvyrygv8k06cq" path="res://Art/lever_placeholder.png" id="3_g4rt4"]
+[ext_resource type="Script" path="res://Scripts/Activator/lever.gd" id="1_vafhj"]
+[ext_resource type="Texture2D" uid="uid://bvyrygv8k06cq" path="res://Art/Placeholders/lever_placeholder.png" id="3_g4rt4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kkhoo"]
 atlas = ExtResource("3_g4rt4")

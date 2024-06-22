@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://coj6mi3jrahhp"]
+
+[ext_resource type="PackedScene" uid="uid://dh7unykuty6xd" path="res://Scenes/Levels/base_level.tscn" id="1_3an6y"]
+[ext_resource type="PackedScene" uid="uid://c1ayt43ulupfn" path="res://Scenes/Traps/flame_trap.tscn" id="3_tv0e5"]
+[ext_resource type="PackedScene" uid="uid://ku2up3d0i603" path="res://Scenes/Traps/wind_trap.tscn" id="4_6ywi1"]
+[ext_resource type="PackedScene" uid="uid://k7koubectv8l" path="res://Scenes/Activatable/door.tscn" id="5_mftnd"]
+[ext_resource type="PackedScene" uid="uid://cd4lfcnpu6524" path="res://Scenes/Activator/lever.tscn" id="6_8igan"]
+[ext_resource type="PackedScene" uid="uid://dj65i3oqes7na" path="res://Scenes/Activatable/trapdoor.tscn" id="7_qmhyt"]
+[ext_resource type="PackedScene" uid="uid://b7f87jxbuf06f" path="res://Scenes/Activator/altar.tscn" id="8_wts7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1b5k"]
+resource_local_to_scene = true
+size = Vector2(5120, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0fjq"]
+size = Vector2(256, 32)
+
+[node name="TestLevel" instance=ExtResource("1_3an6y")]
+characters = Array[int]([2, 0, 3, 1])
+
+[node name="TestPlatform" type="StaticBody2D" parent="Terrain" index="0"]
+position = Vector2(544, 624)
+collision_layer = 8
+collision_mask = 31
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/TestPlatform" index="0"]
+shape = SubResource("RectangleShape2D_m1b5k")
+
+[node name="TestPlatform2" type="StaticBody2D" parent="Terrain" index="1"]
+position = Vector2(720, 528)
+collision_layer = 8
+collision_mask = 31
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/TestPlatform2" index="0"]
+shape = SubResource("RectangleShape2D_g0fjq")
+
+[node name="FlameTrap" parent="Traps" index="0" instance=ExtResource("3_tv0e5")]
+position = Vector2(880, 592)
+
+[node name="FlameTrap2" parent="Traps" index="1" instance=ExtResource("3_tv0e5")]
+position = Vector2(848, 592)
+
+[node name="FlameTrap3" parent="Traps" index="2" instance=ExtResource("3_tv0e5")]
+position = Vector2(912, 592)
+
+[node name="FlameTrap4" parent="Traps" index="3" instance=ExtResource("3_tv0e5")]
+position = Vector2(816, 592)
+
+[node name="WindTrap" parent="Traps" index="4" instance=ExtResource("4_6ywi1")]
+position = Vector2(512, 575)
+strength = 500.0
+
+[node name="Door" parent="Mechanics" index="0" node_paths=PackedStringArray("activators") instance=ExtResource("5_mftnd")]
+position = Vector2(736, 480)
+activators = [NodePath("../Altar")]
+
+[node name="Lever" parent="Mechanics" index="1" instance=ExtResource("6_8igan")]
+position = Vector2(800, 496)
+
+[node name="Trapdoor" parent="Mechanics" index="2" node_paths=PackedStringArray("activators") instance=ExtResource("7_qmhyt")]
+position = Vector2(864, 528)
+activators = [NodePath("../Lever")]
+
+[node name="Altar" parent="Mechanics" index="3" instance=ExtResource("8_wts7h")]
+position = Vector2(608, 496)
+
+[node name="RespawnPoint" parent="." index="7"]
+position = Vector2(96, 608)
+
+[connection signal="triggered" from="Mechanics/Lever" to="Mechanics/Trapdoor" method="_on_activator_triggered"]
+[connection signal="triggered" from="Mechanics/Altar" to="Mechanics/Door" method="_on_activator_triggered"]
+
+[editable path="Player"]

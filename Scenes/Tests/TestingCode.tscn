@@ -1,20 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://qyrk2vehw0i5"]
+[gd_scene load_steps=12 format=3 uid="uid://qyrk2vehw0i5"]
 
-[ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_w040g"]
-[ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="2_4mhg2"]
-[ext_resource type="PackedScene" uid="uid://rtwmkutoywa2" path="res://UI/Totem/eagleUI.tscn" id="3_fwmmh"]
-[ext_resource type="PackedScene" uid="uid://c0nwrc62exahc" path="res://UI/Totem/frogUI.tscn" id="4_ccfdp"]
-[ext_resource type="PackedScene" uid="uid://b63dqv1ntrl5d" path="res://UI/Totem/turtleUI.tscn" id="5_ux05h"]
-[ext_resource type="SpriteFrames" uid="uid://685sltxjoua6" path="res://Art/player_animation.tres" id="6_5dc67"]
-[ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="6_pt727"]
-[ext_resource type="SpriteFrames" uid="uid://p3thu3ifg0hc" path="res://Art/owl_animations.tres" id="7_kw811"]
-[ext_resource type="Script" path="res://Scripts/OpenMenu.gd" id="7_to5tw"]
-[ext_resource type="SpriteFrames" uid="uid://dshn8qb23el1p" path="res://Art/frog_animation.tres" id="8_jkcjx"]
-[ext_resource type="SpriteFrames" uid="uid://be55fdyu4jamo" path="res://Art/turtle_animation.tres" id="9_1sonb"]
-[ext_resource type="PackedScene" uid="uid://dchmurl2h1fj0" path="res://Scenes/Totems/frog_totem.tscn" id="9_odwun"]
-[ext_resource type="PackedScene" uid="uid://m43r4sqbmowa" path="res://Scenes/Totems/owl_totem.tscn" id="11_oasu7"]
-[ext_resource type="PackedScene" uid="uid://daw6uheuqqt13" path="res://Scenes/Totems/turtle_totem.tscn" id="12_k2mi4"]
-[ext_resource type="PackedScene" uid="uid://b322sdmafmihc" path="res://Scenes/enemy.tscn" id="12_nyvo1"]
+[ext_resource type="PackedScene" uid="uid://dmhr0d5kmkvko" path="res://Scenes/UI/portraits_container.tscn" id="1_6kk5f"]
+[ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/Entity/player.tscn" id="6_pt727"]
+[ext_resource type="PackedScene" uid="uid://b322sdmafmihc" path="res://Scenes/Entity/enemy.tscn" id="12_nyvo1"]
 [ext_resource type="PackedScene" uid="uid://c1ayt43ulupfn" path="res://Scenes/Traps/flame_trap.tscn" id="13_5ke4q"]
 [ext_resource type="PackedScene" uid="uid://ku2up3d0i603" path="res://Scenes/Traps/wind_trap.tscn" id="14_d4asv"]
 [ext_resource type="PackedScene" uid="uid://b7f87jxbuf06f" path="res://Scenes/Activator/altar.tscn" id="15_r7hyr"]
@@ -31,84 +19,58 @@ size = Vector2(256, 32)
 
 [node name="Testing" type="Node2D"]
 
-[node name="UI Totem Switch" parent="." instance=ExtResource("1_w040g")]
-scene_array = Array[PackedScene]([ExtResource("2_4mhg2"), ExtResource("3_fwmmh"), ExtResource("4_ccfdp"), ExtResource("4_ccfdp"), ExtResource("4_ccfdp"), ExtResource("3_fwmmh"), ExtResource("5_ux05h")])
-animation_array = Array[SpriteFrames]([ExtResource("6_5dc67"), ExtResource("7_kw811"), ExtResource("8_jkcjx"), ExtResource("9_1sonb")])
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PortaitsContainer" parent="CanvasLayer" instance=ExtResource("1_6kk5f")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="TestPlatform" type="StaticBody2D" parent="."]
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="TestPlatform" type="StaticBody2D" parent="Terrain"]
 position = Vector2(16, 96)
 collision_layer = 8
 collision_mask = 31
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/TestPlatform"]
 shape = SubResource("RectangleShape2D_hg2a7")
 
-[node name="TestPlatform2" type="StaticBody2D" parent="."]
+[node name="TestPlatform2" type="StaticBody2D" parent="Terrain"]
 position = Vector2(64, -80)
 collision_layer = 8
 collision_mask = 31
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/TestPlatform2"]
 shape = SubResource("RectangleShape2D_nt4pw")
+
+[node name="Traps" type="Node2D" parent="."]
+
+[node name="FlameTrap" parent="Traps" instance=ExtResource("13_5ke4q")]
+position = Vector2(208, 64)
+
+[node name="FlameTrap2" parent="Traps" instance=ExtResource("13_5ke4q")]
+position = Vector2(176, 64)
+
+[node name="FlameTrap3" parent="Traps" instance=ExtResource("13_5ke4q")]
+position = Vector2(240, 64)
+
+[node name="FlameTrap4" parent="Traps" instance=ExtResource("13_5ke4q")]
+position = Vector2(144, 64)
+
+[node name="WindTrap" parent="Traps" instance=ExtResource("14_d4asv")]
+position = Vector2(80, 64)
+strength = 500.0
 
 [node name="RespawnPoint" type="Node2D" parent="."]
 position = Vector2(-495, -55)
-
-[node name="---- Player ----" type="Node" parent="."]
-
-[node name="Player" parent="---- Player ----" instance=ExtResource("6_pt727")]
-position = Vector2(-501, -59)
-
-[node name="OpenMenu" type="Node2D" parent="---- Player ----" node_paths=PackedStringArray("player_node")]
-script = ExtResource("7_to5tw")
-player_node = NodePath("../Player")
-
-[node name="FrogTotem" parent="." instance=ExtResource("9_odwun")]
-z_index = 0
-position = Vector2(352, 64)
-collision_mask = 15
-mass = 1.0
-lock_rotation = false
-script = null
-
-[node name="TurtleTotem" parent="." instance=ExtResource("12_k2mi4")]
-z_index = 0
-position = Vector2(272, 64)
-mass = 1.0
-
-[node name="OwlTotem" parent="." instance=ExtResource("11_oasu7")]
-z_index = 0
-position = Vector2(191, -408)
-collision_mask = 15
-mass = 1.0
-lock_rotation = false
-script = null
 
 [node name="Enemy" parent="." instance=ExtResource("12_nyvo1")]
 position = Vector2(-80, 64)
 
 [node name="Enemy2" parent="." instance=ExtResource("12_nyvo1")]
 position = Vector2(-272, 64)
-
-[node name="FlameTrap" parent="." instance=ExtResource("13_5ke4q")]
-position = Vector2(208, 64)
-
-[node name="FlameTrap2" parent="." instance=ExtResource("13_5ke4q")]
-position = Vector2(176, 64)
-
-[node name="FlameTrap3" parent="." instance=ExtResource("13_5ke4q")]
-position = Vector2(240, 64)
-
-[node name="FlameTrap4" parent="." instance=ExtResource("13_5ke4q")]
-position = Vector2(144, 64)
-
-[node name="WindTrap" parent="." instance=ExtResource("14_d4asv")]
-position = Vector2(80, 64)
-strength = 500.0
 
 [node name="Door" parent="." instance=ExtResource("16_1lxyb")]
 position = Vector2(80, -128)
@@ -123,3 +85,5 @@ position = Vector2(208, -80)
 [node name="Altar" parent="." node_paths=PackedStringArray("activatable_objects") instance=ExtResource("15_r7hyr")]
 position = Vector2(0, -112)
 activatable_objects = [NodePath("../Door")]
+
+[node name="Player" parent="." instance=ExtResource("6_pt727")]

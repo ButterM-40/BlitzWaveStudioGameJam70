@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh7unykuty6xd"]
+
+[ext_resource type="PackedScene" uid="uid://dmhr0d5kmkvko" path="res://Scenes/UI/portraits_container.tscn" id="1_kdh2m"]
+[ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_pnlfm"]
+[ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/Entity/player.tscn" id="3_1drkj"]
+[ext_resource type="PackedScene" uid="uid://k378jgf6edhn" path="res://Scenes/Components/totem_spawner.tscn" id="4_sss0l"]
+[ext_resource type="Texture2D" uid="uid://dfnstqtu0kg14" path="res://Art/Background/BG_3.png" id="5_sag1a"]
+[ext_resource type="Texture2D" uid="uid://c2cscngpfmv8o" path="res://Art/Background/BG_6.png" id="6_wydd2"]
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_pnlfm")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PortaitsContainer" parent="UI" instance=ExtResource("1_kdh2m")]
+scale = Vector2(1.5, 1.5)
+
+[node name="Player" parent="." instance=ExtResource("3_1drkj")]
+
+[node name="TotemSpawnPoint" type="Marker2D" parent="Player"]
+position = Vector2(0, -16)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(0, -100)
+zoom = Vector2(2, 2)
+
+[node name="TotemSpawner" parent="." instance=ExtResource("4_sss0l")]
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Traps" type="Node2D" parent="."]
+
+[node name="Mechanics" type="Node2D" parent="."]
+
+[node name="RespawnPoint" type="Marker2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(320, 464)
+texture = ExtResource("5_sag1a")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(320, 464)
+texture = ExtResource("6_wydd2")
+
+[connection signal="died" from="Player/Health" to="." method="_on_player_died"]
+
+[editable path="Player"]

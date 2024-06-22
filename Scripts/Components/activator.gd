@@ -1,8 +1,10 @@
 extends Area2D
 class_name Activator
 
-@export var activatable_objects: Array[Activatable]
+signal triggered()
 
-func activate() -> void:
-	for object in activatable_objects:
-		object.activate()
+func trigger() -> void:
+	triggered.emit()
+
+func reset() -> void:
+	pass

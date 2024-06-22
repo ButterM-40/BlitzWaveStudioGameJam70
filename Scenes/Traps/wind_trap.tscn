@@ -21,6 +21,7 @@ animations = [{
 collision_layer = 32
 collision_mask = 5
 script = ExtResource("1_fyupl")
+strength = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5ifjt")
