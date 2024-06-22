@@ -12,7 +12,7 @@ config_version=5
 
 config/name="GameJam-70"
 config/version="1.0"
-run/main_scene="res://Scenes/Tests/TestingCode.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,7 @@ Constants="*res://Scripts/constants.gd"
 [display]
 
 window/stretch/mode="viewport"
+window/main_scene="res://Scenes/Tests/TestingCode.tscn"
 
 [input]
 
