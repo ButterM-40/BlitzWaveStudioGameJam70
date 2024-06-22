@@ -9,11 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b45fhkixu0oon" path="res://Art/backgroundParalax/BG_6.png" id="7_dxiv4"]
 
 [node name="ParalloxForest" type="ParallaxBackground"]
-scroll_ignore_camera_zoom = true
 
 [node name="WhiteBackground" type="ParallaxLayer" parent="."]
-position = Vector2(484, 127)
-motion_scale = Vector2(0.6, 1)
+position = Vector2(472, 129)
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="WhiteBackground"]
@@ -22,7 +20,7 @@ scale = Vector2(1.82, 1.82)
 texture = ExtResource("1_ais5c")
 
 [node name="Sun" type="ParallaxLayer" parent="."]
-position = Vector2(484, 127)
+position = Vector2(472, 129)
 motion_scale = Vector2(0.4, 1)
 motion_mirroring = Vector2(1164.8, 0)
 
@@ -32,7 +30,7 @@ scale = Vector2(1.82, 1.82)
 texture = ExtResource("2_lgof2")
 
 [node name="Clouds" type="ParallaxLayer" parent="."]
-position = Vector2(484, 127)
+position = Vector2(472, 129)
 motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(1164.8, 0)
 
@@ -42,7 +40,7 @@ scale = Vector2(1.82, 1.82)
 texture = ExtResource("3_8xckf")
 
 [node name="Mountains" type="ParallaxLayer" parent="."]
-position = Vector2(484, 127)
+position = Vector2(472, 129)
 motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(1164.8, 0)
 
@@ -52,7 +50,7 @@ scale = Vector2(1.82, 1.82)
 texture = ExtResource("4_nyt1g")
 
 [node name="Trees1" type="ParallaxLayer" parent="."]
-position = Vector2(484, 127)
+position = Vector2(472, 129)
 motion_scale = Vector2(0.4, 1)
 motion_mirroring = Vector2(1164.8, 0)
 
@@ -62,7 +60,7 @@ scale = Vector2(1.82, 1.82)
 texture = ExtResource("5_7qefc")
 
 [node name="Trees2" type="ParallaxLayer" parent="."]
-position = Vector2(484, 127)
+position = Vector2(472, 129)
 motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(1164.8, 0)
 
@@ -72,7 +70,7 @@ scale = Vector2(1.82, 1.82)
 texture = ExtResource("6_djhjr")
 
 [node name="Tree3" type="ParallaxLayer" parent="."]
-position = Vector2(484, 127)
+position = Vector2(472, 129)
 motion_scale = Vector2(0.25, 1)
 motion_mirroring = Vector2(1164.8, 0)
 
@@ -80,7 +78,3 @@ motion_mirroring = Vector2(1164.8, 0)
 position = Vector2(27.4, -199.4)
 scale = Vector2(1.82, 1.82)
 texture = ExtResource("7_dxiv4")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -128)
-zoom = Vector2(1.05, 1.05)

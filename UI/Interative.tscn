@@ -1,8 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5b54p6uhc6d2"]
+[gd_scene format=3 uid="uid://c5b54p6uhc6d2"]
 
-[ext_resource type="Texture2D" uid="uid://dnmo1e5u6nnm8" path="res://Art/Font/textbox.png" id="1_n7n5h"]
+[node name="DialogueManager" type="Node2D"]
 
-[node name="TextBox" type="CanvasLayer"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_n7n5h")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
