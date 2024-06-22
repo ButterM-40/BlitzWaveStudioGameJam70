@@ -1,7 +1,11 @@
-[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://p3thu3ifg0hc"]
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://p3thu3ifg0hc"]
 
 [ext_resource type="Texture2D" uid="uid://c4em16tsraeh2" path="res://Art/NA_Owl_girlDA2.png" id="1_y0iwa"]
 [ext_resource type="Texture2D" uid="uid://dm6vqw1iocavu" path="res://Art/NA_Owl_girlDA3.png" id="2_igmbk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0320"]
+atlas = ExtResource("2_igmbk")
+region = Rect2(1152, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ws03e"]
 atlas = ExtResource("1_y0iwa")
@@ -37,6 +41,14 @@ region = Rect2(576, 0, 96, 96)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0320")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ws03e")

@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -2000.0
 var current_jump_velocity = JUMP_VELOCITY
 
 var state = PlayerState.IDLE
-enum PlayerState{
+enum PlayerState {
 	IDLE,
 	WALK,
 	JUMP
@@ -24,17 +24,17 @@ enum Character {
 	AHULI,
 	TATONGA
 }
-var bidziil_cursor = preload("res://Art/Cursors/cursorRedArrow.png")
-var bidziil_cursor_hand = preload("res://Art/Cursors/cursorRedHand.png")
+var bidziil_cursor = preload ("res://Art/Cursors/cursorRedArrow.png")
+var bidziil_cursor_hand = preload ("res://Art/Cursors/cursorRedHand.png")
 
-var gaagii_cursor = preload("res://Art/Cursors/cursorGreenArrow.png")
-var gaagii_cursor_hand = preload("res://Art/Cursors/cursorGreenHand.png")
+var gaagii_cursor = preload ("res://Art/Cursors/cursorGreenArrow.png")
+var gaagii_cursor_hand = preload ("res://Art/Cursors/cursorGreenHand.png")
 
-var ahuli_cursor = preload("res://Art/Cursors/cursorYellowArrow.png")
-var ahuli_cursor_hand = preload("res://Art/Cursors/cursorYellowHand.png")
+var ahuli_cursor = preload ("res://Art/Cursors/cursorYellowArrow.png")
+var ahuli_cursor_hand = preload ("res://Art/Cursors/cursorYellowHand.png")
 
-var tatonga_cursor = preload("res://Art/Cursors/cursorBlueArrow.png")
-var tatonga_cursor_hand = preload("res://Art/Cursors/cursorBlueHand.png")
+var tatonga_cursor = preload ("res://Art/Cursors/cursorBlueArrow.png")
+var tatonga_cursor_hand = preload ("res://Art/Cursors/cursorBlueHand.png")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -86,17 +86,17 @@ func _physics_process(_delta):
 		face_movement_direction(horizontal_input)
 	
 func face_movement_direction(horizontal_input):
-	if not is_zero_approx(horizontal_input): 
+	if not is_zero_approx(horizontal_input):
 		if horizontal_input < 0:
-			player_sprite.scale = Vector2(-initial_sprite_scale.x, initial_sprite_scale.y)
+			player_sprite.scale = Vector2( - initial_sprite_scale.x, initial_sprite_scale.y)
 		else:
 			player_sprite.scale = initial_sprite_scale
 func handle_movement_state():
 	
-	if is_zero_approx(velocity.x) && is_on_floor():
+	if is_zero_approx(velocity.x)&&is_on_floor():
 		state = PlayerState.IDLE
 	
-	elif not is_zero_approx(velocity.x) && is_on_floor():
+	elif not is_zero_approx(velocity.x)&&is_on_floor():
 		state = PlayerState.WALK
 	else:
 		state = PlayerState.JUMP
@@ -107,3 +107,37 @@ func handle_movement_state():
 			player_sprite.play("walk")
 		PlayerState.JUMP:
 			player_sprite.play("jump")
+
+func respawn():
+	var ui_switch = get_node('../../UI Totem Switch')
+
+	var totem
+	match character:
+		Character.BIDZIIL:
+			totem = ui_switch.totem_array[0].instantiate()
+		Character.GAAGII:
+			totem = ui_switch.totem_array[1].instantiate()
+		Character.AHULI:
+			totem = ui_switch.totem_array[2].instantiate()
+		Character.TATONGA:
+			totem = ui_switch.totem_array[3].instantiate()
+
+	if ui_switch.scene_array.size() > 1:
+		if ui_switch.scene_array[1].instantiate().name == 'BearUi':
+			character = Character.BIDZIIL
+			player_sprite.sprite_frames = ui_switch.animation_array[0]
+		elif ui_switch.scene_array[1].instantiate().name == 'FrogUi':
+			character = Character.GAAGII
+			player_sprite.sprite_frames = ui_switch.animation_array[2]
+		elif ui_switch.scene_array[1].instantiate().name == 'EagleUi':
+			player_sprite.sprite_frames = ui_switch.animation_array[1]
+			character = Character.AHULI
+		elif ui_switch.scene_array[1].instantiate().name == 'TurtleUi':
+			character = Character.TATONGA
+			player_sprite.sprite_frames = ui_switch.animation_array[3]
+	
+	ui_switch.removeCurrentTotem()
+
+	totem.position = position + Vector2(0, -50)
+	get_parent().add_child(totem)
+	position = respawn_point.position
