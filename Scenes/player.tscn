@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://csgfoswkmgt1i"]
+[gd_scene load_steps=11 format=3 uid="uid://csgfoswkmgt1i"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mi0d6"]
 [ext_resource type="Script" path="res://Scripts/Components/health.gd" id="2_lrlg6"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cmiyaxsguoyvu" path="res://Sound/Music/Grass_Theme_1.mp3" id="6_0jjex"]
 [ext_resource type="AudioStream" uid="uid://tvdhh75lopo8" path="res://Sound/Jumps/Jump_1.wav" id="7_7nyft"]
 [ext_resource type="AudioStream" uid="uid://b05hn44b8uy5a" path="res://Sound/Death/BearDeath.wav" id="8_t7rqj"]
+[ext_resource type="AudioStream" uid="uid://dm4xmslr8g5fm" path="res://Sound/Totem Select/BearSelect_1.wav" id="9_ypuks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7avb"]
 size = Vector2(29, 69.8675)
@@ -57,3 +58,6 @@ stream = ExtResource("7_7nyft")
 
 [node name="Death" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("8_t7rqj")
+
+[node name="Select" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("9_ypuks")

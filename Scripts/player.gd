@@ -155,25 +155,35 @@ func respawn():
 
 	var sound_player = get_node('Audio/Death')
 	var audio_stream
-	
+
+	var select_audio_player = get_node('Audio/Select')
+	var rand_audio = randi_range(1, 4)
+	var select_audio_stream
+
 	var totem
 	match character:
 		Character.BIDZIIL:
 			totem = ui_switch.totem_array[0].instantiate()
 			audio_stream = load('res://Sound/Death/BearDeath.wav')
+			select_audio_stream = load('res://Sound/Totem Select/BearSelect_' + str(rand_audio) +'.wav')
 		Character.GAAGII:
 			totem = ui_switch.totem_array[1].instantiate()
 			audio_stream = load('res://Sound/Death/FrogDeath.wav')
+			select_audio_stream = load('res://Sound/Totem Select/FrogSelect_' + str(rand_audio) +'.wav')
 		Character.AHULI:
 			totem = ui_switch.totem_array[2].instantiate()
 			audio_stream = load('res://Sound/Death/OwlDeath.wav')
+			select_audio_stream = load('res://Sound/Totem Select/OwlSelect_' + str(rand_audio) +'.wav')
 		Character.TATONGA:
 			totem = ui_switch.totem_array[3].instantiate()
 			audio_stream = load('res://Sound/Death/TurtleDeath.wav')
+			select_audio_stream = load('res://Sound/Totem Select/TurtleSelect_' + str(rand_audio) +'.wav')
 
 	sound_player.set_stream(audio_stream)
-	
 	sound_player.playing = true
+
+	select_audio_player.set_stream(select_audio_stream)
+	select_audio_player.playing = true
 
 	if ui_switch.scene_array.size() > 1:
 		if ui_switch.scene_array[1].instantiate().name == 'BearUi':

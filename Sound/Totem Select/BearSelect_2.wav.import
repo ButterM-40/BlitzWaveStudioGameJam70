@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jpusjdwc3w6o"
+path="res://.godot/imported/BearSelect_2.wav-db4f01a4a3b6c2f763e8337c26e477c2.sample"
+
+[deps]
+
+source_file="res://Sound/Totem Select/BearSelect_2.wav"
+dest_files=["res://.godot/imported/BearSelect_2.wav-db4f01a4a3b6c2f763e8337c26e477c2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

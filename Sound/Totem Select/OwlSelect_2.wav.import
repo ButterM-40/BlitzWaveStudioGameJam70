@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cjs70va6l876x"
+path="res://.godot/imported/OwlSelect_2.wav-4234a5894e6297c5a1f87f4f2d4fbc71.sample"
+
+[deps]
+
+source_file="res://Sound/Totem Select/OwlSelect_2.wav"
+dest_files=["res://.godot/imported/OwlSelect_2.wav-4234a5894e6297c5a1f87f4f2d4fbc71.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
