@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://e8j63csldqer"]
+[gd_scene load_steps=11 format=3 uid="uid://e8j63csldqer"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_mxtse"]
 [ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="2_cgc53"]
 [ext_resource type="AudioStream" uid="uid://xhfx6pbq77ed" path="res://UI/UI Music/Button_Press_1.wav" id="3_of5t7"]
 [ext_resource type="AudioStream" uid="uid://dwa5e4a4rrk52" path="res://UI/UI Music/Play_Game_Buttonb.wav" id="4_eokog"]
+[ext_resource type="Texture2D" uid="uid://b1cy702km630q" path="res://Art/backgroundParalax/BG_0.png" id="5_apyfr"]
+[ext_resource type="Texture2D" uid="uid://dvv88oc0ko36k" path="res://Art/backgroundParalax/BG_1.png" id="6_7givm"]
+[ext_resource type="Texture2D" uid="uid://p1i5v5e2dche" path="res://Art/backgroundParalax/BG_2.png" id="7_nqs5j"]
+[ext_resource type="Texture2D" uid="uid://b8jlhh7aleywa" path="res://Art/backgroundParalax/BG_3.png" id="8_abycn"]
+[ext_resource type="Texture2D" uid="uid://b2tag2ybymle" path="res://Art/backgroundParalax/BG_4.png" id="9_5y2cy"]
+[ext_resource type="Texture2D" uid="uid://sub6olub5fwt" path="res://Art/backgroundParalax/BG_5.png" id="10_ywl62"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -92,6 +98,47 @@ stream = ExtResource("3_of5t7")
 
 [node name="PlayButton" type="AudioStreamPlayer2D" parent="Music"]
 stream = ExtResource("4_eokog")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+z_index = -6
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("5_apyfr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer"]
+z_index = -5
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("6_7givm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer"]
+z_index = -4
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("7_nqs5j")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("8_abycn")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("9_5y2cy")
+
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("9_5y2cy")
+
+[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("10_ywl62")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
