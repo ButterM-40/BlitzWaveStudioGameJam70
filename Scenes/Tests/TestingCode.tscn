@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://qyrk2vehw0i5"]
+[gd_scene load_steps=26 format=3 uid="uid://qyrk2vehw0i5"]
 
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_w040g"]
 [ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="2_4mhg2"]
@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cd4lfcnpu6524" path="res://Scenes/Activator/lever.tscn" id="16_g6cse"]
 [ext_resource type="PackedScene" uid="uid://dj65i3oqes7na" path="res://Scenes/Activatable/trapdoor.tscn" id="18_xtt3y"]
 [ext_resource type="PackedScene" uid="uid://dqafl8aigr52l" path="res://Scenes/ParalloxForest.tscn" id="22_mh2kx"]
-[ext_resource type="PackedScene" uid="uid://drra0yb1j1f8o" path="res://Scenes/tile_map.tscn" id="22_mh8fs"]
+[ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="22_mh8fs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg2a7"]
 resource_local_to_scene = true
@@ -32,6 +32,7 @@ size = Vector2(1280, 32)
 size = Vector2(256, 32)
 
 [node name="Testing" type="Node2D"]
+position = Vector2(579, 326)
 
 [node name="ParalloxForest" parent="." instance=ExtResource("22_mh2kx")]
 
@@ -60,14 +61,15 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_nt4pw")
 
 [node name="RespawnPoint" type="Node2D" parent="."]
-position = Vector2(-495, -55)
+position = Vector2(-418, -58)
 
 [node name="---- Player ----" type="Node" parent="."]
 
 [node name="Player" parent="---- Player ----" instance=ExtResource("6_pt727")]
-position = Vector2(-501, -59)
+position = Vector2(78, 267)
 
 [node name="OpenMenu" type="Node2D" parent="---- Player ----" node_paths=PackedStringArray("player_node")]
+position = Vector2(579, 326)
 script = ExtResource("7_to5tw")
 player_node = NodePath("../Player")
 

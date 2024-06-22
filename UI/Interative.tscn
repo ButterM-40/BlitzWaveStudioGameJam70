@@ -4,9 +4,5 @@
 
 [node name="TextBox" type="CanvasLayer"]
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_n7n5h")
