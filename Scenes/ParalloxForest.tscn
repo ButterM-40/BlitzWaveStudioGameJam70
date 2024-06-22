@@ -11,64 +11,84 @@
 [node name="ParalloxForest" type="ParallaxBackground"]
 
 [node name="WhiteBackground" type="ParallaxLayer" parent="."]
-position = Vector2(-569, -611)
+
+position = Vector2(472, 129)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="WhiteBackground"]
-position = Vector2(576, 324)
+position = Vector2(27.4, -199.4)
 scale = Vector2(1.82, 1.82)
 texture = ExtResource("1_ais5c")
 
 [node name="Sun" type="ParallaxLayer" parent="."]
-position = Vector2(-569, -611)
+
+position = Vector2(472, 129)
+motion_scale = Vector2(0.4, 1)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sun"]
-position = Vector2(576, 324)
+position = Vector2(27.4, -199.4)
 scale = Vector2(1.82, 1.82)
 texture = ExtResource("2_lgof2")
 
 [node name="Clouds" type="ParallaxLayer" parent="."]
-position = Vector2(-569, -611)
+
+position = Vector2(472, 129)
+motion_scale = Vector2(0.3, 1)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Clouds"]
-position = Vector2(576, 324)
+position = Vector2(27.4, -199.4)
 scale = Vector2(1.82, 1.82)
 texture = ExtResource("3_8xckf")
 
 [node name="Mountains" type="ParallaxLayer" parent="."]
-position = Vector2(-569, -611)
+
+position = Vector2(472, 129)
+motion_scale = Vector2(0.5, 1)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Mountains"]
-position = Vector2(576, 324)
+position = Vector2(27.4, -199.4)
 scale = Vector2(1.82, 1.82)
 texture = ExtResource("4_nyt1g")
 
 [node name="Trees1" type="ParallaxLayer" parent="."]
-position = Vector2(-569, -611)
+
+position = Vector2(472, 129)
+motion_scale = Vector2(0.4, 1)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Trees1"]
-position = Vector2(576, 324)
+position = Vector2(27.4, -199.4)
 scale = Vector2(1.82, 1.82)
 texture = ExtResource("5_7qefc")
 
 [node name="Trees2" type="ParallaxLayer" parent="."]
-position = Vector2(-569, -611)
+
+position = Vector2(472, 129)
+motion_scale = Vector2(0.3, 1)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Trees2"]
-position = Vector2(576, 324)
+position = Vector2(27.4, -199.4)
 scale = Vector2(1.82, 1.82)
 texture = ExtResource("6_djhjr")
 
 [node name="Tree3" type="ParallaxLayer" parent="."]
-position = Vector2(-569, -611)
+
+position = Vector2(472, 129)
+motion_scale = Vector2(0.25, 1)
+
 motion_mirroring = Vector2(1164.8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Tree3"]
-position = Vector2(576, 324)
+position = Vector2(27.4, -199.4)
 scale = Vector2(1.82, 1.82)
 texture = ExtResource("7_dxiv4")
