@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b63dqv1ntrl5d"]
+[gd_scene load_steps=8 format=3 uid="uid://b63dqv1ntrl5d"]
 
 [ext_resource type="Texture2D" uid="uid://jootrs50rrxl" path="res://UI/Portraits Outline/PlayerPhotoBlue.png" id="1_yc3uo"]
+[ext_resource type="Texture2D" uid="uid://de50egbns6qpf" path="res://Art/Icons/turtle_boi_pfp.png" id="2_0274h"]
 [ext_resource type="Texture2D" uid="uid://ck75p06oguynf" path="res://UI/Portraits Outline/yBlueButton.png" id="2_i586m"]
 [ext_resource type="Texture2D" uid="uid://ba1tx0wxtljsh" path="res://UI/Portraits Outline/zRightBlank.png" id="3_co05f"]
 [ext_resource type="Texture2D" uid="uid://d31xtdylr48hj" path="res://UI/Portraits Outline/ZLeftBlank.png" id="4_eu5no"]
@@ -12,6 +13,10 @@
 [node name="Selected" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_yc3uo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Selected"]
+z_index = -1
+texture = ExtResource("2_0274h")
 
 [node name="TotemColor" type="Sprite2D" parent="."]
 z_index = 5

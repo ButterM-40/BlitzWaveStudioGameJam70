@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://s0holiabqmgq"]
+
+[ext_resource type="Texture2D" uid="uid://cku4f1ky3uuxd" path="res://UI/ResetButton/Sprite-0001.png" id="1_ygumb"]
+[ext_resource type="Script" path="res://UI/ResetButton/ResetButton.gd" id="2_2q51a"]
+[ext_resource type="Texture2D" uid="uid://c8gsi7bp7bguw" path="res://UI/ResetButton/Sprite-0002.png" id="2_y4o56"]
+[ext_resource type="AudioStream" uid="uid://xhfx6pbq77ed" path="res://UI/UI Music/Button_Press_1.wav" id="4_c61g4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_icoh0"]
+texture = ExtResource("1_ygumb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r54dc"]
+texture = ExtResource("1_ygumb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5cqr"]
+texture = ExtResource("2_y4o56")
+
+[node name="ResetButton" type="Button"]
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 5.0
+offset_bottom = 6.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_icoh0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r54dc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l5cqr")
+script = ExtResource("2_2q51a")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_c61g4")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

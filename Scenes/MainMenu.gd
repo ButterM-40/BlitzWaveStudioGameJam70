@@ -20,3 +20,19 @@ func _on_quit_pressed():
 	get_tree().quit()
 	pass
 	
+
+
+func _on_options_pressed():
+	buttonPlay.play()
+	$OptionsNode.visible = true
+	pass # Replace with function body.
+
+
+func _on_h_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+
+
+func _on_back_option_pressed():
+	buttonPlay.play()
+	$OptionsNode.visible = false
+	pass # Replace with function body.
