@@ -154,8 +154,8 @@ func respawn():
 	var sound_player = get_node('Audio/Death')
 	var audio_stream
 
-	var select_sound_player = get_node('Audio/Death')
-	var rand_num = randi_range(1, 4)
+	var select_sound_player = get_node('Audio/Select')
+	var rand_num = randi_range(1, 3)
 	var select_audio_stream
 	
 	var totem
