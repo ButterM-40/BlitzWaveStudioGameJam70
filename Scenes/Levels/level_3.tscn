@@ -17,8 +17,6 @@
 
 [node name="Level3" type="Node2D"]
 
-[node name="LevelEnd" parent="." instance=ExtResource("1_td2eu")]
-
 [node name="UI Totem Switch" parent="." instance=ExtResource("1_hppb4")]
 scene_array = Array[PackedScene]([ExtResource("2_3i4n6"), ExtResource("2_3i4n6")])
 animation_array = Array[SpriteFrames]([ExtResource("3_tajh5"), ExtResource("4_xiq7w"), ExtResource("5_72l1l"), ExtResource("6_dni4s")])
