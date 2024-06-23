@@ -19,6 +19,7 @@ config/icon="res://appIconLarge.png"
 [autoload]
 
 Constants="*res://Scripts/constants.gd"
+Music="*res://music.tscn"
 
 [display]
 

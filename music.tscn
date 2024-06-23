@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6dtqwqxucwjy"]
+
+[ext_resource type="Script" path="res://music.gd" id="1_f7nns"]
+[ext_resource type="AudioStream" uid="uid://cmiyaxsguoyvu" path="res://Sound/Music/Grass_Theme_1.mp3" id="2_kwcgr"]
+
+[node name="Music" type="Node2D"]
+script = ExtResource("1_f7nns")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_kwcgr")
+volume_db = -5.0
+autoplay = true

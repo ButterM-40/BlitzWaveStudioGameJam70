@@ -5,3 +5,5 @@ enum TotemType {
 	FROG,
 	TURTLE
 }
+
+var music_time_stamp = 0
