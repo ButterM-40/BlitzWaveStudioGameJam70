@@ -1,22 +1,18 @@
 [gd_scene load_steps=8 format=3 uid="uid://b63dqv1ntrl5d"]
 
 [ext_resource type="Texture2D" uid="uid://jootrs50rrxl" path="res://UI/Portraits Outline/PlayerPhotoBlue.png" id="1_yc3uo"]
-[ext_resource type="Texture2D" uid="uid://de50egbns6qpf" path="res://Art/Icons/turtle_boi_pfp.png" id="2_0274h"]
 [ext_resource type="Texture2D" uid="uid://ck75p06oguynf" path="res://UI/Portraits Outline/yBlueButton.png" id="2_i586m"]
 [ext_resource type="Texture2D" uid="uid://ba1tx0wxtljsh" path="res://UI/Portraits Outline/zRightBlank.png" id="3_co05f"]
 [ext_resource type="Texture2D" uid="uid://d31xtdylr48hj" path="res://UI/Portraits Outline/ZLeftBlank.png" id="4_eu5no"]
 [ext_resource type="Texture2D" uid="uid://ck3aj8ssk3w1x" path="res://UI/Portraits Outline/zMiddleBlank.png" id="4_i7myi"]
 [ext_resource type="Texture2D" uid="uid://da7qrf2fko6jh" path="res://UI/Portraits Outline/zSoloBlank.png" id="5_deuv5"]
+[ext_resource type="Texture2D" uid="uid://b5pieyrdemc4l" path="res://Art/Icons/largeBlue.png" id="7_43omq"]
 
 [node name="TurtleUi" type="Node2D"]
 
 [node name="Selected" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_yc3uo")
-
-[node name="Sprite2D" type="Sprite2D" parent="Selected"]
-z_index = -1
-texture = ExtResource("2_0274h")
 
 [node name="TotemColor" type="Sprite2D" parent="."]
 z_index = 5
@@ -46,3 +42,7 @@ visible = false
 z_as_relative = false
 texture_filter = 1
 texture = ExtResource("5_deuv5")
+
+[node name="Icon" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("7_43omq")

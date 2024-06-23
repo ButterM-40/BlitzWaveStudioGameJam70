@@ -1,22 +1,18 @@
 [gd_scene load_steps=8 format=3 uid="uid://rtwmkutoywa2"]
 
 [ext_resource type="Texture2D" uid="uid://bncbant58hac5" path="res://UI/Portraits Outline/PlayerPhotoYellow.png" id="1_33xlw"]
-[ext_resource type="Texture2D" uid="uid://bcybcemew5qo2" path="res://Art/Icons/Face_SpriteOwelGirl_jam2.png" id="2_8r25m"]
 [ext_resource type="Texture2D" uid="uid://6umifofaxyvw" path="res://UI/Portraits Outline/yYellowButton.png" id="2_dcbid"]
 [ext_resource type="Texture2D" uid="uid://ba1tx0wxtljsh" path="res://UI/Portraits Outline/zRightBlank.png" id="3_rmvbu"]
 [ext_resource type="Texture2D" uid="uid://ck3aj8ssk3w1x" path="res://UI/Portraits Outline/zMiddleBlank.png" id="4_54co1"]
 [ext_resource type="Texture2D" uid="uid://d31xtdylr48hj" path="res://UI/Portraits Outline/ZLeftBlank.png" id="4_a4wm5"]
 [ext_resource type="Texture2D" uid="uid://da7qrf2fko6jh" path="res://UI/Portraits Outline/zSoloBlank.png" id="5_firsw"]
+[ext_resource type="Texture2D" uid="uid://dbawwxpspn0bu" path="res://Art/Icons/largeYellow.png" id="7_y2u1e"]
 
 [node name="EagleUi" type="Node2D"]
 
 [node name="Selected" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_33xlw")
-
-[node name="Icon" type="Sprite2D" parent="Selected"]
-z_index = -3
-texture = ExtResource("2_8r25m")
 
 [node name="TotemColor" type="Sprite2D" parent="."]
 z_index = 5
@@ -46,3 +42,7 @@ visible = false
 z_as_relative = false
 texture_filter = 1
 texture = ExtResource("5_firsw")
+
+[node name="Icon" type="Sprite2D" parent="."]
+z_index = -3
+texture = ExtResource("7_y2u1e")
