@@ -10,9 +10,9 @@
 [ext_resource type="SpriteFrames" uid="uid://be55fdyu4jamo" path="res://Art/turtle_animation.tres" id="7_lmo0x"]
 [ext_resource type="PackedScene" uid="uid://dqafl8aigr52l" path="res://Scenes/ParalloxForest.tscn" id="8_oufd6"]
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="9_aw74d"]
-[ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="10_7jray"]
+[ext_resource type="PackedScene" uid="uid://drra0yb1j1f8o" path="res://Scenes/tile_map.tscn" id="10_7jray"]
 [ext_resource type="TileSet" uid="uid://dbxre03tb7lkd" path="res://TileSets/grass.tres" id="11_6srdv"]
-[ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="13_dgw28"]
+[ext_resource type="PackedScene" uid="uid://bhjptxqqhryb8" path="res://Scenes/level_end.tscn" id="13_dgw28"]
 [ext_resource type="PackedScene" uid="uid://s0holiabqmgq" path="res://UI/ResetButton/ResetButton.tscn" id="14_ffa57"]
 [ext_resource type="PackedScene" uid="uid://c1ayt43ulupfn" path="res://Scenes/Traps/flame_trap.tscn" id="15_0ltro"]
 [ext_resource type="PackedScene" uid="uid://d060x50cukg42" path="res://UI/LevelSelector/setting_button.tscn" id="15_3awm3"]
@@ -61,6 +61,7 @@ offset_bottom = -397.0
 scale = Vector2(7, 7)
 
 [node name="Setting Button" parent="ResetButton" instance=ExtResource("15_3awm3")]
+layout_mode = 0
 offset_left = 9.28572
 offset_top = -0.714286
 offset_right = 53.2857

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_hppb4"]
 [ext_resource type="Script" path="res://code_level.gd" id="1_jc4w6"]
-[ext_resource type="PackedScene" uid="uid://cm4rq3kuxp34r" path="res://Scenes/level_end.tscn" id="1_td2eu"]
+[ext_resource type="PackedScene" uid="uid://bhjptxqqhryb8" path="res://Scenes/level_end.tscn" id="1_td2eu"]
 [ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="2_3i4n6"]
 [ext_resource type="SpriteFrames" uid="uid://685sltxjoua6" path="res://Art/player_animation.tres" id="3_tajh5"]
 [ext_resource type="SpriteFrames" uid="uid://p3thu3ifg0hc" path="res://Art/owl_animations.tres" id="4_xiq7w"]
@@ -65,13 +65,13 @@ offset_right = 418.0
 offset_bottom = -397.0
 scale = Vector2(7, 7)
 
-[node name="Setting Button" parent="ResetButton" node_paths=PackedStringArray("ButtonPress") instance=ExtResource("16_4vssw")]
+[node name="Setting Button" parent="ResetButton" instance=ExtResource("16_4vssw")]
+layout_mode = 0
 offset_left = 9.28572
 offset_top = -0.714286
 offset_right = 53.2857
 offset_bottom = 45.2857
 scale = Vector2(0.205, 0.205)
-ButtonPress = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-24, -384)

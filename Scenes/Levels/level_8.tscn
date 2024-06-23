@@ -9,7 +9,7 @@
 [ext_resource type="SpriteFrames" uid="uid://be55fdyu4jamo" path="res://Art/turtle_animation.tres" id="7_jit8b"]
 [ext_resource type="PackedScene" uid="uid://dqafl8aigr52l" path="res://Scenes/ParalloxForest.tscn" id="8_c1koo"]
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="9_g3kch"]
-[ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="10_j7qqu"]
+[ext_resource type="PackedScene" uid="uid://drra0yb1j1f8o" path="res://Scenes/tile_map.tscn" id="10_j7qqu"]
 [ext_resource type="TileSet" uid="uid://dbxre03tb7lkd" path="res://TileSets/grass.tres" id="11_23y3h"]
 [ext_resource type="PackedScene" uid="uid://bhjptxqqhryb8" path="res://Scenes/level_end.tscn" id="12_cvi2s"]
 [ext_resource type="PackedScene" uid="uid://s0holiabqmgq" path="res://UI/ResetButton/ResetButton.tscn" id="13_dl3cd"]

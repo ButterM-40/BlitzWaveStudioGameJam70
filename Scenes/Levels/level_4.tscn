@@ -13,7 +13,7 @@
 [ext_resource type="TileSet" uid="uid://dbxre03tb7lkd" path="res://TileSets/grass.tres" id="11_jl0ek"]
 [ext_resource type="PackedScene" uid="uid://cd4lfcnpu6524" path="res://Scenes/Activator/lever.tscn" id="12_goe1c"]
 [ext_resource type="PackedScene" uid="uid://k7koubectv8l" path="res://Scenes/Activatable/door.tscn" id="13_06mkm"]
-[ext_resource type="PackedScene" uid="uid://cm4rq3kuxp34r" path="res://Scenes/level_end.tscn" id="14_dmway"]
+[ext_resource type="PackedScene" uid="uid://bhjptxqqhryb8" path="res://Scenes/level_end.tscn" id="14_dmway"]
 [ext_resource type="PackedScene" uid="uid://s0holiabqmgq" path="res://UI/ResetButton/ResetButton.tscn" id="15_bs365"]
 [ext_resource type="PackedScene" uid="uid://c1ayt43ulupfn" path="res://Scenes/Traps/flame_trap.tscn" id="15_r4815"]
 [ext_resource type="Texture2D" uid="uid://dnmo1e5u6nnm8" path="res://Art/Font/textbox.png" id="17_r40y3"]
