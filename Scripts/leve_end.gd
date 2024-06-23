@@ -17,7 +17,7 @@ func _on_body_entered(body):
 	if FileAccess.file_exists(save_path):
 		var file = FileAccess.open(save_path, FileAccess.READ)
 		var level = get_tree().current_scene.scene_file_path
-		level = level.substr(26, 1)
+		level = str(int(level.substr(26, 1)) + 1)
 		
 		var save = file.get_var()
 		save['level_' + level] = true
