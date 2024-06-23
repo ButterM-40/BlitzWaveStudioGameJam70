@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6ryurjicr5mc"]
+
+[ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="1_da723"]
+[ext_resource type="Texture2D" uid="uid://dnmo1e5u6nnm8" path="res://Art/Font/textbox.png" id="2_oskb8"]
+[ext_resource type="Script" path="res://UI/LevelSelector/LvlBtn2.gd" id="3_5a1t7"]
+[ext_resource type="AudioStream" uid="uid://dwa5e4a4rrk52" path="res://UI/UI Music/Play_Game_Buttonb.wav" id="4_e0js7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ab5h"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+texture = ExtResource("2_oskb8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3f77c"]
+texture = ExtResource("2_oskb8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3i1ux"]
+texture = ExtResource("2_oskb8")
+
+[node name="LvlButton" type="Button"]
+anchors_preset = -1
+anchor_right = 0.054
+anchor_bottom = 0.039
+offset_right = 2.792
+offset_bottom = -0.170004
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("1_da723")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5ab5h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3f77c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3i1ux")
+text = "Go Back"
+script = ExtResource("3_5a1t7")
+level_path = "res://Scenes/MainMenu.tscn"
+
+[node name="Play" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_e0js7")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

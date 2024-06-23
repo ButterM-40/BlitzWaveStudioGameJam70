@@ -1,0 +1,224 @@
+[gd_scene load_steps=14 format=3 uid="uid://e8j63csldqer"]
+
+[ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_mxtse"]
+[ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="2_cgc53"]
+[ext_resource type="Texture2D" uid="uid://ckhbba1ys4u4q" path="res://Art/widebutton.png" id="3_k6wqs"]
+[ext_resource type="AudioStream" uid="uid://xhfx6pbq77ed" path="res://UI/UI Music/Button_Press_1.wav" id="3_of5t7"]
+[ext_resource type="Texture2D" uid="uid://cypoi6rdmdpe2" path="res://Art/SOTW.png" id="3_vumyr"]
+[ext_resource type="AudioStream" uid="uid://dwa5e4a4rrk52" path="res://UI/UI Music/Play_Game_Buttonb.wav" id="4_eokog"]
+[ext_resource type="Texture2D" uid="uid://b1cy702km630q" path="res://Art/backgroundParalax/BG_0.png" id="5_apyfr"]
+[ext_resource type="AudioStream" uid="uid://d3xkmmdv6lgdw" path="res://UI/UI Music/MenuLoop1_01.wav" id="5_e3bc5"]
+[ext_resource type="Texture2D" uid="uid://dvv88oc0ko36k" path="res://Art/backgroundParalax/BG_1.png" id="6_7givm"]
+[ext_resource type="Texture2D" uid="uid://p1i5v5e2dche" path="res://Art/backgroundParalax/BG_2.png" id="7_nqs5j"]
+[ext_resource type="Texture2D" uid="uid://b8jlhh7aleywa" path="res://Art/backgroundParalax/BG_3.png" id="8_abycn"]
+[ext_resource type="Texture2D" uid="uid://b2tag2ybymle" path="res://Art/backgroundParalax/BG_4.png" id="9_5y2cy"]
+[ext_resource type="Texture2D" uid="uid://sub6olub5fwt" path="res://Art/backgroundParalax/BG_5.png" id="10_ywl62"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mxtse")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = 1146.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("2_cgc53")
+theme_override_font_sizes/font_size = 64
+text = "Game Title"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(570, 91)
+texture = ExtResource("3_vumyr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Seperator" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cgc53")
+theme_override_font_sizes/font_size = 34
+text = "Play"
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Play"]
+z_index = -1
+position = Vector2(61, 20)
+scale = Vector2(0.96, 0.679995)
+texture = ExtResource("3_k6wqs")
+
+[node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cgc53")
+theme_override_font_sizes/font_size = 34
+text = "Options"
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Options"]
+z_index = -1
+position = Vector2(61, 20)
+scale = Vector2(0.96, 0.679995)
+texture = ExtResource("3_k6wqs")
+
+[node name="Seperator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cgc53")
+theme_override_font_sizes/font_size = 34
+text = "Exit"
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Quit"]
+z_index = -1
+position = Vector2(61, 20)
+scale = Vector2(0.96, 0.679995)
+texture = ExtResource("3_k6wqs")
+
+[node name="Music" type="Node2D" parent="."]
+
+[node name="ButtonPress" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("3_of5t7")
+
+[node name="PlayButton" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("4_eokog")
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("5_e3bc5")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+z_index = -6
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("5_apyfr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer"]
+z_index = -5
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("6_7givm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer"]
+z_index = -4
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("7_nqs5j")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("8_abycn")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("9_5y2cy")
+
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("9_5y2cy")
+
+[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.5, 326)
+scale = Vector2(1.79219, 1.80556)
+texture = ExtResource("10_ywl62")
+
+[node name="OptionsNode" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="OptionsNode"]
+offset_left = 378.0
+offset_top = 224.0
+offset_right = 392.0
+offset_bottom = 235.0
+scale = Vector2(29.9309, 16.2)
+color = Color(0.294118, 0.203922, 0.301961, 1)
+
+[node name="Label" type="Label" parent="OptionsNode"]
+texture_filter = 1
+offset_left = 442.0
+offset_top = 246.0
+offset_right = 738.0
+offset_bottom = 310.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("2_cgc53")
+theme_override_font_sizes/font_size = 39
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="OptionsNode"]
+offset_left = 542.0
+offset_top = 324.0
+offset_right = 651.0
+offset_bottom = 340.0
+min_value = -80.0
+max_value = 0.0
+
+[node name="BackOption" type="Button" parent="OptionsNode"]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 32)
+offset_left = 392.0
+offset_top = 355.0
+offset_right = 512.0
+offset_bottom = 387.0
+theme_override_fonts/font = ExtResource("2_cgc53")
+theme_override_font_sizes/font_size = 21
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="visibility_changed" from="OptionsNode" to="." method="_on_node_2d_2_visibility_changed"]
+[connection signal="value_changed" from="OptionsNode/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="OptionsNode/BackOption" to="." method="_on_back_option_pressed"]

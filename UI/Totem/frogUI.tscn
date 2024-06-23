@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0nwrc62exahc"]
+[gd_scene load_steps=8 format=3 uid="uid://c0nwrc62exahc"]
 
-[ext_resource type="Texture2D" uid="uid://cnsuq0fpakcj8" path="res://Art/Portraits Outline/PlayerPhotoGreen.png" id="1_lxq0u"]
-[ext_resource type="Texture2D" uid="uid://dweha8blqahch" path="res://Art/Portraits Outline/yGreenButton.png" id="2_oler4"]
-[ext_resource type="Texture2D" uid="uid://ba1tx0wxtljsh" path="res://Art/Portraits Outline/zRightBlank.png" id="3_2aw5b"]
-[ext_resource type="Texture2D" uid="uid://d31xtdylr48hj" path="res://Art/Portraits Outline/ZLeftBlank.png" id="4_3avgh"]
-[ext_resource type="Texture2D" uid="uid://ck3aj8ssk3w1x" path="res://Art/Portraits Outline/zMiddleBlank.png" id="4_jy1wv"]
-[ext_resource type="Texture2D" uid="uid://da7qrf2fko6jh" path="res://Art/Portraits Outline/zSoloBlank.png" id="5_oevat"]
+[ext_resource type="Texture2D" uid="uid://cnsuq0fpakcj8" path="res://UI/Portraits Outline/PlayerPhotoGreen.png" id="1_lxq0u"]
+[ext_resource type="Texture2D" uid="uid://6k7fc83v7i87" path="res://Art/Icons/largeGreen.png" id="2_3nmw7"]
+[ext_resource type="Texture2D" uid="uid://dweha8blqahch" path="res://UI/Portraits Outline/yGreenButton.png" id="2_oler4"]
+[ext_resource type="Texture2D" uid="uid://ba1tx0wxtljsh" path="res://UI/Portraits Outline/zRightBlank.png" id="3_2aw5b"]
+[ext_resource type="Texture2D" uid="uid://d31xtdylr48hj" path="res://UI/Portraits Outline/ZLeftBlank.png" id="4_3avgh"]
+[ext_resource type="Texture2D" uid="uid://ck3aj8ssk3w1x" path="res://UI/Portraits Outline/zMiddleBlank.png" id="4_jy1wv"]
+[ext_resource type="Texture2D" uid="uid://da7qrf2fko6jh" path="res://UI/Portraits Outline/zSoloBlank.png" id="5_oevat"]
 
 [node name="FrogUi" type="Node2D"]
 
@@ -41,3 +42,7 @@ visible = false
 z_as_relative = false
 texture_filter = 1
 texture = ExtResource("5_oevat")
+
+[node name="Icon" type="Sprite2D" parent="."]
+z_index = -3
+texture = ExtResource("2_3nmw7")

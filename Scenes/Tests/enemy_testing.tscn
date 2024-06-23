@@ -11,9 +11,4 @@ position = Vector2(1095, 504)
 [node name="Enemy" parent="." instance=ExtResource("2_ovbqk")]
 position = Vector2(73, 506)
 
-[node name="AttackState" parent="Enemy" index="3"]
-position = Vector2(0, -1)
-
-[connection signal="switch_state" from="Enemy/AttackState" to="Enemy" method="switch_state"]
-
 [editable path="Enemy"]

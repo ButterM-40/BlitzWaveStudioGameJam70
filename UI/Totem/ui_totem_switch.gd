@@ -12,7 +12,9 @@ func _ready():
 		generate_sprites()
 
 func _process(_delta):
-	removeCurrentTotem()
+	var player = get_node('../---- Player ----/Player')
+	if Input.is_action_just_pressed("Switch") and scene_array.size() > 0:
+		player.respawn()
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func returnCurrentTotem():
@@ -20,47 +22,38 @@ func returnCurrentTotem():
 #This Function removed the first current Totem, and replaces it with the next.
 #If empty Display Nothing
 func removeCurrentTotem():
-	if Input.is_action_just_pressed("Switch") and scene_array.size() > 0:
-		# respawn player
-		var player = get_node('../---- Player ----/Player')
-		var parent = get_node('../---- Player ----/')
+	# respawn player
+	var player = get_node('../---- Player ----/Player')
+	var parent = get_node('../---- Player ----/')
 
-		var totem
-		match player.character:
-			player.Character.BIDZIIL:
-				totem = totem_array[0].instantiate()
-			player.Character.GAAGII:
-				totem = totem_array[1].instantiate()
-			player.Character.AHULI:
-				totem = totem_array[2].instantiate()
-			player.Character.TATONGA:
-				totem = totem_array[3].instantiate()
+	var totem
+	match player.character:
+		player.Character.BIDZIIL:
+			totem = totem_array[0].instantiate()
+		player.Character.GAAGII:
+			totem = totem_array[1].instantiate()
+		player.Character.AHULI:
+			totem = totem_array[2].instantiate()
+		player.Character.TATONGA:
+			totem = totem_array[3].instantiate()
 
-		var playerFrame = player.player_sprite.get_sprite_frames()
-		if scene_array.size() > 1:
-			if scene_array[1].instantiate().name == 'BearUi':
-				player.character = player.Character.BIDZIIL
-				playerFrame = animation_array[0]
-			elif scene_array[1].instantiate().name == 'FrogUi':
-				player.character = player.Character.GAAGII
-				playerFrame = animation_array[2]
-			elif scene_array[1].instantiate().name == 'EagleUi':
-				playerFrame = animation_array[1]
-				player.character = player.Character.AHULI
-			elif scene_array[1].instantiate().name == 'TurtleUi':
-				player.character = player.Character.TATONGA
-				playerFrame = animation_array[3]
-		delete_all_children()
-		
-		#Current Location
-		var player_current_positon = player.position
-		var player_spawn_point = player.respawn_point.position
-		var player_scale = player.scale
-		
-		totem.position = player_current_positon + Vector2(0, -200)
-		parent.add_child(totem)
-		
-		scene_update(player, player.respawn_point.position, playerFrame)
+	var playerFrame = player.player_sprite.get_sprite_frames()
+	if scene_array.size() > 1:
+		if scene_array[1].instantiate().name == 'BearUi':
+			player.character = player.Character.BIDZIIL
+			playerFrame = animation_array[0]
+		elif scene_array[1].instantiate().name == 'FrogUi':
+			player.character = player.Character.GAAGII
+			playerFrame = animation_array[2]
+		elif scene_array[1].instantiate().name == 'EagleUi':
+			playerFrame = animation_array[1]
+			player.character = player.Character.AHULI
+		elif scene_array[1].instantiate().name == 'TurtleUi':
+			player.character = player.Character.TATONGA
+			playerFrame = animation_array[3]
+	delete_all_children()
+	
+	scene_update(player, player.respawn_point.position, playerFrame)
 	pass
 	
 func scene_update(player, new_position, new_animation: SpriteFrames):
@@ -95,6 +88,10 @@ func display_current_totem(c):
 	pass
 func display_stored_totem(sprite, current_i, max_size):
 	sprite.get_child(0).visible = false
+
+	var old_sprite = sprite.get_node('Icon').texture.resource_path
+	print(old_sprite)
+	sprite.get_node('Icon').texture = load('res://Art/Icons/mini' + old_sprite.substr(21, 10))
 	#Child 0 is Selected
 	#Child 1 is TotemColor
 	var totemDisplayType = sprite.get_child(1)

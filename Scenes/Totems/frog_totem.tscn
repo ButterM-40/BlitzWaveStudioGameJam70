@@ -12,6 +12,7 @@ size = Vector2(32, 32)
 size = Vector2(30, 2)
 
 [node name="FrogTotem" instance=ExtResource("1_wlusl")]
+gravity_scale = 15.0
 script = ExtResource("2_as1o1")
 
 [node name="AnimatedSprite2D" parent="." index="1"]

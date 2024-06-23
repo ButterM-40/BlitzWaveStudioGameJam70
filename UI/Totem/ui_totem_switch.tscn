@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dchmurl2h1fj0" path="res://Scenes/Totems/frog_totem.tscn" id="3_6aj7v"]
 [ext_resource type="PackedScene" uid="uid://m43r4sqbmowa" path="res://Scenes/Totems/owl_totem.tscn" id="4_tbxqf"]
 [ext_resource type="PackedScene" uid="uid://daw6uheuqqt13" path="res://Scenes/Totems/turtle_totem.tscn" id="5_ktn28"]
-[ext_resource type="SpriteFrames" uid="uid://685sltxjoua6" path="res://Art/Sprite Frames/bear_animation.tres" id="6_ngf1y"]
-[ext_resource type="SpriteFrames" uid="uid://p3thu3ifg0hc" path="res://Art/Sprite Frames/owl_animations.tres" id="7_47wsh"]
+[ext_resource type="SpriteFrames" uid="uid://685sltxjoua6" path="res://Art/player_animation.tres" id="6_ngf1y"]
+[ext_resource type="SpriteFrames" uid="uid://p3thu3ifg0hc" path="res://Art/owl_animations.tres" id="7_47wsh"]
 
 [node name="UI Totem Switch" type="CanvasLayer"]
 script = ExtResource("1_8e4ch")

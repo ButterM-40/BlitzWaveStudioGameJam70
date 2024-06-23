@@ -19,10 +19,6 @@ layout_mode = 2
 layout_mode = 2
 text = "Play"
 
-[node name="Load" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Load"
-
 [node name="Option" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Options"
@@ -32,7 +28,6 @@ layout_mode = 2
 text = "Exit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Option" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

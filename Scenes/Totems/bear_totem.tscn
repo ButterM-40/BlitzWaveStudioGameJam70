@@ -13,6 +13,7 @@ resource_local_to_scene = true
 size = Vector2(34, 34)
 
 [node name="BearTotem" instance=ExtResource("1_mrmji")]
+gravity_scale = 15.0
 script = ExtResource("2_ldv5a")
 metadata/_edit_horizontal_guides_ = [-16.0, 16.0]
 

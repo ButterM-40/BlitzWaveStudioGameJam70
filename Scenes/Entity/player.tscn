@@ -8,6 +8,10 @@
 [ext_resource type="SpriteFrames" uid="uid://be55fdyu4jamo" path="res://Art/Sprite Frames/turtle_animation.tres" id="5_qwon5"]
 [ext_resource type="PackedScene" uid="uid://blijb2mvjklth" path="res://Scenes/Components/health.tscn" id="6_v2km7"]
 [ext_resource type="Script" path="res://Scripts/Components/aquatic.gd" id="8_i0nre"]
+[ext_resource type="AudioStream" uid="uid://brwol3c5xkxyw" path="res://Sound/Ambience/ForestAmbience.wav" id="5_c7var"]
+[ext_resource type="AudioStream" uid="uid://tvdhh75lopo8" path="res://Sound/Jumps/Jump_1.wav" id="7_7nyft"]
+[ext_resource type="AudioStream" uid="uid://b05hn44b8uy5a" path="res://Sound/Death/BearDeath.wav" id="8_t7rqj"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7avb"]
 size = Vector2(25, 60)
@@ -39,6 +43,25 @@ shape = SubResource("RectangleShape2D_g7avb")
 position = Vector2(0, -48)
 
 [node name="RespawnTimer" type="Timer" parent="."]
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Audio"]
+
+[node name="GrassFootsteps" type="AudioStreamPlayer2D" parent="Audio"]
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("5_c7var")
+volume_db = -8.0
+autoplay = true
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("7_7nyft")
+
+[node name="Death" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("8_t7rqj")
+
+[node name="Select" type="AudioStreamPlayer" parent="Audio"]
 
 [connection signal="died" from="Health" to="." method="_on_died"]
 [connection signal="pushed" from="Pushable" to="." method="_on_pushed"]
