@@ -95,9 +95,6 @@ position = Vector2(45, -11)
 [node name="FlameTrap3" parent="." instance=ExtResource("15_r4815")]
 position = Vector2(77, -11)
 
-[node name="FlameTrap4" parent="." instance=ExtResource("15_r4815")]
-position = Vector2(-19, -11)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -312)
 scale = Vector2(1.61076, 2.02465)
