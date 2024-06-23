@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dafl5g2vd3si2"]
+[gd_scene load_steps=8 format=3 uid="uid://dafl5g2vd3si2"]
 
 [ext_resource type="Texture2D" uid="uid://dxv2ostgneqd7" path="res://UI/Portraits Outline/PlayerPhotoRed.png" id="1_pktrx"]
 [ext_resource type="Texture2D" uid="uid://c2bdgvyk0pxr3" path="res://UI/Portraits Outline/yRedButton.png" id="2_7mg7p"]
+[ext_resource type="Texture2D" uid="uid://cnf35ic1xyqq1" path="res://Art/Icons/largeRed.png" id="2_ncava"]
 [ext_resource type="Texture2D" uid="uid://ba1tx0wxtljsh" path="res://UI/Portraits Outline/zRightBlank.png" id="3_3gm0l"]
 [ext_resource type="Texture2D" uid="uid://ck3aj8ssk3w1x" path="res://UI/Portraits Outline/zMiddleBlank.png" id="4_6vcgf"]
 [ext_resource type="Texture2D" uid="uid://d31xtdylr48hj" path="res://UI/Portraits Outline/ZLeftBlank.png" id="4_nsh8w"]
@@ -12,6 +13,10 @@
 [node name="Selected" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_pktrx")
+
+[node name="Icon" type="Sprite2D" parent="Selected"]
+z_index = -3
+texture = ExtResource("2_ncava")
 
 [node name="TotemColor" type="Sprite2D" parent="."]
 z_index = 5
