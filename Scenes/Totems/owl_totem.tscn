@@ -12,10 +12,8 @@ gravity_scale = 0.0
 freeze = true
 script = ExtResource("2_0ix03")
 
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_vphx7")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_c4f6x")
-
-[connection signal="died" from="Health" to="." method="_on_died"]
