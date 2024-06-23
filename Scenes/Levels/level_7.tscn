@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4xdrwjw6n2af"]
+[gd_scene load_steps=20 format=3 uid="uid://c4xdrwjw6n2af"]
 
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_v7kur"]
 [ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="2_muunp"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://b322sdmafmihc" path="res://Scenes/enemy.tscn" id="14_h12pq"]
 [ext_resource type="PackedScene" uid="uid://b7f87jxbuf06f" path="res://Scenes/Activator/altar.tscn" id="15_75rfs"]
 [ext_resource type="PackedScene" uid="uid://k7koubectv8l" path="res://Scenes/Activatable/door.tscn" id="16_hsiii"]
+[ext_resource type="Texture2D" uid="uid://dnmo1e5u6nnm8" path="res://Art/Font/textbox.png" id="16_lnqla"]
+[ext_resource type="Script" path="res://Scenes/Levels/Diaolog.gd" id="17_sjc3o"]
+[ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="18_6ge1y"]
 
 [node name="Level7" type="Node2D"]
 
@@ -64,6 +67,30 @@ gravity_scale = 0.0
 [node name="Altar" parent="." node_paths=PackedStringArray("activatable_objects") instance=ExtResource("15_75rfs")]
 position = Vector2(-42, -12)
 activatable_objects = [NodePath("../Door")]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(113, -150)
+texture = ExtResource("16_lnqla")
+script = ExtResource("17_sjc3o")
+
+[node name="Label" type="Label" parent="Sprite2D2"]
+offset_left = -101.0
+offset_top = -28.0
+offset_right = 96.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("18_6ge1y")
+text = "Alter: Place the specific
+Totem.
+Hint: Color of the alter"
+
+[node name="Label3" type="Label" parent="Sprite2D2"]
+offset_left = 66.4283
+offset_top = 15.8052
+offset_right = 109.428
+offset_bottom = 31.8052
+theme_override_colors/font_color = Color(0.870588, 0.933333, 0, 1)
+theme_override_fonts/font = ExtResource("18_6ge1y")
+text = "Enter"
 
 [node name="Door" parent="." instance=ExtResource("16_hsiii")]
 position = Vector2(466, -97)

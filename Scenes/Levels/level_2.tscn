@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dyu60rbmcy5kv"]
+[gd_scene load_steps=19 format=3 uid="uid://dyu60rbmcy5kv"]
 
 [ext_resource type="Script" path="res://code_level.gd" id="1_i5u03"]
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_t622i"]
@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://b322sdmafmihc" path="res://Scenes/enemy.tscn" id="10_qcdrw"]
 [ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="12_7sfky"]
 [ext_resource type="PackedScene" uid="uid://s0holiabqmgq" path="res://UI/ResetButton/ResetButton.tscn" id="13_je1je"]
+[ext_resource type="Texture2D" uid="uid://dnmo1e5u6nnm8" path="res://Art/Font/textbox.png" id="15_c1lb4"]
+[ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="16_ajaiq"]
+[ext_resource type="Script" path="res://Scenes/Levels/Diaolog.gd" id="16_u5vhs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53s1j"]
 resource_local_to_scene = true
@@ -61,6 +64,31 @@ offset_top = -405.0
 offset_right = 418.0
 offset_bottom = -397.0
 scale = Vector2(7, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-52, -314)
+scale = Vector2(1.61076, 2.02465)
+texture = ExtResource("15_c1lb4")
+script = ExtResource("16_u5vhs")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -101.0
+offset_top = -28.0
+offset_right = 96.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("16_ajaiq")
+text = "Space: Summon Totem - 
+Bear Totem, Kills Enemies
+"
+
+[node name="Label3" type="Label" parent="Sprite2D"]
+offset_left = 66.4283
+offset_top = 15.8052
+offset_right = 109.428
+offset_bottom = 31.8052
+theme_override_colors/font_color = Color(0.870588, 0.933333, 0, 1)
+theme_override_fonts/font = ExtResource("16_ajaiq")
+text = "Enter"
 
 [editable path="Enemy"]
 [editable path="Enemy/HurtBox"]

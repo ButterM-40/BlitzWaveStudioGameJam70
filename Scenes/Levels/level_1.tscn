@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cc3m4fhftotp2"]
+[gd_scene load_steps=17 format=3 uid="uid://cc3m4fhftotp2"]
 
 [ext_resource type="Script" path="res://code_level.gd" id="1_1vfux"]
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_pbmxp"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="10_kj4yc"]
 [ext_resource type="TileSet" uid="uid://dbxre03tb7lkd" path="res://TileSets/grass.tres" id="11_2q51e"]
 [ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="12_e1a6c"]
+[ext_resource type="Texture2D" uid="uid://dnmo1e5u6nnm8" path="res://Art/Font/textbox.png" id="14_i4wxt"]
+[ext_resource type="Script" path="res://Scenes/Levels/Diaolog.gd" id="15_gt76h"]
+[ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="15_mu1j0"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_1vfux")
@@ -50,3 +53,38 @@ layer_0/tile_data = PackedInt32Array(458748, 393216, 4, 458750, 524288, 4, 45875
 
 [node name="LevelEnd" parent="." instance=ExtResource("2_kpx86")]
 position = Vector2(524, -48)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.00006, -261)
+scale = Vector2(1.61076, 2.02465)
+texture = ExtResource("14_i4wxt")
+script = ExtResource("15_gt76h")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -101.0
+offset_top = -28.0
+offset_right = -29.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("15_mu1j0")
+text = "W - Jump 
+A - Left
+D - Right"
+
+[node name="Label2" type="Label" parent="Sprite2D"]
+offset_left = -16.0
+offset_top = -29.0
+offset_right = 99.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("15_mu1j0")
+text = "Goal:
+End of the Map
+Right Side"
+
+[node name="Label3" type="Label" parent="Sprite2D"]
+offset_left = 68.2908
+offset_top = 14.8174
+offset_right = 111.291
+offset_bottom = 30.8174
+theme_override_colors/font_color = Color(0.870588, 0.933333, 0, 1)
+theme_override_fonts/font = ExtResource("15_mu1j0")
+text = "Enter"

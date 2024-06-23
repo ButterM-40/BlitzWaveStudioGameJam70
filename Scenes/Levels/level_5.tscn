@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dcal45b1mw3r4"]
+[gd_scene load_steps=19 format=3 uid="uid://dcal45b1mw3r4"]
 
 [ext_resource type="Script" path="res://code_level.gd" id="1_d06a3"]
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="2_tbx6b"]
@@ -10,13 +10,16 @@
 [ext_resource type="SpriteFrames" uid="uid://be55fdyu4jamo" path="res://Art/turtle_animation.tres" id="7_lmo0x"]
 [ext_resource type="PackedScene" uid="uid://dqafl8aigr52l" path="res://Scenes/ParalloxForest.tscn" id="8_oufd6"]
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="9_aw74d"]
-[ext_resource type="PackedScene" uid="uid://drra0yb1j1f8o" path="res://Scenes/tile_map.tscn" id="10_7jray"]
+[ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="10_7jray"]
 [ext_resource type="TileSet" uid="uid://dbxre03tb7lkd" path="res://TileSets/grass.tres" id="11_6srdv"]
-[ext_resource type="PackedScene" uid="uid://cm4rq3kuxp34r" path="res://Scenes/level_end.tscn" id="13_dgw28"]
+[ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="13_dgw28"]
 [ext_resource type="PackedScene" uid="uid://s0holiabqmgq" path="res://UI/ResetButton/ResetButton.tscn" id="14_ffa57"]
 [ext_resource type="PackedScene" uid="uid://c1ayt43ulupfn" path="res://Scenes/Traps/flame_trap.tscn" id="15_0ltro"]
+[ext_resource type="Texture2D" uid="uid://dnmo1e5u6nnm8" path="res://Art/Font/textbox.png" id="16_2qg2f"]
+[ext_resource type="Script" path="res://Scenes/Levels/Diaolog.gd" id="17_kelp4"]
+[ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="18_373np"]
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
 script = ExtResource("1_d06a3")
 
 [node name="UI Totem Switch" parent="." instance=ExtResource("2_tbx6b")]
@@ -37,7 +40,7 @@ position = Vector2(-495, -55)
 [node name="Player" parent="---- Player ----" instance=ExtResource("9_aw74d")]
 position = Vector2(-496, -62)
 
-[node name="PlayerAnimation" parent="---- Player ----/Player" index="2"]
+[node name="PlayerAnimation" parent="---- Player ----/Player" index="3"]
 sprite_frames = ExtResource("6_ndg2s")
 
 [node name="TileMap" parent="." instance=ExtResource("10_7jray")]
@@ -61,5 +64,29 @@ position = Vector2(365, -12)
 
 [node name="FlameTrap10" parent="." instance=ExtResource("15_0ltro")]
 position = Vector2(397, -12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, -241)
+scale = Vector2(1.61076, 2.02465)
+texture = ExtResource("16_2qg2f")
+script = ExtResource("17_kelp4")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -101.0
+offset_top = -28.0
+offset_right = 96.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("18_373np")
+text = "Frog Totem: Allows the 
+Player to jump higher"
+
+[node name="Label3" type="Label" parent="Sprite2D"]
+offset_left = 66.4283
+offset_top = 15.8052
+offset_right = 109.428
+offset_bottom = 31.8052
+theme_override_colors/font_color = Color(0.870588, 0.933333, 0, 1)
+theme_override_fonts/font = ExtResource("18_373np")
+text = "Enter"
 
 [editable path="---- Player ----/Player"]
