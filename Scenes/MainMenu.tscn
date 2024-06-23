@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://e8j63csldqer"]
+[gd_scene load_steps=13 format=3 uid="uid://e8j63csldqer"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_mxtse"]
 [ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="2_cgc53"]
+[ext_resource type="Texture2D" uid="uid://ckhbba1ys4u4q" path="res://Art/widebutton.png" id="3_k6wqs"]
 [ext_resource type="AudioStream" uid="uid://xhfx6pbq77ed" path="res://UI/UI Music/Button_Press_1.wav" id="3_of5t7"]
 [ext_resource type="AudioStream" uid="uid://dwa5e4a4rrk52" path="res://UI/UI Music/Play_Game_Buttonb.wav" id="4_eokog"]
 [ext_resource type="Texture2D" uid="uid://b1cy702km630q" path="res://Art/backgroundParalax/BG_0.png" id="5_apyfr"]
@@ -70,6 +71,13 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cgc53")
 theme_override_font_sizes/font_size = 34
 text = "Play"
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Play"]
+z_index = -1
+position = Vector2(61, 20)
+scale = Vector2(0.96, 0.679995)
+texture = ExtResource("3_k6wqs")
 
 [node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -81,6 +89,13 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cgc53")
 theme_override_font_sizes/font_size = 34
 text = "Options"
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Options"]
+z_index = -1
+position = Vector2(61, 20)
+scale = Vector2(0.96, 0.679995)
+texture = ExtResource("3_k6wqs")
 
 [node name="Seperator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -91,6 +106,13 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cgc53")
 theme_override_font_sizes/font_size = 34
 text = "Exit"
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Quit"]
+z_index = -1
+position = Vector2(61, 20)
+scale = Vector2(0.96, 0.679995)
+texture = ExtResource("3_k6wqs")
 
 [node name="Music" type="Node2D" parent="."]
 
