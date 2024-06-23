@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dyu60rbmcy5kv"]
+[gd_scene load_steps=14 format=3 uid="uid://dyu60rbmcy5kv"]
 
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_t622i"]
 [ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="2_vukp1"]
@@ -8,10 +8,11 @@
 [ext_resource type="SpriteFrames" uid="uid://be55fdyu4jamo" path="res://Art/turtle_animation.tres" id="6_vbdhv"]
 [ext_resource type="PackedScene" uid="uid://dqafl8aigr52l" path="res://Scenes/ParalloxForest.tscn" id="7_g7cu7"]
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="8_8n8o5"]
-[ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="9_4hgfq"]
+[ext_resource type="PackedScene" uid="uid://drra0yb1j1f8o" path="res://Scenes/tile_map.tscn" id="9_4hgfq"]
 [ext_resource type="TileSet" uid="uid://dbxre03tb7lkd" path="res://TileSets/grass.tres" id="10_2qpkh"]
 [ext_resource type="PackedScene" uid="uid://b322sdmafmihc" path="res://Scenes/enemy.tscn" id="10_qcdrw"]
-[ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="12_7sfky"]
+[ext_resource type="PackedScene" uid="uid://cm4rq3kuxp34r" path="res://Scenes/level_end.tscn" id="12_7sfky"]
+[ext_resource type="PackedScene" uid="uid://s0holiabqmgq" path="res://UI/ResetButton/ResetButton.tscn" id="13_je1je"]
 
 [node name="Level1" type="Node2D"]
 
@@ -44,6 +45,13 @@ position = Vector2(152, -18)
 
 [node name="LevelEnd" parent="." instance=ExtResource("12_7sfky")]
 position = Vector2(534, -74)
+
+[node name="ResetButton" parent="." instance=ExtResource("13_je1je")]
+offset_left = 410.0
+offset_top = -405.0
+offset_right = 418.0
+offset_bottom = -397.0
+scale = Vector2(7, 7)
 
 [editable path="Enemy"]
 [editable path="Enemy/StateMachine/AttackState"]

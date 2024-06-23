@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_pbmxp"]
 [ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="2_2hmw4"]
-[ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="2_kpx86"]
+[ext_resource type="PackedScene" uid="uid://cm4rq3kuxp34r" path="res://Scenes/level_end.tscn" id="2_kpx86"]
 [ext_resource type="SpriteFrames" uid="uid://685sltxjoua6" path="res://Art/player_animation.tres" id="6_jx0fu"]
 [ext_resource type="SpriteFrames" uid="uid://p3thu3ifg0hc" path="res://Art/owl_animations.tres" id="7_sm5ds"]
 [ext_resource type="PackedScene" uid="uid://s0holiabqmgq" path="res://UI/ResetButton/ResetButton.tscn" id="8_3rj1a"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dqafl8aigr52l" path="res://Scenes/ParalloxForest.tscn" id="10_3r5yt"]
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="10_kj4yc"]
 [ext_resource type="TileSet" uid="uid://dbxre03tb7lkd" path="res://TileSets/grass.tres" id="11_2q51e"]
-[ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="12_e1a6c"]
+[ext_resource type="PackedScene" uid="uid://drra0yb1j1f8o" path="res://Scenes/tile_map.tscn" id="12_e1a6c"]
 
 [node name="Level1" type="Node2D"]
 
