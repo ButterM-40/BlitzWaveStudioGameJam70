@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://buo13ww2xyniw"]
+[gd_scene load_steps=19 format=3 uid="uid://buo13ww2xyniw"]
 
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_kewwx"]
+[ext_resource type="Script" path="res://code_level.gd" id="1_qulai"]
 [ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="2_e5m1q"]
 [ext_resource type="PackedScene" uid="uid://c0nwrc62exahc" path="res://UI/Totem/frogUI.tscn" id="3_cqijc"]
 [ext_resource type="PackedScene" uid="uid://rtwmkutoywa2" path="res://UI/Totem/eagleUI.tscn" id="3_sk8xk"]
@@ -19,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://k7koubectv8l" path="res://Scenes/Activatable/door.tscn" id="17_i41td"]
 
 [node name="Level8" type="Node2D"]
+script = ExtResource("1_qulai")
 
 [node name="UI Totem Switch" parent="." instance=ExtResource("1_kewwx")]
 scene_array = Array[PackedScene]([ExtResource("2_e5m1q"), ExtResource("3_sk8xk"), ExtResource("3_sk8xk"), ExtResource("3_cqijc"), ExtResource("2_e5m1q")])

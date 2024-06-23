@@ -1,16 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://b322sdmafmihc"]
+[gd_scene load_steps=10 format=3 uid="uid://b322sdmafmihc"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_x4fwr"]
 [ext_resource type="Script" path="res://Scripts/Components/health.gd" id="2_n2wvf"]
 [ext_resource type="Script" path="res://Scripts/Components/pushable.gd" id="3_efrjg"]
-[ext_resource type="Texture2D" uid="uid://dbs33qra40sys" path="res://Art/enemy_placeholder.png" id="3_jt5wb"]
+[ext_resource type="Texture2D" uid="uid://cdie72xbbpmax" path="res://Art/tiny-creatures/Tilemap/tilemap.png" id="4_hd14h"]
 [ext_resource type="PackedScene" uid="uid://dxbcctgektwxl" path="res://Scenes/hurt_box.tscn" id="5_4egp1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojy0q"]
+atlas = ExtResource("4_hd14h")
+region = Rect2(136, 289, 17, 17)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wkpfv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_jt5wb")
+"texture": SubResource("AtlasTexture_ojy0q")
 }],
 "loop": true,
 "name": &"default",
@@ -40,6 +44,8 @@ script = ExtResource("2_n2wvf")
 script = ExtResource("3_efrjg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.90735e-06, -1.90735e-06)
+scale = Vector2(-1.882, 1.882)
 sprite_frames = SubResource("SpriteFrames_wkpfv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 	var kb: KinematicCollision2D = move_and_collide(motion)
 	if kb && kb.get_normal() != Vector2.UP:
 		direction = -1 * direction
+		$AnimatedSprite2D.scale.x *= -1
 
 func _on_died() -> void:
 	# Death logic
