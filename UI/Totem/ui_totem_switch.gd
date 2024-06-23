@@ -29,6 +29,8 @@ func _ready():
 		generate_sprites()
 
 func _process(_delta):
+	
+	
 	var player = get_node('../---- Player ----/Player')
 	if Input.is_action_just_pressed("Switch") and scene_array.size() > 0:
 		player.respawn()
@@ -40,6 +42,9 @@ func returnCurrentTotem():
 #If empty Display Nothing
 func removeCurrentTotem():
 	# respawn player
+	if scene_array.size() == 0:
+		get_tree().reload_current_scene()
+	
 	var player = get_node('../---- Player ----/Player')
 	var parent = get_node('../---- Player ----/')
 
