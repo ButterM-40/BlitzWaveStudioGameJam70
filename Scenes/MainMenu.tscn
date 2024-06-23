@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://e8j63csldqer"]
+[gd_scene load_steps=14 format=3 uid="uid://e8j63csldqer"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_mxtse"]
 [ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="2_cgc53"]
 [ext_resource type="Texture2D" uid="uid://ckhbba1ys4u4q" path="res://Art/widebutton.png" id="3_k6wqs"]
 [ext_resource type="AudioStream" uid="uid://xhfx6pbq77ed" path="res://UI/UI Music/Button_Press_1.wav" id="3_of5t7"]
+[ext_resource type="Texture2D" uid="uid://cypoi6rdmdpe2" path="res://Art/SOTW.png" id="3_vumyr"]
 [ext_resource type="AudioStream" uid="uid://dwa5e4a4rrk52" path="res://UI/UI Music/Play_Game_Buttonb.wav" id="4_eokog"]
 [ext_resource type="Texture2D" uid="uid://b1cy702km630q" path="res://Art/backgroundParalax/BG_0.png" id="5_apyfr"]
 [ext_resource type="AudioStream" uid="uid://d3xkmmdv6lgdw" path="res://UI/UI Music/MenuLoop1_01.wav" id="5_e3bc5"]
@@ -43,6 +44,7 @@ theme_override_constants/separation = 60
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -51,6 +53,10 @@ theme_override_fonts/font = ExtResource("2_cgc53")
 theme_override_font_sizes/font_size = 64
 text = "Game Title"
 horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(570, 91)
+texture = ExtResource("3_vumyr")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
