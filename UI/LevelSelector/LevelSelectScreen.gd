@@ -10,7 +10,7 @@ var save_dict = {}
 func _ready() -> void:
 	
 	save_dict = save()
-	save_level()
+	#save_level()
 	#load_level()
 	#update_level("level_2")
 	#print("============")

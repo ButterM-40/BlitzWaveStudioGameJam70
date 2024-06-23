@@ -26,6 +26,8 @@ func _on_body_entered(body):
 
 		file.close()
 		file_w.close()
-		get_tree().change_scene_to_file('res://Scenes/Levels/level_'+ str(int(level) + 1) + '.tscn')
-		
+		if ResourceLoader.exists('res://Scenes/Levels/level_'+ str(int(level) + 1) + '.tscn'):
+			get_tree().change_scene_to_file('res://Scenes/Levels/level_'+ str(int(level) + 1) + '.tscn')
+		else:
+			get_tree().change_scene_to_file('res://UI/LevelSelector/LevelSelectScreen.tscn')
 	pass # Replace with function body.

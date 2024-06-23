@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cd4lfcnpu6524" path="res://Scenes/Activator/lever.tscn" id="16_g6cse"]
 [ext_resource type="PackedScene" uid="uid://dj65i3oqes7na" path="res://Scenes/Activatable/trapdoor.tscn" id="18_xtt3y"]
 [ext_resource type="PackedScene" uid="uid://dqafl8aigr52l" path="res://Scenes/ParalloxForest.tscn" id="22_mh2kx"]
-[ext_resource type="PackedScene" uid="uid://drra0yb1j1f8o" path="res://Scenes/tile_map.tscn" id="22_mh8fs"]
+[ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="22_mh8fs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg2a7"]
 resource_local_to_scene = true
@@ -32,7 +32,7 @@ size = Vector2(1280, 32)
 size = Vector2(256, 32)
 
 [node name="Testing" type="Node2D"]
-position = Vector2(579, 326)
+position = Vector2(7, 218)
 
 [node name="ParalloxForest" parent="." instance=ExtResource("22_mh2kx")]
 
@@ -70,7 +70,7 @@ position = Vector2(-494, -55)
 position = Vector2(-500, -59)
 
 [node name="OpenMenu" type="Node2D" parent="---- Player ----" node_paths=PackedStringArray("player_node")]
-position = Vector2(1, 0)
+position = Vector2(-571, -108)
 script = ExtResource("7_to5tw")
 player_node = NodePath("../Player")
 
