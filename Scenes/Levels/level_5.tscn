@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bhjptxqqhryb8" path="res://Scenes/level_end.tscn" id="13_dgw28"]
 [ext_resource type="PackedScene" uid="uid://s0holiabqmgq" path="res://UI/ResetButton/ResetButton.tscn" id="14_ffa57"]
 [ext_resource type="PackedScene" uid="uid://c1ayt43ulupfn" path="res://Scenes/Traps/flame_trap.tscn" id="15_0ltro"]
-[ext_resource type="PackedScene" uid="uid://d060x50cukg42" path="res://UI/LevelSelector/setting_button.tscn" id="15_3awm3"]
+[ext_resource type="PackedScene" path="res://UI/LevelSelector/setting_button.tscn" id="15_3awm3"]
 [ext_resource type="Texture2D" uid="uid://dnmo1e5u6nnm8" path="res://Art/Font/textbox.png" id="16_2qg2f"]
 [ext_resource type="Script" path="res://Scenes/Levels/Diaolog.gd" id="17_kelp4"]
 [ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="18_373np"]

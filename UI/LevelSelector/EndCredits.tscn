@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjavm225q7dj7"]
+[gd_scene load_steps=5 format=3 uid="uid://ckf5vp8d8iys0"]
 
 [ext_resource type="Script" path="res://UI/LevelSelector/EndCredits.gd" id="1_5yuv1"]
 [ext_resource type="PackedScene" uid="uid://cu52b0pm36pny" path="res://Scenes/snow.tscn" id="1_npfu4"]
@@ -58,7 +58,9 @@ UI Design & Game Des - Teddy
 Cool Programmers
 WellHiIGuess23
 Laozey
-ButterMan40"
+ButterMan40
+
+Enemy Assets - Clint Bellanger"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
