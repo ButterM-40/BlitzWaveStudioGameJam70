@@ -7,7 +7,6 @@ func _ready():
 	if !FileAccess.file_exists("user://level_unlockable.save"):
 		var save_game = FileAccess.open("user://level_unlockable.save", FileAccess.WRITE)
 		save_game.store_var({
-			"The_Start": true,	
 			"level_1": true,
 			"level_2": false,
 			"level_3": false,
@@ -15,7 +14,11 @@ func _ready():
 			"level_5": false,
 			"level_6": false,
 			"level_7": false,
-			"level_8": false
+			"level_8": false,
+			"level_9": false,
+			"level_10": false,
+			"level_11": false,
+			"level_12": false
 		})
 		save_game.close()
 

@@ -50,11 +50,23 @@ func create_level_btn(lvl_path: String, lvl_name: String) ->void :
 	if fileName not in save_dict:
 		save_dict[fileName] = false
 	
-	if save_dict[fileName]:
-		var btn = LEVEL_BTN.instantiate()
-		btn.text = lvl_name.trim_suffix('.tscn').replace('_', ' ')
-		btn.level_path = lvl_path
-		grid.add_child(btn)	
+	#if save_dict[fileName]:
+	#	var btn = LEVEL_BTN.instantiate()
+	#	btn.text = lvl_name.trim_suffix('.tscn').trim_suffix('.remap').replace('_', ' ')
+	#	btn.level_path = lvl_path
+	#	grid.add_child(btn)	
+	#if lvl_name.trim_suffix('.tscn').trim_suffix('.remap').replace('_', ' ') == "level 1":
+	#	var btn = LEVEL_BTN.instantiate()
+	#	btn.text = lvl_name.trim_suffix('.tscn').replace('_', ' ')
+	#	btn.level_path = lvl_path
+	#	grid.add_child(btn)	
+	var btn = LEVEL_BTN.instantiate()
+	btn.text = lvl_name.trim_suffix('.tscn').trim_suffix('.remap').replace('_', ' ')
+	btn.text = btn.text.trim_suffix('.tscn')
+	btn.level_path = lvl_path.trim_suffix('.remap')
+	print("Name of path: " + lvl_path)
+	print("=====================")
+	grid.add_child(btn)	
 	
 func update_level(level_name) -> void:
 	level_name = level_name.trim_suffix('.tscn')
@@ -92,8 +104,11 @@ func save():
 		"level_5": false,
 		"level_6": false,
 		"level_7": false,
-		"level_8": false
-		
+		"level_8": false,
+		"level_9": false,
+		"level_10": false,
+		"level_11": false,
+		"level_12": false
 	}
 	return save_dict
 

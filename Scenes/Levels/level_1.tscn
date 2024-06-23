@@ -12,11 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://dqafl8aigr52l" path="res://Scenes/ParalloxForest.tscn" id="10_3r5yt"]
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="10_kj4yc"]
 [ext_resource type="TileSet" uid="uid://dbxre03tb7lkd" path="res://TileSets/grass.tres" id="11_2q51e"]
-[ext_resource type="PackedScene" uid="uid://drra0yb1j1f8o" path="res://Scenes/tile_map.tscn" id="12_e1a6c"]
+[ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="12_e1a6c"]
 [ext_resource type="Texture2D" uid="uid://dnmo1e5u6nnm8" path="res://Art/Font/textbox.png" id="14_i4wxt"]
-[ext_resource type="Script" path="res://Scenes/Levels/Diaolog.gd" id="15_gt76h"]
+[ext_resource type="Script" path="res://Scenes/Tests/Diaolog.gd" id="15_gt76h"]
 [ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="15_mu1j0"]
-[ext_resource type="PackedScene" path="res://UI/LevelSelector/setting_button.tscn" id="17_fb2el"]
+[ext_resource type="PackedScene" uid="uid://d060x50cukg42" path="res://UI/LevelSelector/setting_button.tscn" id="17_fb2el"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_1vfux")
