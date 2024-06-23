@@ -15,4 +15,5 @@ fade_direction = 1
 shape = SubResource("RectangleShape2D_2gwtu")
 
 [node name="Sprite2D" parent="." index="1"]
+z_index = -1
 texture = ExtResource("2_dtarq")

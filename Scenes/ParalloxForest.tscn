@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b45fhkixu0oon" path="res://Art/backgroundParalax/BG_6.png" id="7_dxiv4"]
 
 [node name="ParallaxForest" type="Node2D"]
+z_index = -2
 
 [node name="WhiteBackground" type="ParallaxLayer" parent="."]
 position = Vector2(-24, -104)

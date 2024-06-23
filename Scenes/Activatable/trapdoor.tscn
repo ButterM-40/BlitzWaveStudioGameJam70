@@ -14,4 +14,5 @@ collision_mask = 23
 shape = SubResource("RectangleShape2D_4gkdr")
 
 [node name="Sprite2D" parent="." index="1"]
+z_index = -1
 texture = ExtResource("2_kuopa")
