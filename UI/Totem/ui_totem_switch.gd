@@ -8,6 +8,23 @@ var totem = preload ("res://Scenes/Tests/TestSprite.tscn")
 #Algorithm will only display the top 5 Totems
 
 func _ready():
+	var player = get_node('../---- Player ----/Player')
+	var playerFrame = player.player_sprite.get_sprite_frames()
+	
+	if scene_array[0].instantiate().name == 'BearUi':
+		player.character = player.Character.BIDZIIL
+		playerFrame = animation_array[0]
+	elif scene_array[0].instantiate().name == 'FrogUi':
+		player.character = player.Character.GAAGII
+		playerFrame = animation_array[2]
+	elif scene_array[0].instantiate().name == 'EagleUi':
+		playerFrame = animation_array[1]
+		player.character = player.Character.AHULI
+	elif scene_array[0].instantiate().name == 'TurtleUi':
+		player.character = player.Character.TATONGA
+		playerFrame = animation_array[3]
+		
+	
 	if scene_array.size() > 0:
 		generate_sprites()
 

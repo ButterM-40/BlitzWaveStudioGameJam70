@@ -17,18 +17,16 @@ gravity_scale = 15.0
 script = ExtResource("2_ldv5a")
 metadata/_edit_horizontal_guides_ = [-16.0, 16.0]
 
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_stwwi")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_hypsv")
 
-[node name="HurtBox" parent="." index="3" instance=ExtResource("2_6bvug")]
+[node name="HurtBox" parent="." index="2" instance=ExtResource("2_6bvug")]
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("RectangleShape2D_nsej3")
-
-[connection signal="died" from="Health" to="." method="_on_died"]
 
 [editable path="HurtBox"]

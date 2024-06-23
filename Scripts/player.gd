@@ -14,6 +14,7 @@ enum PlayerState {
 }
 
 var respawn_point
+@onready var respawn_timer = $RespawnTimer
 var game_paused = false
 
 var character = Character.BIDZIIL
@@ -39,6 +40,8 @@ var tatonga_cursor_hand = preload ("res://Art/Cursors/cursorBlueHand.png")
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	
+	
 	respawn_point = get_node('../../RespawnPoint')
 	
 	if character == Character.BIDZIIL:
@@ -143,6 +146,9 @@ func handle_movement_state():
 			player_sprite.play("jump")
 
 func respawn():
+	if respawn_timer.time_left > 0:
+		return
+		
 	var ui_switch = get_node('../../UI Totem Switch')
 
 	var sound_player = get_node('Audio/Death')
@@ -196,3 +202,5 @@ func respawn():
 	position = respawn_point.position
 
 	ui_switch.removeCurrentTotem()
+	
+	respawn_timer.start()

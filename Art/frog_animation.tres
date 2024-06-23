@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://dshn8qb23el1p"]
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://dshn8qb23el1p"]
 
 [ext_resource type="Texture2D" uid="uid://c7n120os23yu0" path="res://Art/Frog_Boi_A2.png" id="1_14sg7"]
 
@@ -9,10 +9,6 @@ region = Rect2(0, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_16fwv"]
 atlas = ExtResource("1_14sg7")
 region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lwtsr"]
-atlas = ExtResource("1_14sg7")
-region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r5v83"]
 atlas = ExtResource("1_14sg7")
@@ -49,9 +45,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lwtsr")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r5v83")
 }, {

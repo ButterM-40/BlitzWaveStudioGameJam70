@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://csgfoswkmgt1i"]
+[gd_scene load_steps=8 format=3 uid="uid://csgfoswkmgt1i"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mi0d6"]
-[ext_resource type="Script" path="res://Scripts/Components/health.gd" id="2_lrlg6"]
 [ext_resource type="SpriteFrames" uid="uid://685sltxjoua6" path="res://Art/player_animation.tres" id="2_rokxk"]
 [ext_resource type="Script" path="res://Scripts/Components/pushable.gd" id="3_k1sb3"]
 [ext_resource type="AudioStream" uid="uid://brwol3c5xkxyw" path="res://Sound/Ambience/ForestAmbience.wav" id="5_c7var"]
@@ -17,9 +16,6 @@ texture_filter = 1
 collision_mask = 11
 script = ExtResource("1_mi0d6")
 player_sprite = NodePath("PlayerAnimation")
-
-[node name="Health" type="Node2D" parent="."]
-script = ExtResource("2_lrlg6")
 
 [node name="Pushable" type="Node2D" parent="."]
 script = ExtResource("3_k1sb3")
@@ -52,3 +48,6 @@ stream = ExtResource("7_7nyft")
 stream = ExtResource("8_t7rqj")
 
 [node name="Select" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="RespawnTimer" type="Timer" parent="."]
+one_shot = true
