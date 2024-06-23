@@ -71,7 +71,6 @@ func _process(_delta):
 	pass
 
 func _physics_process(_delta):
-	print(is_on_floor())
 	var horizontal_input = (
 		
 		Input.get_action_strength("Left")

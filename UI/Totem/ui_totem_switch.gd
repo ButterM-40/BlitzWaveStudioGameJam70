@@ -106,8 +106,9 @@ func display_current_totem(c):
 func display_stored_totem(sprite, current_i, max_size):
 	sprite.get_child(0).visible = false
 
+	print(sprite.get_node('Icon'))
+	print(current_i)
 	var old_sprite = sprite.get_node('Icon').texture.resource_path
-	print(old_sprite)
 	sprite.get_node('Icon').texture = load('res://Art/Icons/mini' + old_sprite.substr(21, 10))
 	#Child 0 is Selected
 	#Child 1 is TotemColor

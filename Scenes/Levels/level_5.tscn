@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://code_level.gd" id="1_d06a3"]
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="2_tbx6b"]
+[ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="3_jj1be"]
+[ext_resource type="PackedScene" uid="uid://c0nwrc62exahc" path="res://UI/Totem/frogUI.tscn" id="3_w7obw"]
 [ext_resource type="SpriteFrames" uid="uid://685sltxjoua6" path="res://Art/player_animation.tres" id="4_f4b21"]
 [ext_resource type="SpriteFrames" uid="uid://p3thu3ifg0hc" path="res://Art/owl_animations.tres" id="5_581o8"]
 [ext_resource type="SpriteFrames" uid="uid://dshn8qb23el1p" path="res://Art/frog_animation.tres" id="6_ndg2s"]
@@ -13,14 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://cm4rq3kuxp34r" path="res://Scenes/level_end.tscn" id="13_dgw28"]
 [ext_resource type="PackedScene" uid="uid://s0holiabqmgq" path="res://UI/ResetButton/ResetButton.tscn" id="14_ffa57"]
 [ext_resource type="PackedScene" uid="uid://c1ayt43ulupfn" path="res://Scenes/Traps/flame_trap.tscn" id="15_0ltro"]
-[ext_resource type="PackedScene" uid="uid://blneww8vp4uxh" path="res://Scenes/Totems/bear_totem.tscn" id="16_5q674"]
-[ext_resource type="PackedScene" uid="uid://dchmurl2h1fj0" path="res://Scenes/Totems/frog_totem.tscn" id="17_43qqm"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_d06a3")
 
 [node name="UI Totem Switch" parent="." instance=ExtResource("2_tbx6b")]
-scene_array = Array[PackedScene]([ExtResource("17_43qqm"), ExtResource("16_5q674")])
+scene_array = Array[PackedScene]([ExtResource("3_w7obw"), ExtResource("3_jj1be")])
 animation_array = Array[SpriteFrames]([ExtResource("4_f4b21"), ExtResource("5_581o8"), ExtResource("6_ndg2s"), ExtResource("7_lmo0x")])
 
 [node name="ParalloxForest" parent="." instance=ExtResource("8_oufd6")]
