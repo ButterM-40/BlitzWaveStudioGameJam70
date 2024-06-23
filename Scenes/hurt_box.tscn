@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxbcctgektwxl"]
+[gd_scene load_steps=6 format=3 uid="uid://dxbcctgektwxl"]
 
 [ext_resource type="Script" path="res://Scripts/Components/hurt_box.gd" id="1_acj0o"]
+[ext_resource type="AudioStream" uid="uid://d3geasuyycial" path="res://Sound/Impact/Impact_1.wav" id="2_hgr0l"]
+[ext_resource type="AudioStream" uid="uid://bovqp8tbk0rjc" path="res://Sound/Impact/Impact_2.wav" id="3_uvq2c"]
+[ext_resource type="AudioStream" uid="uid://g4qr3ldjoqj0" path="res://Sound/Impact/Impact_3.wav" id="4_rckot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fk2vd"]
 resource_local_to_scene = true
@@ -10,8 +13,11 @@ size = Vector2(31, 31)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_acj0o")
+hurt_sounds = Array[AudioStreamWAV]([ExtResource("2_hgr0l"), ExtResource("3_uvq2c"), ExtResource("4_rckot")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fk2vd")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

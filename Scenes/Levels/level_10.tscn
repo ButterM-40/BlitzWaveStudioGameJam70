@@ -86,6 +86,7 @@ position = Vector2(84, -12)
 
 [node name="Altar" parent="." node_paths=PackedStringArray("activatable_objects") instance=ExtResource("16_cpke7")]
 position = Vector2(308, -204)
+required_totem = 1
 activatable_objects = [NodePath("../Door")]
 
 [node name="Door" parent="." instance=ExtResource("17_p5jew")]
