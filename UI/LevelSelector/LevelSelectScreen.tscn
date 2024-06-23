@@ -102,5 +102,5 @@ layout_mode = 2
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 111
-theme_override_constants/v_separation = 366
+theme_override_constants/v_separation = 100
 columns = 5
