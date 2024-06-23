@@ -45,7 +45,7 @@ func get_levels(path) -> void:
 		
 func create_level_btn(lvl_path: String, lvl_name: String) ->void :
 	var fileName = lvl_name.trim_suffix('.tscn')
-	#print(save_dict)
+	print(save_dict)
 	if save_dict[fileName]:
 		var btn = LEVEL_BTN.instantiate()
 		btn.text = lvl_name.trim_suffix('.tscn').replace('_', ' ')
@@ -84,6 +84,11 @@ func save():
 		"level_1": true,
 		"level_2": false,
 		"level_3": false,
+		"level_4": false,
+		"level_5": false,
+		"level_6": false,
+		"level_7": false,
+		"level_8": false
 		
 	}
 	return save_dict

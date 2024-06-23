@@ -11,7 +11,11 @@ func _ready():
 			"level_1": true,
 			"level_2": false,
 			"level_3": false,
-			
+			"level_4": false,
+			"level_5": false,
+			"level_6": false,
+			"level_7": false,
+			"level_8": false
 		})
 		save_game.close()
 

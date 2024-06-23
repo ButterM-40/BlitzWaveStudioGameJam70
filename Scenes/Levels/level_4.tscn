@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bk0t7i1lrm8qy"]
+[gd_scene load_steps=17 format=3 uid="uid://dod8b601etqub"]
 
 [ext_resource type="Script" path="res://code_level.gd" id="1_glo6w"]
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="2_7lpj1"]
@@ -9,11 +9,11 @@
 [ext_resource type="SpriteFrames" uid="uid://be55fdyu4jamo" path="res://Art/turtle_animation.tres" id="7_wdlgj"]
 [ext_resource type="PackedScene" uid="uid://dqafl8aigr52l" path="res://Scenes/ParalloxForest.tscn" id="8_x3ung"]
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="9_pdlua"]
-[ext_resource type="PackedScene" uid="uid://drra0yb1j1f8o" path="res://Scenes/tile_map.tscn" id="10_ud08t"]
+[ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="10_ud08t"]
 [ext_resource type="TileSet" uid="uid://dbxre03tb7lkd" path="res://TileSets/grass.tres" id="11_jl0ek"]
 [ext_resource type="PackedScene" uid="uid://cd4lfcnpu6524" path="res://Scenes/Activator/lever.tscn" id="12_goe1c"]
 [ext_resource type="PackedScene" uid="uid://k7koubectv8l" path="res://Scenes/Activatable/door.tscn" id="13_06mkm"]
-[ext_resource type="PackedScene" uid="uid://cm4rq3kuxp34r" path="res://Scenes/level_end.tscn" id="14_dmway"]
+[ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="14_dmway"]
 [ext_resource type="PackedScene" uid="uid://s0holiabqmgq" path="res://UI/ResetButton/ResetButton.tscn" id="15_bs365"]
 [ext_resource type="PackedScene" uid="uid://c1ayt43ulupfn" path="res://Scenes/Traps/flame_trap.tscn" id="15_r4815"]
 
