@@ -6,3 +6,8 @@ class_name HurtBox
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.respawn()
+	
+	for child in body.get_children():
+		if child is Health:
+			child.take_damage()
+			break
