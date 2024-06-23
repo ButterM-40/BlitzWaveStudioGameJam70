@@ -10,11 +10,11 @@ config_version=5
 
 [application]
 
-config/name="GameJam-70"
+config/name="Spirits of the Wild"
 config/version="1.0"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://appIconLarge.png"
 
 [autoload]
 
