@@ -1,9 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://cc3m4fhftotp2"]
+[gd_scene load_steps=18 format=3 uid="uid://cc3m4fhftotp2"]
 
 [ext_resource type="Script" path="res://code_level.gd" id="1_1vfux"]
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_pbmxp"]
 [ext_resource type="PackedScene" uid="uid://dafl5g2vd3si2" path="res://UI/Totem/bearUI.tscn" id="2_2hmw4"]
-[ext_resource type="PackedScene" uid="uid://cm4rq3kuxp34r" path="res://Scenes/level_end.tscn" id="2_kpx86"]
+[ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="2_kpx86"]
 [ext_resource type="SpriteFrames" uid="uid://685sltxjoua6" path="res://Art/player_animation.tres" id="6_jx0fu"]
 [ext_resource type="SpriteFrames" uid="uid://p3thu3ifg0hc" path="res://Art/owl_animations.tres" id="7_sm5ds"]
 [ext_resource type="PackedScene" uid="uid://s0holiabqmgq" path="res://UI/ResetButton/ResetButton.tscn" id="8_3rj1a"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dnmo1e5u6nnm8" path="res://Art/Font/textbox.png" id="14_i4wxt"]
 [ext_resource type="Script" path="res://Scenes/Levels/Diaolog.gd" id="15_gt76h"]
 [ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="15_mu1j0"]
+[ext_resource type="PackedScene" uid="uid://d060x50cukg42" path="res://UI/LevelSelector/setting_button.tscn" id="17_fb2el"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_1vfux")
@@ -32,6 +33,14 @@ offset_top = -405.0
 offset_right = 418.0
 offset_bottom = -397.0
 scale = Vector2(7, 7)
+
+[node name="Setting Button" parent="ResetButton" node_paths=PackedStringArray("ButtonPress") instance=ExtResource("17_fb2el")]
+offset_left = 9.28572
+offset_top = -0.714286
+offset_right = 53.2857
+offset_bottom = 45.2857
+scale = Vector2(0.205, 0.205)
+ButtonPress = NodePath("")
 
 [node name="RespawnPoint" type="Node2D" parent="."]
 position = Vector2(-495, -55)

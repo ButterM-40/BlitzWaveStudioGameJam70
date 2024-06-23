@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dyu60rbmcy5kv"]
+[gd_scene load_steps=20 format=3 uid="uid://dyu60rbmcy5kv"]
 
 [ext_resource type="Script" path="res://code_level.gd" id="1_i5u03"]
 [ext_resource type="PackedScene" uid="uid://dd6sd75s6hxi" path="res://UI/Totem/ui_totem_switch.tscn" id="1_t622i"]
@@ -9,11 +9,12 @@
 [ext_resource type="SpriteFrames" uid="uid://be55fdyu4jamo" path="res://Art/turtle_animation.tres" id="6_vbdhv"]
 [ext_resource type="PackedScene" uid="uid://dqafl8aigr52l" path="res://Scenes/ParalloxForest.tscn" id="7_g7cu7"]
 [ext_resource type="PackedScene" uid="uid://csgfoswkmgt1i" path="res://Scenes/player.tscn" id="8_8n8o5"]
-[ext_resource type="PackedScene" uid="uid://drra0yb1j1f8o" path="res://Scenes/tile_map.tscn" id="9_4hgfq"]
+[ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="9_4hgfq"]
 [ext_resource type="TileSet" uid="uid://dbxre03tb7lkd" path="res://TileSets/grass.tres" id="10_2qpkh"]
 [ext_resource type="PackedScene" uid="uid://b322sdmafmihc" path="res://Scenes/enemy.tscn" id="10_qcdrw"]
-[ext_resource type="PackedScene" uid="uid://cm4rq3kuxp34r" path="res://Scenes/level_end.tscn" id="12_7sfky"]
+[ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="12_7sfky"]
 [ext_resource type="PackedScene" uid="uid://s0holiabqmgq" path="res://UI/ResetButton/ResetButton.tscn" id="13_je1je"]
+[ext_resource type="PackedScene" uid="uid://d060x50cukg42" path="res://UI/LevelSelector/setting_button.tscn" id="15_71oeg"]
 [ext_resource type="Texture2D" uid="uid://dnmo1e5u6nnm8" path="res://Art/Font/textbox.png" id="15_c1lb4"]
 [ext_resource type="FontFile" uid="uid://bydg4xalbmiwi" path="res://Art/Font/Pixellari.ttf" id="16_ajaiq"]
 [ext_resource type="Script" path="res://Scenes/Levels/Diaolog.gd" id="16_u5vhs"]
@@ -64,6 +65,14 @@ offset_top = -405.0
 offset_right = 418.0
 offset_bottom = -397.0
 scale = Vector2(7, 7)
+
+[node name="Setting Button" parent="ResetButton" node_paths=PackedStringArray("ButtonPress") instance=ExtResource("15_71oeg")]
+offset_left = 9.28572
+offset_top = -0.714286
+offset_right = 53.2857
+offset_bottom = 45.2857
+scale = Vector2(0.205, 0.205)
+ButtonPress = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-52, -314)

@@ -24,7 +24,6 @@ collision_friction = 1.0
 collision_bounce = 0.0
 
 [node name="Snow" type="GPUParticles2D"]
-emitting = false
 amount = 32
 process_material = SubResource("ParticleProcessMaterial_0gs3c")
 lifetime = 20.0
